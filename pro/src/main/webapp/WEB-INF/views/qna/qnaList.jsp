@@ -27,6 +27,7 @@
 </div>
  -->
 <!-- 메뉴바 형식
+
 <ul>
   <li><a href="#home">드루왕</a></li>
   <li><a href="#news">팝니당</a></li>
@@ -41,8 +42,8 @@
   <li><a href="#news">물어봥</a></li>
   <li><a href="#news">놀러왕</a></li>
 </ul>
-
  -->
+
 <div class="row">
   <!-- 왼쪽 영역 태그 -->
   <div class="leftcolumn">
