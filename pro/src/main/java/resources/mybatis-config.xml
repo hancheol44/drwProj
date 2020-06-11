@@ -13,9 +13,11 @@
 	 
 	 <typeAliases>
 	 	<typeAlias alias="qVO" type="com.project.pro.vo.QnaVO" />
+	 	<typeAlias alias="sVO" type="com.project.pro.vo.SalesVO" />
 	 </typeAliases>
 	 
 	 <mappers>
 	 	<mapper resource="com/project/pro/sql/QnaSQL.xml" />
+	 	<mapper resource="com/project/pro/sql/SalesSQL.xml" />
 	 </mappers>
 </configuration>

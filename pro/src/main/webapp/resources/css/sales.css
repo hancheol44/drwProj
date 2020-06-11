@@ -1,0 +1,54 @@
+#rno {
+	width: 20px;
+	height: 30px;
+}
+#ptt {
+	width: 200px;
+	height: 30px;
+}
+#bceo {
+	width: 30px;
+	height: 30px;
+}
+#today {
+	width: 50px;
+	height: 30px;
+}
+#bcnt {
+	width: 20px;
+	height: 30px;
+}
+/* Table */
+.table-wrapper {
+  -webkit-overflow-scrolling: touch;
+  overflow-x: auto; }
+
+#saList {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 90%;
+  margin: auto;
+}
+
+#saList td, #saList th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#saList tr:nth-child(odd){background-color: #FFCC99;}
+
+#saList tr:hover {background-color: #f2d5c8;}
+
+#saList th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color : #FFCC00;
+  color: white;
+}
+#map{
+	width:450px;
+	height:450px;
+	display: inline-block;
+	margin-left: 50px;"
+}

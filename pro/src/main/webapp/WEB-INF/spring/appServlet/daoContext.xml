@@ -11,6 +11,7 @@
 	<!-- QNA 데이터베이스 처리 dao bean 처리 
 	-->
 	<bean id="qDAO" class="com.project.pro.dao.QnaDAO" />
+	<bean id="sDAO" class="com.project.pro.dao.SalesDAO" />
 	
 	<!-- 게시판 관련 데이터베이스 작업 dao bean 처리 -->
 	<!-- 
