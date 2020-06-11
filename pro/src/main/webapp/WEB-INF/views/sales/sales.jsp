@@ -20,29 +20,11 @@
 </head>
 <jsp:include page="/head.pro" flush="true" />
 <body>
-<!-- 
-<div class="header1">
-  <h1>My Website</h1>
-  <p>Resize the browser window to see the effect.</p>
-</div>
- -->
-<!-- 메뉴바 형식
-<ul>
-  <li><a href="#home">드루왕</a></li>
-  <li><a href="#news">팝니당</a></li>
-  <li class="dropdown">
-    <a href="javascript:void(0)" class="dropbtn">오세용</a>
-    <div class="dropdown-content">
-      <a href="#">자동차 극장</a>
-      <a href="#">자동차 캠핑</a>
-      <a href="#">승차 검진소</a>
-    </div>
-  </li>
-  <li><a href="#news">물어봥</a></li>
-  <li><a href="#news">놀러왕</a></li>
-</ul>
 
- -->
+	<form method="get" action="" id="frm">
+		<input type="hidden" name="pno" id="pno">
+	</form>
+	
 <div class="row">
   <!-- 왼쪽 영역 태그 -->
   <div class="leftcolumn">
@@ -63,6 +45,9 @@
   <div class="centercolumn w3-center">
     <div class="card">
       <h2>팝니당</h2>
+      <div>
+		<button id="write">글쓰기</button>
+	  </div>
 			<table id="saList">
 			  <tr>
 			    <th id="rno">NO</th>
@@ -72,7 +57,7 @@
 			    <th id="bcnt">조회수</th>
 			  </tr>
 			  <c:forEach var="data" items="${LIST}">
-			  <tr>
+			  <tr class="salesList" id="${data.pno}">
 			  	<td>${data.rno}</td>
 			  	<td>${data.ptt}</td>
 			  	<td>${data.bceo}</td>
@@ -81,6 +66,7 @@
 			  </tr>
 			  </c:forEach>
 			</table>
+			
 			
 			<!-- 페이징 처리 부분 -->
 			<div class="w3-center">

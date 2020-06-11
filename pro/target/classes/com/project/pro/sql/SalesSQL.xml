@@ -31,4 +31,14 @@
 			AND b.memno = m.memno(+) AND p.pshow = 'Y'
 			AND p.pno = #{pno}
 	</select>
+	<insert id="saWrite" parameterType="sVO">
+		INSERT INTO
+			promotion(pno, ptt, bno, pbd, cate)
+		VALUES(
+			(SELECT NVL(MAX(pno)+1, 1000) FROM promotion),
+			#{ptt},
+			(SELECT bno FROM boss b, member m WHERE b.memno = m.memno AND memid = #{memid}),
+			#{pbd}, #{cate}
+			)
+	</insert>
 </mapper>
