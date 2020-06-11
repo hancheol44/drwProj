@@ -3,17 +3,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="/cls/css/w3.css" />
-<link rel="stylesheet" href="/cls/css/join.css" />
-<script type="text/javascript" src="/cls/js/jquery-3.5.0.min.js"></script>
+<link rel="stylesheet" href="/pro/css/w3.css" />
+<link rel="stylesheet" href="/pro/css/join.css" />
+<script type="text/javascript" src="/pro/js/jquery-3.5.0.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function(){		
 		$('#lout').click(function(){
-			$(location).attr('href' ,'/cls/member/logout.cls');
+			$(location).attr('href' ,'/pro/login/logout.pro');
 		});
 		
 		$('#lin').click(function(){
-			$(location).attr('href' ,'/cls/member/login.cls');
+			$(location).attr('href' ,'/pro/login/loginList.pro');
 		});
 		
 		$('#mlbtn').click(function(){
