@@ -18,6 +18,7 @@
 </script>
 <head>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 </head>
 <body>
 
@@ -45,7 +46,13 @@
 					    </div>
 					  </li>
 					  <li><a href="/pro/qna/qnaList.pro">물어봥</a></li>
-					  <li><a href="#news">놀러왕</a></li>
+					  <li><a href="/pro/board/board.pro">놀러왕</a></li>
+					  <c:if test="${empty SID}">
+						  <li><a href="/pro/login/loginList.pro">로그인</a></li>
+					  </c:if>
+					  <c:if test="${not empty SID}">
+						  <li><a href="/pro/login/logout.pro">로그아웃</a></li>
+					  </c:if>
 					</ul>
 				</div>
 			</header>

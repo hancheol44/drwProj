@@ -121,7 +121,7 @@
 						</select> 
 						<input type="text" size="20" name="input" style="margin: 10px;" />
 						<input id="serbtn" type="submit" value="search" style="margin: 10px;" />
-						<input style="float: right; margin: 10px 65px 10px -100px;" type="button" value="글쓰기" onclick="writeForm()">
+						<input style="float: right; margin: 10px 65px 10px -100px;" type="button" value="글쓰기" id="qwbtn">
 					</form>
 				</div>
 			</div>
@@ -151,4 +151,6 @@
 </div>
 
 </body>
+<script type="text/javascript" src="/pro/js/jquery-3.5.0.min.js"></script>
+<script type="text/javascript" src="/pro/js/qna.js"></script>
 </html>

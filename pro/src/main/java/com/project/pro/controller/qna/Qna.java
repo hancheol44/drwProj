@@ -27,4 +27,10 @@ public class Qna {
 		return mv;
 	}
 	
+	@RequestMapping("/qnaWrite.pro")
+	public String qnaWrite() {
+		String view = "/qna/qnaWrite";
+		return view;
+	}
+	
 }
