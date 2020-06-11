@@ -43,7 +43,7 @@
 					      <a href="#">승차 검진소</a>
 					    </div>
 					  </li>
-					  <li><a href="#news">물어봥</a></li>
+					  <li><a href="/pro/qna/qnaList.pro">물어봥</a></li>
 					  <li><a href="#news">놀러왕</a></li>
 					</ul>
 				</div>
