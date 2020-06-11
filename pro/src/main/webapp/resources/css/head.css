@@ -41,8 +41,8 @@
 		}
 
 		#header .logo:hover {
-			position:absolute;animation:ddd.3s infinite;}
-			@keyframes ddd{from{left:-2px} to{left:2px}}
+			position:absolute;animation:ddd.5s infinite alternate;}
+			@keyframes ddd{from{left:-3px} to{left:3px}}
 			
 
 		#header a {
@@ -157,7 +157,7 @@
 	
 	
 	/*
-	헤더 오세용 리스트 처리------------------
+	�뿤�뜑 �삤�꽭�슜 由ъ뒪�듃 泥섎━------------------
 	*/
 	
 	

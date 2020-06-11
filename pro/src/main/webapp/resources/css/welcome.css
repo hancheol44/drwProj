@@ -34,6 +34,19 @@
     
   }
 }
+@keyframes come{
+  from{
+    left: 25%;
+	bottom: 25%;
+  }
+  to{
+    left: -5%;
+	bottom:-30%;
+    width: 100%;
+    height: 100%;
+    
+  }
+}
 
 
 .wbc {
@@ -58,4 +71,11 @@ span{
 	text-align: center;
 	margin-top: 400px;
 	margin-right: 20%;
+}
+.car{
+	position: absolute;
+	left: 25%;
+	bottom: 25%;
+	width: 5%;
+	height: 5%:
 }

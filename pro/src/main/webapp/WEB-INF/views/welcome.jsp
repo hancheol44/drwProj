@@ -26,6 +26,15 @@
 				$('#w').css('visibility','visible');
 			}, 1500);
 			setTimeout(function () {
+				$('.drw').css('visibility','hidden');
+			}, 2000);
+			setTimeout(function () {
+				$('span').css('visibility','hidden');
+			}, 2500);
+			setTimeout(function () {
+				$('.car').css('animation','come 2s');
+			}, 2500);
+			setTimeout(function () {
 				$(location).attr('href','/pro/board/board.pro');
 			}, 3000);
 			
@@ -41,6 +50,8 @@
 	<div class="title">
 	<span id="d">µå </span><span id="r">·ç </span><span id="w">¿Í </span>
 	</div>
+	<img class="car" src="/pro/img/car.png">
 	<img class="drw" src="/pro/img/main.png">
+	
 </body>
 </html>

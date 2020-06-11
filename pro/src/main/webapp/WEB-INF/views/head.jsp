@@ -2,18 +2,19 @@
 <html>
 <title>CSS Template</title>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="/pro/css/head.css">
 <link rel="stylesheet" href="/pro/css/w3.css" />
 <link rel="stylesheet" href="/pro/css/qna.css" />
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-
-/* Style the header */
-
-
-</style>
+<script type="text/javascript" src="/pro/js/jquery-3.5.0.min.js"></script>
 <script type="text/javascript">
-
+	$(document).ready(function(){
+		$(".logo").hover(function(){
+			$('#header').css('border-bottom','7px solid yellow');
+		}, function() {
+			$('#header').css('border-bottom','5px dashed yellow');
+		});
+	});
 </script>
 <head>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
