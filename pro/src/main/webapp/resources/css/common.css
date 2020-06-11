@@ -1,0 +1,43 @@
+.drw {
+	width: 30%;
+	height: 30%;
+	position: absolute;
+	bottom: 0px;
+	right: 0px;
+  /*애니메이션*/
+/*   animation-name: animate;
+  animation-duration: 3s; */
+  	animation: weit 1s  infinite alternate;
+}
+@keyframes weit{
+  from{
+    right: 20px;
+    bottom: 20px;
+  }
+  to{
+    right: 30px;
+    bottom: 30px;
+  }
+}
+@keyframes go{
+  from{
+    right: 20px;
+    bottom: 20px;
+  }
+  to{
+    right: 600px;
+    bottom: 200px;
+    width: 20%;
+    height: 20%;
+    
+  }
+}
+
+
+.wbc {
+	background: url('/pro/img/road.png') no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}

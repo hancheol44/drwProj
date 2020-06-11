@@ -46,4 +46,8 @@ public class HomeController {
 	public String test02() {
 		return "/head";    
 	}
+	@RequestMapping("/welcome.pro")
+	public String test03() {
+		return "/welcome";    
+	}
 }
