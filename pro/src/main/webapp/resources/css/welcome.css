@@ -2,11 +2,13 @@
 	width: 30%;
 	height: 30%;
 	position: absolute;
-	bottom: 0px;
-	right: 0px;
+	margin:auto;
+	bottom: 15%;
+	right: 15%;
   /*애니메이션*/
 /*   animation-name: animate;
   animation-duration: 3s; */
+   	
   	animation: weit 1s  infinite alternate;
 }
 @keyframes weit{
@@ -40,4 +42,20 @@
 	-moz-background-size: cover;
 	-o-background-size: cover;
 	background-size: cover;
+}
+
+span{
+	font-size: 10em;
+	top: 10em;
+	font-weight: bold;
+	color: #0D47A1; 
+	text-shadow: 4px 4px 0px #1565C0, 8px 8px 0px #42A5F5, 12px 12px 0px #E3F2FD;
+}
+#d,#r,#w{
+	visibility: hidden;
+}
+.title{
+	text-align: center;
+	margin-top: 400px;
+	margin-right: 20%;
 }
