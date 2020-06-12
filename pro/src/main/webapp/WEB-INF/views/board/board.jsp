@@ -14,10 +14,11 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=no" />
 
-<link rel="stylesheet" href="/pro/css/side.css">
-<link rel="stylesheet" href="/pro/css/w3.css" />
 <link rel="stylesheet" href="/pro/css/board.css" />
-<script type="text/javascript" src="/cls/js/jquery-3.5.0.min.js"></script>
+<link rel="stylesheet" href="/pro/css/side.css">
+<link rel="stylesheet" href="/pro/css/common.css">
+<link rel="stylesheet" href="/pro/css/w3.css" />
+<script type="text/javascript" src="/pro/js/jquery-3.5.0.min.js"></script>
 <style type="text/css">
 
 </style>
@@ -76,16 +77,16 @@
 				<button>이벤트</button>
 			</div>
 			<div>
-				<table>
+				<table id="customers">
 					<thred>
 
 					<tr heigh="30">
-						<td>글번호</td>
-						<td>종류</td>
-						<td>제목</td>
-						<td>작성자</td>
-						<td>작성일</td>
-						<td>조회수</td>
+						<th>글번호</th>
+						<th>종류</th>
+						<th>제목</th>
+						<th>작성자</th>
+						<th>작성일</th>
+						<th>조회수</th>
 					</tr>
 					</thred>
 					<c:forEach var="data" items="${LIST}">

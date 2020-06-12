@@ -41,8 +41,8 @@
 		}
 
 		#header .logo:hover {
-			position:absolute;animation:ddd.5s infinite alternate;}
-			@keyframes ddd{from{left:-3px} to{left:3px}}
+			position:absolute;animation:log.5s infinite alternate;}
+			@keyframes log{from{left:-3px} to{left:3px}}
 			
 
 		#header a {
@@ -223,31 +223,37 @@
 }
 
 
+table {
+width: 80%;
+	border-collapse: collapse;
+	border: 2px solid black;
 
-/* Table */
-
-#customers {
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
   font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-  border-collapse: collapse;
-  width: 90%;
-  margin: auto;
 }
 
-#customers td, #customers th {
+td,  th {
   border: 1px solid #ddd;
   padding: 8px;
 }
 
-#customers tr:nth-child(even){background-color: #f2f2f2;}
 
-#customers tr:hover {background-color: #ddd;}
-
-#customers th {
+th {
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: center;
-  
-  /* background-color : #2E2E2E; 
-  color: white; */
+ 
 }
+/* th{
+  background-color : #2E2E2E; 
+  color: white;
+	
+}
+ tr:nth-child(even){background-color: #B6DDD2;}
+
+ tr:hover {background-color: red;} */
+
+	
 	
