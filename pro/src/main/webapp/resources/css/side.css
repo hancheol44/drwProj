@@ -225,9 +225,6 @@
 
 
 /* Table */
-.table-wrapper {
-  -webkit-overflow-scrolling: touch;
-  overflow-x: auto; }
 
 #customers {
   font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;

@@ -22,14 +22,17 @@
 <body>
   <jsp:include page="/left.pro" flush="true" />
   
-  <!-- 가운데 영역 (주내용 담길 곳) -->
-  <div class="centercolumn w3-center">
-    <div class="card">
-      <h2>물어봥</h2>
+  <!-- FORM 태그 작성공간 -->
 		<form method="post" action="" id="frm">
 			<input type="hidden" name="qtt" id="qtt" value=""/>
 			<input type="hidden" name="qip" id="qip" value=""/>
 		</form>
+  <!-- FORM 태그 작성공간 -->
+  
+  <!-- 가운데 영역 (주내용 담길 곳) -->
+  <div class="centercolumn w3-center">
+    <div class="card">
+      <h2>물어봥</h2>
 		<table width="700" border="5" bordercolor="lightgray" align="center">
 					<c:if test="${empty qno}">
 						<tr>

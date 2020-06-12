@@ -51,6 +51,7 @@ public class Qna {
 		String view = "/qna/qnaDetail";
 		qVO = qDAO.getDetail(qno);
 		mv.addObject("DETAIL", qVO);
+		mv.addObject("qno", qno);
 		mv.setViewName(view);
 		return mv;
 	}

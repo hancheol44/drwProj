@@ -8,7 +8,9 @@ $(document).ready(function(){
 	// qnaList -> qnaDetail 버튼 기능처리
 	$('.qlist').siblings().click(function(){
 		var qno = $(this).parent().attr('id');
-		
+		$('#qno').val(qno);
+		$('#DetailFrm').attr('action','/pro/qna/qnaDetail.pro');
+		$('#DetailFrm').submit();
 	});
 	
 	  

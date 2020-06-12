@@ -18,10 +18,16 @@
 </head>
 <jsp:include page="/head.pro" flush="true" />
 <body>
+<jsp:include page="/left.pro" flush="true" />
+<!-- Form태그 작성 -->
 
+<!-- 1. Detail 데이터 전담 Form -->
+<form method="GET" action="" id="DetailFrm">
+	<input type="hidden" name="qno"id="qno"/>
+</form>
   
-  <jsp:include page="/left.pro" flush="true" />
-  
+<!-- Form태그 작성 -->
+
   <!-- 가운데 영역 (주내용 담길 곳) -->
   <div class="centercolumn w3-center">
     <div class="card">
@@ -71,8 +77,6 @@
 				</div>
 				<!-- 페이징 처리 부분 끝 -->
 				
-				<c:if test="${sessionScope.sessionID!=null}">
-				</c:if>
 
 				<div style="width: 100%;" class="w3-center" id="searchForm">
 					<form method="post" action="" id="search">

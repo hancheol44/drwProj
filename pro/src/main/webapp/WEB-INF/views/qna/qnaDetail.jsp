@@ -29,29 +29,27 @@
 			<input type="hidden" name="qtt" id="qtt" value=""/>
 			<input type="hidden" name="qip" id="qip" value=""/>
 		</form>
-		<table width="700" border="5" bordercolor="lightgray" align="center">
-					<c:if test="${not empty qno}">
+		<table width="800" border="5" bordercolor="lightgray" align="center">
 							<tr>
 								<td id="title">작성일</td>
-								<td>${DETAIL.qDate}</td>
+								<td style="text-align: left;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${DETAIL.qDate}</td>
 							</tr>
 							<tr>
 								<td id="title">작성자</td>
-								<td>${DETAIL.name}</td>
+								<td style="text-align: left;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${DETAIL.name}</td>
 							</tr>
 							<tr>
 								<td id="title">제 목</td>
 								<td>
-									<textarea name="qtt" cols="72" rows="12" maxlength="100" id="qtt4" value="${DETAIL.qtt}"></textarea>
+									<textarea name="qtt" cols="72" rows="1" maxlength="100" id="qtt4" readonly>${DETAIL.qtt}</textarea>
 								</td>
 							</tr>
 							<tr>
 								<td id="title">내 용</td>
 								<td>
-									<textarea name="qip" cols="72" rows="16" id="qip4">${DETAIL.qip}</textarea>
+									<textarea name="qip" cols="72" rows="8" id="qip4" readonly>${DETAIL.qip}</textarea>
 								</td>
 							</tr>
-					</c:if>
 						<tr align="center" valign="middle">
 						<!-- 글 수정 작업시 아래 -->
 						<c:if test="${not empty qno}">
@@ -61,13 +59,6 @@
 							</td>
 						</c:if>
 						<!-- 글 작성 작업시 아래 -->
-						<c:if test="${empty qno}">
-						<td colspan="5">
-								<input type="submit" value="등록" id="sbbtn"> 
-								<input type="reset" value="취소" id="wcbtn"> 
-							</td>
-						</c:if>
-						</tr>
 			</table>
 		</div>
 			

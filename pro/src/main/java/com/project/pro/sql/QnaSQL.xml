@@ -29,6 +29,7 @@
 			memid = #{SID}
 	</select>
 	
+	<!-- 작성글 상세보기 sql -->
 	<select id="qnaDetail" resultType="qVO">
 		SELECT
 			qtt, qip, TO_CHAR(today, 'yyyy/MM/dd') qDate, name
