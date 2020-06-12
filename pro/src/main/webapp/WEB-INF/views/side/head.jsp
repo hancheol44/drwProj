@@ -62,7 +62,7 @@
 					    </div>
 					  </li>
 					  <li><a href="/pro/qna/qnaList.pro">물어봥</a></li>
-					  <li><a href="/pro/board/board.pro">놀러왕</a></li>
+					  <li><a id="js" href="/pro/board/board.pro">놀러왕</a></li>
 					  <c:if test="${empty SID}">
 						  <li><a href="/pro/login/loginList.pro">로그인</a></li>
 					  </c:if>

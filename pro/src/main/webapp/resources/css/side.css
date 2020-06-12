@@ -104,6 +104,10 @@
 		li {
 		  float: left;
 		}
+	li #js:hover {
+	color: aqua;
+	font-weight: bold;
+}
 	
 	li a, .dropbtn {
  			-moz-transition: color 0.2s ease-in-out;
@@ -162,24 +166,26 @@
 .centercolumn {   
   float: left;
   width: 70%;
-  margin-top: 8em;
+  margin-top: 7em;
 }
 /* Right column */
 .rightcolumn {
   float: left;
   width: 15%;
-  background-color: #f1f1f1;
+  background-color: #ffffff;
   padding-left: 20px;
-  margin-top: 8em;
+  margin-top: 7em;
+  border-left: 1px solid rgb(223 223 219);
 }
 
 /* left column */
 .leftcolumn {
   float: left;
   width: 15%;
-  background-color: #f1f1f1;
+  background-color: #ffffff;
   padding-right: 20px;
-  margin-top: 8em;
+  margin-top: 7em;
+  border-right: 1px solid rgb(223 223 219);
 }
 
 /* Fake image */
@@ -260,5 +266,4 @@ th {
 
  tr:hover {background-color: red;} 
  */
-	
-	
+ 
