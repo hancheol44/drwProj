@@ -11,11 +11,14 @@
 		$(".logo").hover(function(){
 			$('#header').css('border-bottom','7px solid yellow');
 			$('.flower').css('animation','flo.10s infinite alternate');
+			$('.flower').css('visibility','visible');
 			$('.logo').css('animation','log.5s infinite alternate');
+			$('.logo').css('visibility','visible');
 			$
 		}, function() {
 			$('#header').css('border-bottom','5px dashed yellow');
 			$('.flower').css('animation','none');
+			$('.flower').css('visibility','hidden');
 			$('.logo').css('animation','none');
 		});
 		

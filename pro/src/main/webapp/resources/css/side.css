@@ -39,7 +39,9 @@
 			height: 7em;
 			width: auto;
 		}
-
+	.flower{
+	visibility: hidden ;
+	}
 		/* #header .logo:hover {
 			position:absolute;} */
 			@keyframes log{from{left:-3px;top:0px} to{left:3px;top:1px}}
