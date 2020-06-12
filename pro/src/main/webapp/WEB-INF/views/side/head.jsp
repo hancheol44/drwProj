@@ -10,8 +10,13 @@
 	$(document).ready(function(){
 		$(".logo").hover(function(){
 			$('#header').css('border-bottom','7px solid yellow');
+			$('.flower').css('animation','flo.10s infinite alternate');
+			$('.logo').css('animation','log.5s infinite alternate');
+			$
 		}, function() {
 			$('#header').css('border-bottom','5px dashed yellow');
+			$('.flower').css('animation','none');
+			$('.logo').css('animation','none');
 		});
 		
 		$('#hbtn').click(function(){
@@ -27,7 +32,12 @@
 
 	<header id="header">
 				<div class="inner">
+				<div style="width: 10em">
+				<input class="flower" id="f1" style="margin-left: -9em; height:7em; width:auto;  position: absolute;" type="image" src="/pro/img/flower.png">
+				<input class="flower" id="f2"style="margin-left: -15em; height:7em; width:auto;  position: absolute;" type="image" src="/pro/img/flower.png">
+				<input class="flower" id="f3"style="height:7em; width:auto;  position: absolute;" type="image" src="/pro/img/flower.png">
 				<input class="logo" id="hbtn" type="image" src="/pro/img/main.png">
+				</div>
 					<!-- 
 					<nav id="nav">
 						<a href="">팝니당</a>
