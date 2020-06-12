@@ -14,7 +14,7 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=no" />
 
-<link rel="stylesheet" href="/pro/css/head.css">
+<link rel="stylesheet" href="/pro/css/side.css">
 <link rel="stylesheet" href="/pro/css/w3.css" />
 <link rel="stylesheet" href="/pro/css/board.css" />
 <script type="text/javascript" src="/cls/js/jquery-3.5.0.min.js"></script>
@@ -42,6 +42,7 @@
 
 <jsp:include page="/head.pro" flush="true" />
 <body >
+<jsp:include page="/left.pro" flush="true" />
 
 	<form method="post" action="" id="frm">
 		<input type="hidden" name="nowPage" id="nowPage"
@@ -58,7 +59,7 @@
 		<input type="hidden" name="tab" id="tab">
 	</form>
 
-	<div class="hmt" style="align-content: center;">
+	<div class="hmt centercolumn">
 		<div>
 			<br>
 			<div id="topForm">
@@ -141,6 +142,6 @@
 			</div>
 		</div>
 	</div>
-
+<jsp:include page="/right.pro" flush="true" />
 </body>
 </html>

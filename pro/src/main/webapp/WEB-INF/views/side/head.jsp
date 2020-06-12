@@ -3,7 +3,7 @@
 <title>CSS Template</title>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="/pro/css/head.css">
+<link rel="stylesheet" href="/pro/css/side.css">
 <link rel="stylesheet" href="/pro/css/w3.css" />
 <link rel="stylesheet" href="/pro/css/qna.css" />
 <script type="text/javascript" src="/pro/js/jquery-3.5.0.min.js"></script>

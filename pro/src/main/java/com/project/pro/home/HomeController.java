@@ -44,10 +44,18 @@ public class HomeController {
 	
 	@RequestMapping("/head.pro")
 	public String test02() {
-		return "/head";    
+		return "/side/head";    
+	}
+	@RequestMapping("/left.pro")
+	public String test03() {
+		return "/side/left";    
+	}
+	@RequestMapping("/right.pro")
+	public String test04() {
+		return "/side/right";    
 	}
 	@RequestMapping("/welcome.pro")
-	public String test03() {
+	public String test05() {
 		return "/welcome";    
 	}
 }

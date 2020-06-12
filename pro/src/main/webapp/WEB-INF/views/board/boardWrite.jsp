@@ -14,37 +14,38 @@
 
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=no" />
-<link rel="stylesheet" href="/pro/css/head.css">
+<link rel="stylesheet" href="/pro/css/side.css">
 <link rel="stylesheet" href="/pro/css/w3.css" />
 <link rel="stylesheet" href="/pro/css/board.css" />
 <script type="text/javascript" src="/cls/js/jquery-3.5.0.min.js"></script>
 </head>
 <jsp:include page="/head.pro" flush="true" />
-<body class="hmt">
-	<div>
-		<br> <b><font size="6" color="gray">글쓰기</font></b> <br>
+<body>
+<jsp:include page="/left.pro" flush="true" />
 
+	<div class="centercolumn">
+		<br> <b><font size="6" color="gray">글쓰기</font></b> <br>
 		<form id="frm" method="post"
 			action="/Project/board/boardWriteProc.cls">
 			<input type="hidden" name="board_id"
 				value="${sessionScope.sessionID}">
-			<table width="700" border="3" bordercolor="lightgray" align="center">
+			<table width="80%" border="3" bordercolor="lightgray" align="center">
 				<tr>
 					<td>작성자 :</td>
 					<td>${SID}</td>
 				</tr>
 				<tr>
 					<td>제 목
-					<td><select id="cate" style="width: 100px" name="cate">
+					<td><select id="cate" style="width: 15%; height: 30px;" name="cate">
 							<option value="공지">공지</option>
 							<option value="팁">팁</option>
-							<option value="이벤트">이벤트</option>
-							<input name="title" type="text" size="30" id="title">
-					</select></td>
+							<option value="이벤트">이벤트</option></select>
+							<input style="width: 80%; height: 30px;" name="title" type="text" size="30" id="title">
+					</td>
 				</tr>
 				<tr>
 					<td>내 용</td>
-					<td><textarea id="body" name="body" cols="72" rows="20"></textarea>
+					<td><textarea style="width: 95%; resize: none;" id="body" name="body" cols="72" rows="20"></textarea>
 					</td>
 				</tr>
 
@@ -56,6 +57,7 @@
 			</table>
 		</form>
 	</div>
+<jsp:include page="/right.pro" flush="true" />
 
 
 </body>
