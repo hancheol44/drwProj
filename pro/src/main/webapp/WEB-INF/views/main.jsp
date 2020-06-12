@@ -16,10 +16,15 @@
 </style>
 <script type="text/javascript">
 
+<<<<<<< HEAD
 </script>
+=======
+</script>  
+>>>>>>> branch 'branch' of https://github.com/hancheol44/drwProj.git
 </head>
 <jsp:include page="/head.pro" flush="true" />
 <body>
+<<<<<<< HEAD
 <!-- 
 <div class="header1">
   <h1>My Website</h1>
@@ -118,6 +123,53 @@
   
   <!-- 오른쪽 공간 태그 -->
 <jsp:include page="/right.pro" flush="true" />
+=======
+
+
+<div class="row">
+  <!-- 왼쪽 영역 태그 -->
+  <div class="leftcolumn">
+    <div class="card">
+      <h2>About Me</h2>
+      <div class="fakeimg" style="height:100px;">Image</div>
+      <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
+    </div>
+    <div class="card">
+      <h3>Popular Post</h3>
+      <div class="fakeimg"><p>Image</p></div>
+      <div class="fakeimg"><p>Image</p></div>
+      <div class="fakeimg"><p>Image</p></div>
+    </div>
+  </div>
+  
+  <!-- 가운데 영역 (주내용 담길 곳) -->
+  <div class="centercolumn w3-center">
+    <div class="card">
+      <h2>메인드루왕</h2>
+			<table id="customers">
+			</table>
+			
+		
+			</div>
+			
+    </div>
+  
+  <!-- 오른쪽 공간 태그 -->
+  <div class="rightcolumn">
+    <div class="card">
+      <h2>About Me</h2>
+      <div class="fakeimg" style="height:100px;">Image</div>
+      <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
+    </div>
+    <div class="card">
+      <h3>Popular Post</h3>
+      <div class="fakeimg"><p>Image</p></div>
+      <div class="fakeimg"><p>Image</p></div>
+      <div class="fakeimg"><p>Image</p></div>
+    </div>
+  </div>
+</div>
+>>>>>>> branch 'branch' of https://github.com/hancheol44/drwProj.git
 
 <!-- footer -->
 <div class="footer">

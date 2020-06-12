@@ -19,7 +19,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class HomeController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
-	
+	  
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
@@ -37,9 +37,9 @@ public class HomeController {
 		return "home";
 	}
 	
-	@RequestMapping("/main")
-	public void getMain(ModelAndView mv) {
-		return;
+	@RequestMapping("/main.pro")
+	public String getMain(ModelAndView mv) {
+		return "/main";
 	}
 	
 	@RequestMapping("/head.pro")

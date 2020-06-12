@@ -17,4 +17,22 @@
 		ORDER BY
 			qno DESC
 	</select>
+	
+	<select id="qnaName" resultType="String">
+		SELECT
+			name
+		FROM
+			member
+		WHERE
+			memid = #{SID}
+	</select>
+	
+	<insert id="qnaWrite" >
+		INSERT INTO
+			qna(qno, qtt, qip, memno)
+		VALUES(
+			(SELECT NVL(MAX(qno)+1,1000)FROM qna),
+			#{qtt}, #{qip}, (SELECT memno FROM member WHERE memid = #{memid})
+			  )
+	</insert>
 </mapper>

@@ -13,7 +13,7 @@
 	<bean id="qDAO" class="com.project.pro.dao.QnaDAO" />
 	<bean id="sDAO" class="com.project.pro.dao.SalesDAO" />
 	<bean id="bDAO" class="com.project.pro.dao.BoardDAO" />
-	
+	<bean id="lDAO" class="com.project.pro.dao.LoginDAO" />
 	<!-- 게시판 관련 데이터베이스 작업 dao bean 처리 -->
 	<!-- 
 	<bean id="bDAO" class="com.increpas.cls.dao.BoardDAO" />

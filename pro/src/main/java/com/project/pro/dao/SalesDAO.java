@@ -1,5 +1,6 @@
 package com.project.pro.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
@@ -18,7 +19,13 @@ public class SalesDAO {
 	}
 	
 	// sales detail
-	public SalesVO saDetail(int pno) {
+	public int saDetail(int pno) {
 		return sqlSession.selectOne("sSQL.saDetail", pno);
+	}
+	
+	// sales write
+	public SalesVO saWrite(SalesVO sVO) {
+		sqlSession.insert("sSQL.saWrite", sVO);
+		return sVO;
 	}
 }

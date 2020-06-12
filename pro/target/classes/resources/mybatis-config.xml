@@ -15,11 +15,14 @@
 	 	<typeAlias alias="qVO" type="com.project.pro.vo.QnaVO" />
 	 	<typeAlias alias="sVO" type="com.project.pro.vo.SalesVO" />
 	 	<typeAlias alias="bVO" type="com.project.pro.vo.BoardVO" />
+	 	<typeAlias alias="lVO" type="com.project.pro.vo.LoginVO" />
 	 </typeAliases>
 	 
+
 	 <mappers>
 	 	<mapper resource="com/project/pro/sql/QnaSQL.xml" />
 	 	<mapper resource="com/project/pro/sql/SalesSQL.xml" />
 	 	<mapper resource="com/project/pro/sql/BoardSQL.xml" />
+	 	<mapper resource="com/project/pro/sql/LoginSQL.xml" />
 	 </mappers>
 </configuration>

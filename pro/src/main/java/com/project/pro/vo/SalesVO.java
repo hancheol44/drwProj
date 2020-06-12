@@ -6,11 +6,17 @@ import java.text.SimpleDateFormat;
 
 public class SalesVO {
 	private int pno, bcnt, rno;
-	private String ptt, bno, pbd, today, cate, bceo;
+	private String ptt, bno, pbd, today, cate, bceo, memid;
 	private Date pDate;
 	private Time pTime;
 	
 	
+	public String getMemid() {
+		return memid;
+	}
+	public void setMemid(String memid) {
+		this.memid = memid;
+	}
 	public String getBceo() {
 		return bceo;
 	}
