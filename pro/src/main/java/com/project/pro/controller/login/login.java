@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
@@ -22,7 +23,7 @@ public class login {
 	  @Autowired LoginDAO lDAO;
 	  
 	
-	   
+	 
 	//로그인 뷰 처리
 	@RequestMapping("/loginList.pro")
 	public ModelAndView loginList(HttpSession session, ModelAndView mv) {
@@ -31,7 +32,7 @@ public class login {
 		String view = "login/loginList";
 		if(sid != null) {
 			System.out.println("Session SID : " + session.getAttribute("SID"));
-			RedirectView rv = new RedirectView("/pro/main.pro");
+			RedirectView rv = new RedirectView("/pro/main");
 			mv.setView(rv);
 		}else {
 			mv.setViewName(view);
@@ -99,6 +100,5 @@ public class login {
 			mv.setView(rv);
 			return mv;
 		}
-		//회원가입 처리요청
 		
 }

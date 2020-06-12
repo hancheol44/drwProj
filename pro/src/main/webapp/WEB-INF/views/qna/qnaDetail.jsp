@@ -28,7 +28,7 @@
 		<form method="post" action="" id="delfrm">
 			<input type="hidden" name="qno" id="qno" value="${qno}"/>
 		</form>
-		<table width="800" border="5" bordercolor="lightgray" align="center">
+		<table class="qnadetail">
 							<tr>
 								<td id="title">작성일</td>
 								<td style="text-align: left;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${DETAIL.qDate}</td>

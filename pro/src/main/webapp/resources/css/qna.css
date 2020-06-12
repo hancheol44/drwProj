@@ -28,11 +28,43 @@ textarea {
   color: white;
 }
 
+
 th{
   background-color : #2E2E2E; 
   color: white;
 	
 }
- tr:nth-child(odd){background-color: #B6DDD2;}
+ tr:nth-child(odd){background-color: #c0c0c0;}
 
- tr:hover {background-color: #ecbf88;} 
+ tr:hover {background-color: #ff8040;} 
+
+
+
+table.qnadetail {
+width: 70%;
+	border-collapse: collapse;
+	border: 2px solid #ddd;
+
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+}
+
+table.qnadetail td, table.qnadetail th {
+  border: 2px solid #ddd;
+  padding: 8px;
+}
+
+
+table.qnadetail th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+ 
+}
+
+table.qnadetail th{
+  background-color : #2E2E2E; 
+  color: white;	
+}

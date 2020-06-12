@@ -10,8 +10,9 @@
 <link rel="stylesheet" href="/pro/css/login.css" />
 <script type="text/javascript" src="/pro/js/jquery-3.5.0.min.js"></script>
 <script type="text/javascript" src="/pro/js/login.js"></script>
+<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+<script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
 <style>
-
 </style>
 <script type="text/javascript">
 	 $(document).ready(function(){
@@ -73,6 +74,15 @@
     	<a href="#" style="text-decoration: none;"><p id="findid" class="forgot-pass" style=" font-size: 12pt; font-family: Gentium Book Basic, Baekmuk Gentium Book Basic, UnGentium Book Basic, Apple Gothic, Latin font, sans-serif; " >Forgot id?</p></a>
       </div>
     <button type="button" class="submit" id="lbtn">Sign In</button>
+        <c:if test="${SID eq null}">
+        <a href="https://kauth.kakao.com/oauth/authorize?client_id=1c4b9b851fe834e6428dd0977d0c3cbc&redirect_uri=http://localhost:80/pro/kakao/kakaoLogin.pro&response_type=code">
+            <img src="/pro/img/kakao_login.png">
+        </a>
+    </c:if>
+    <c:if test="${SID ne null}">
+        <h1>로그인 성공입니다</h1>
+        <input type="button" value="로그아웃" onclick="location.href='/pro/kakao/logout.pro'">
+    </c:if>
       </center>
   </div>
   <div class="sub-cont">
