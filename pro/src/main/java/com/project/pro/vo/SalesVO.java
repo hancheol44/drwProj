@@ -5,12 +5,42 @@ import java.sql.Time;
 import java.text.SimpleDateFormat;
 
 public class SalesVO {
-	private int pno, bcnt, rno;
-	private String ptt, bno, pbd, today, cate, bceo, memid;
+	private int pno, bcnt, rno, imgno;
+	private String ptt, bno, pbd, today, cate, bceo, memid, bname, bloc, oriname, savename;
 	private Date pDate;
 	private Time pTime;
 	
 	
+	public int getImgno() {
+		return imgno;
+	}
+	public void setImgno(int imgno) {
+		this.imgno = imgno;
+	}
+	public String getBname() {
+		return bname;
+	}
+	public void setBname(String bname) {
+		this.bname = bname;
+	}
+	public String getBloc() {
+		return bloc;
+	}
+	public void setBloc(String bloc) {
+		this.bloc = bloc;
+	}
+	public String getOriname() {
+		return oriname;
+	}
+	public void setOriname(String oriname) {
+		this.oriname = oriname;
+	}
+	public String getSavename() {
+		return savename;
+	}
+	public void setSavename(String savename) {
+		this.savename = savename;
+	}
 	public String getMemid() {
 		return memid;
 	}

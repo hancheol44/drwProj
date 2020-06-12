@@ -22,21 +22,7 @@
 <body>
 
 <div class="row">
-  <!-- 왼쪽 영역 태그 -->
-  <div class="leftcolumn">
-    <div class="card">
-      <h2>About Me</h2>
-      <div class="fakeimg" style="height:100px;">Image</div>
-      <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
-    </div>
-    <div class="card">
-      <h3>Popular Post</h3>
-      <div class="fakeimg"><p>Image</p></div>
-      <div class="fakeimg"><p>Image</p></div>
-      <div class="fakeimg"><p>Image</p></div>
-    </div>
-  </div>
-  
+<jsp:include page="/left.pro" flush="true" />
   <!-- 가운데 영역 (주내용 담길 곳) -->
 	<form method="post" action="" id="frm">
 		<input type="hidden" id="memid" name="memid" value="">
@@ -47,64 +33,46 @@
 	</form>
    <div class="centercolumn w3-center">
 	   <div class="card" >
-				<table id="table_saWrite">
-					<tr>
-						<td>작성자</td>
-						<td id="sid_saWrite">sjj94@naver.com</td>
-					</tr>
-					<tr>
-						<td>분 류</td>
-						<td>
-						<div>
-							<select id="cate_saWrite">
-								<option value="eat">음식점
-								<option value="cth">자동차극장
-								<option value="atc">캠핑장
-								<option value="etc">기타
-							</select>
-						</div>
-						</td>
-					</tr>
-					<tr>
-						<td>제 목</td>
-						<td><input id="ptt_saWrite" type="text" /></td>
-					</tr>
-					<tr>
-						<td >내 용</td>
-						<td><textarea id="pbd_saWrite" ></textarea>
-						</td>
-					</tr>
-				</table>
-				<div id="fileAdd">
-					<h6>파일첨부</h6>
-					<input type="file" id="file_saWrite"><br>
-				</div>
-				<div>
-					<button id="save">등록</button>
-					<button id="list">목록</button>
-				</div>
+			<table id="table_saWrite">
+				<tr>
+					<td>작성자</td>
+					<td id="sid_saWrite" value="${SID}">${SID}</td>
+				</tr>
+				<tr>
+					<td>분 류</td>
+					<td>
+					<div>
+						<select id="cate_saWrite">
+							<option value="eat">음식점
+							<option value="cth">자동차극장
+							<option value="atc">캠핑장
+							<option value="etc">기타
+						</select>
+					</div>
+					</td>
+				</tr>
+				<tr>
+					<td>제 목</td>
+					<td><input id="ptt_saWrite" type="text" /></td>
+				</tr>
+				<tr>
+					<td >내 용</td>
+					<td><textarea id="pbd_saWrite" ></textarea>
+					</td>
+				</tr>
+			</table>
+			<div id="fileAdd">
+				<h6>파일첨부</h6>
+				<input type="file" id="file_saWrite"><br>
+			</div>
+			<div>
+				<button id="save">등록</button>
+				<button id="list">목록</button>
+			</div>
 		</div>
 	</div>
-		
-				
-			
-			
-  <!-- 오른쪽 공간 태그 -->
-  <div class="rightcolumn">
-    <div class="card">
-      <h2>About Me</h2>
-      <div class="fakeimg" style="height:100px;">Image</div>
-      <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
-    </div>
-    <div class="card">
-      <h3>Popular Post</h3>
-      <div class="fakeimg"><p>Image</p></div>
-      <div class="fakeimg"><p>Image</p></div>
-      <div class="fakeimg"><p>Image</p></div>
-    </div>
-  </div>
 </div>
-
+<jsp:include page="/right.pro" flush="true" />
 <!-- footer -->
 <div class="footer">
 	

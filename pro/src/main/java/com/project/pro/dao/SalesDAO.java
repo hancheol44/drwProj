@@ -19,8 +19,8 @@ public class SalesDAO {
 	}
 	
 	// sales detail
-	public int saDetail(int pno) {
-		return sqlSession.selectOne("sSQL.saDetail", pno);
+	public SalesVO saDetail(SalesVO sVO) {
+		return sqlSession.selectOne("sSQL.saDetail", sVO);
 	}
 	
 	// sales write

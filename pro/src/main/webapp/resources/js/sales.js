@@ -4,25 +4,21 @@ $(function(){
 	});
 	
 	$('.salesList').click(function(){
-		var no = $(this).attr('id');
+		var no = $('.salesList').attr('id');
+		alert(no);
+		
 		$('#pno').val(no);
-		var pno = ('#pno').val();
-		$('#frm').attr('action', '/sales_inside.pro');
+		$('#frm').attr('action', '/pro/sales/sales_inside.pro');
 		$('#frm').submit();
 	});
 	
 	$('#save').click(function(){
-		var sid = $('#sid_saWrite').val();
+		var sid = $('#sid_saWrite').attr('value');
 		var title = $('#ptt_saWrite').val();
 		var body = $('#pbd_saWrite').val()
 		var cate = $('#cate_saWrite').val();
-
-		alert("sid : " + sid + " title : " + title + 
-				" body : " + body + " cate : " + cate);
-		
-		$('#memid').val('sjj94@naver.com');
+		$('#memid').val(sid);
 		var id = $('#memid').val(); 
-		alert(id);
 		$('#ptt').val(title);
 		$('#pbd').val(body);
 		$('#cate').val(cate);

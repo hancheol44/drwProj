@@ -2,6 +2,8 @@ package com.project.pro.controller.qna;
 
 import java.util.ArrayList;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -37,12 +39,18 @@ public class Sales {
 	
 	// sales write action
 	@RequestMapping(value="/sales_write.pro", method=RequestMethod.POST, params= {"ptt", "memid", "pbd", "cate"})
-	public ModelAndView saWriteProc(String ptt, String memid, String pbd, String cate, SalesVO sVO, ModelAndView mv) {
+	public ModelAndView saWriteProc(String ptt, String memid, String pbd, String cate, SalesVO sVO, ModelAndView mv, HttpSession session) {
 		String view = "sales/sales_write";
+		if(session.getAttribute("SID") == null) {
+			RedirectView rv = new RedirectView("/pro/login/loginList.pro");
+			mv.setView(rv);
+			return mv;
+		}
 		SalesVO vo = sDAO.saWrite(sVO);
 		if(pbd != null) {
 			RedirectView rv = new RedirectView("/pro/sales/sales.pro");
 			mv.setView(rv);
+			return mv;
 		}
 		return mv;
 	}
@@ -50,11 +58,8 @@ public class Sales {
 	@RequestMapping(value="/sales_inside.pro", method=RequestMethod.GET, params={"pno"})
 	public ModelAndView saDetail(ModelAndView mv, SalesVO sVO, int pno) {
 		String view = "sales/sales_inside";
-		int cnt = sDAO.saDetail(pno);
-		if(cnt == 1) {
-			RedirectView rv = new RedirectView("/pro/sales/sales_inside.pro");
-			mv.setView(rv);
-		}
+		SalesVO vo = sDAO.saDetail(sVO);
+		mv.addObject("DATA", vo);
 		return mv;
 	}
 }

@@ -8,7 +8,7 @@
 <title></title>
 <link rel="stylesheet" href="/pro/css/w3.css" />
 <link rel="stylesheet" href="/pro/css/sales.css" />
-<link rel="stylesheet" href="/pro/css/head.css" />
+<link rel="stylesheet" href="/pro/css/side.css" />
 <script type="text/javascript" src="/pro/js/jquery-3.5.0.min.js"></script>
 <script type="text/javascript" src="/pro/js/sales.js"></script>
 <style>
@@ -20,28 +20,14 @@
 </head>
 <jsp:include page="/head.pro" flush="true" />
 <body>
-
+<div class="row">
+ <jsp:include page="/left.pro" flush="true" />
+  
+  <!-- 가운데 영역 (주내용 담길 곳) -->
 	<form method="get" action="" id="frm">
 		<input type="hidden" name="pno" id="pno">
 	</form>
 	
-<div class="row">
-  <!-- 왼쪽 영역 태그 -->
-  <div class="leftcolumn">
-    <div class="card">
-      <h2>About Me</h2>
-      <div class="fakeimg" style="height:100px;">Image</div>
-      <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
-    </div>
-    <div class="card">
-      <h3>Popular Post</h3>
-      <div class="fakeimg"><p>Image</p></div>
-      <div class="fakeimg"><p>Image</p></div>
-      <div class="fakeimg"><p>Image</p></div>
-    </div>
-  </div>
-  
-  <!-- 가운데 영역 (주내용 담길 곳) -->
   <div class="centercolumn w3-center">
     <div class="card">
       <h2>팝니당</h2>
@@ -57,19 +43,21 @@
 			    <th id="bcnt">조회수</th>
 			  </tr>
 			  <c:forEach var="data" items="${LIST}">
-			  <tr class="salesList" id="${data.pno}">
-			  	<td>${data.rno}</td>
-			  	<td>${data.ptt}</td>
-			  	<td>${data.bceo}</td>
-			  	<td>${data.today}</td>
-			  	<td>${data.bcnt}</td>
-			  </tr>
+			  <div>
+				  <tr class="salesList" id="${data.pno}">
+				  	<td>${data.rno}</td>
+				  	<td>${data.ptt}</td>
+				  	<td>${data.bceo}</td>
+				  	<td>${data.today}</td>
+				  	<td>${data.bcnt}</td>
+				  </tr>
+			  </div>
 			  </c:forEach>
 			</table>
 			
 			
 			<!-- 페이징 처리 부분 -->
-			<div class="w3-center">
+			<div class="w3-center" style="margin-top: 5px;">
 				<div class="w3-bar w3-border">
 					<c:if test="${PAGE.startPage lt (PAGE.pageGroup + 1) }">
 						<span class="w3-bar-item w3-light-gray">PRE</span>
@@ -106,7 +94,6 @@
 						</select> 
 						<input type="text" size="20" name="input" style="margin: 10px;" />
 						<input id="serbtn" type="submit" value="search" style="margin: 10px;" />
-						<input style="float: right; margin: 10px 65px 10px -100px;" type="button" value="글쓰기" onclick="writeForm()">
 					</form>
 				</div>
 			</div>
@@ -114,21 +101,7 @@
     </div>
   </div>
   
-  <!-- 오른쪽 공간 태그 -->
-  <div class="rightcolumn">
-    <div class="card">
-      <h2>About Me</h2>
-      <div class="fakeimg" style="height:100px;">Image</div>
-      <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
-    </div>
-    <div class="card">
-      <h3>Popular Post</h3>
-      <div class="fakeimg"><p>Image</p></div>
-      <div class="fakeimg"><p>Image</p></div>
-      <div class="fakeimg"><p>Image</p></div>
-    </div>
-  </div>
-</div>
+<jsp:include page="/right.pro" flush="true" />
 
 <!-- footer -->
 <div class="footer">
