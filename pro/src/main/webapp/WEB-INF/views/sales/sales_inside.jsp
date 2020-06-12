@@ -8,7 +8,7 @@
 <title></title>
 <link rel="stylesheet" href="/pro/css/w3.css" />
 <link rel="stylesheet" href="/pro/css/sales.css" />
-<link rel="stylesheet" href="/pro/css/head.css" />
+<link rel="stylesheet" href="/pro/css/side.css" />
 <script type="text/javascript" src="/pro/js/jquery-3.5.0.min.js"></script>
 <script type="text/javascript" src="/pro/js/sales.js"></script>
 <style>
@@ -20,9 +20,9 @@
 </head>
 <jsp:include page="/head.pro" flush="true" />
 <body>
-
-<div class="row centercolumn w3-center" >
 <jsp:include page="/left.pro" flush="true" />
+
+<div class="centercolumn" >
   
   <!-- 가운데 영역 (주내용 담길 곳) -->
    	<form method="post" action="" id="frm1">
@@ -39,25 +39,25 @@
 	 
 	<div id="detail">
 		<br>
-		<div id="topForm"><b>매장 정보</b></div>
+		<div id="topForm"><h3><b>매장 정보</b></h3></div>
 		<hr>
 		<br>
 		<div id="board">
 		<c:if test="${not empty CAR}">
-			<div id="car"style="text-align: left;">
-				<h5 style="font-color: gray; padding-left: 15px;" name="car">매장진입 추천차량</h5>
-				<h4 style="padding-left: 20px;"><b>${CAR}</b></h4>
+			<div id="car">
+				<h5 id="car_h5" name="car">매장진입 추천차량</h5>
+				<h4 id="car_h4"><b>${CAR}</b></h4>
 			</div>
 		</c:if>
-				<h2 style="margin:7px; display:inline" name="ptt"><b>${DATA.ptt}</b></h2>
-				<h4 style="margin:7px; margin-left: 15px;" name="bceo">${DATA.bceo}</h4>
-				<h4 style="font-color: gray; padding-left: 15px;" name="bloc">${DATA.bloc}</h4>
+				<h2 id="pro_ptt" name="ptt"><b>${DATA.ptt}</b></h2>
+				<h4 id="pro_bceo" name="bceo">${DATA.bceo}</h4>
+				<h4 id="pro_bloc" name="bloc">${DATA.bloc}</h4>
 		</div>
 		<br>
 		 <br>
-		 <div id="map" style="width:450px;height:450px; display: inline-block; margin-left: 50px;"></div>
+		 <div id="map"></div>
 		 <span style="margin: 20px;">
-		 <img alt="" src="/Project/images/${IMG}" style="height:450px; width:450px;">
+		 <img id="img" alt="" src="/Project/images/${IMG}">
 		</span>
 		<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=bfbcb2a9b1a94611a8804b0d71d6315c&libraries=services"></script>
 		<script>
@@ -103,11 +103,13 @@
 			<br>
 	
 	</div>
-	<hr style="border:1px solid orange">
+	<hr class="border_orange">
 		 <div name="pbd" id="pbd">
-		 	<h3 style="text-align: center; margin: 40px;">${DATA.pbd}</h3>
+		 	<h5 id="pbd_h5"><b>매장 홍보글</b></h5>
+		 	<br>
+		 	<h3>${DATA.pbd}</h3>
 			 </div>
-	<div style="position:relative; left: 40%;">
+	<div id="btn_detail">
 	<c:if test="${SID eq ID}">
 	<button id="delete" class="delete">삭제</button>
 	<button id="modi" class="modi">수정</button>				
@@ -118,8 +120,8 @@
 	<br>					
 		</div>
 			
-<jsp:include page="/right.pro" flush="true" />
 
+<jsp:include page="/right.pro" flush="true" />
 <!-- footer -->
 <div class="footer">
 	

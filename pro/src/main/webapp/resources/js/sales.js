@@ -15,8 +15,9 @@ $(function(){
 	$('#save').click(function(){
 		var sid = $('#sid_saWrite').attr('value');
 		var title = $('#ptt_saWrite').val();
-		var body = $('#pbd_saWrite').val()
+		var body = $('#pbd_write').val()
 		var cate = $('#cate_saWrite').val();
+		alert("sid : " + sid + " title : " + title + " body : " + body + " cate : " + cate);
 		$('#memid').val(sid);
 		var id = $('#memid').val(); 
 		$('#ptt').val(title);

@@ -8,7 +8,7 @@
 <title></title>
 <link rel="stylesheet" href="/pro/css/w3.css" />
 <link rel="stylesheet" href="/pro/css/sales.css" />
-<link rel="stylesheet" href="/pro/css/head.css" />
+<link rel="stylesheet" href="/pro/css/side.css" />
 <script type="text/javascript" src="/pro/js/jquery-3.5.0.min.js"></script>
 <script type="text/javascript" src="/pro/js/sales.js"></script>
 <style>
@@ -21,7 +21,7 @@
 <jsp:include page="/head.pro" flush="true" />
 <body>
 
-<div class="row">
+<div>
 <jsp:include page="/left.pro" flush="true" />
   <!-- 가운데 영역 (주내용 담길 곳) -->
 	<form method="post" action="" id="frm">
@@ -31,8 +31,8 @@
 		<input type="hidden" id="pbd" name="pbd" value="">
 		<input type="hidden" id="file" name="file" value="">
 	</form>
-   <div class="centercolumn w3-center">
-	   <div class="card" >
+   <div class="centercolumn" >
+	   <div class="card">
 			<table id="table_saWrite">
 				<tr>
 					<td>작성자</td>
@@ -57,7 +57,7 @@
 				</tr>
 				<tr>
 					<td >내 용</td>
-					<td><textarea id="pbd_saWrite" ></textarea>
+					<td><textarea id="pbd_write"></textarea>
 					</td>
 				</tr>
 			</table>
