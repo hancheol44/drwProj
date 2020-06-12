@@ -20,8 +20,7 @@
 </head>
 <jsp:include page="/head.pro" flush="true" />
 <body>
-  <jsp:include page="/left.pro" flush="true" />
-  
+<jsp:include page="/left.pro" flush="true" />
   <!-- 가운데 영역 (주내용 담길 곳) -->
   <div class="centercolumn w3-center">
     <div class="card">
@@ -31,24 +30,6 @@
 			<input type="hidden" name="qip" id="qip" value=""/>
 		</form>
 		<table width="700" border="5" bordercolor="lightgray" align="center">
-					<c:if test="${empty qno}">
-						<tr>
-							<td id="title">작성자</td>
-							<td style="text-align: left;">&nbsp;&nbsp;&nbsp;&nbsp;${NAME}</td>
-						</tr>
-						<tr>
-							<td id="title">제 목</td>
-							<td>
-								<textarea name="qtt" cols="72" rows="1" maxlength="100" id="qtt1"></textarea>
-							</td>
-						</tr>
-						<tr>
-							<td id="title">내 용</td>
-							<td>
-								<textarea name="qip" cols="72" rows="16" id="qip1"></textarea>
-							</td>
-						</tr>
-					</c:if>
 					<c:if test="${not empty qno}">
 							<tr>
 								<td id="title">작성일</td>
@@ -92,9 +73,8 @@
 			
     </div>
  
-   <!-- 오른쪽 공간 태그 -->
+ <!-- 오른쪽 공간 태그 -->
 <jsp:include page="/right.pro" flush="true" />
-
 <!-- footer -->
 <div class="footer">
 	

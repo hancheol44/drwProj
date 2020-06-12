@@ -6,7 +6,10 @@ $(document).ready(function(){
 	});
 	
 	// qnaList -> qnaDetail 버튼 기능처리
-	
+	$('.qlist').siblings().click(function(){
+		var qno = $(this).parent().attr('id');
+		
+	});
 	
 	  
 	

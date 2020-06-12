@@ -6,6 +6,7 @@
  					
 
 <mapper namespace="qSQL">
+	<!-- 작성글 리스트 가져오기 -->
 	<select id="qnaList" resultType="qVO">
 		SELECT
 			qno, qtt, name,  TO_CHAR(today, 'yyyy/MM/dd') qDate 
@@ -18,6 +19,7 @@
 			qno DESC
 	</select>
 	
+	<!-- 작성자이름 선택 sql -->
 	<select id="qnaName" resultType="String">
 		SELECT
 			name
@@ -27,6 +29,17 @@
 			memid = #{SID}
 	</select>
 	
+	<select id="qnaDetail" resultType="qVO">
+		SELECT
+			qtt, qip, TO_CHAR(today, 'yyyy/MM/dd') qDate, name
+		FROM
+			qna q, member m
+		WHERE
+			qno = #{qno}
+			AND q.memno = m.memno
+	</select>
+	
+	<!-- 글쓰기 sql -->
 	<insert id="qnaWrite" >
 		INSERT INTO
 			qna(qno, qtt, qip, memno)
@@ -35,4 +48,6 @@
 			#{qtt}, #{qip}, (SELECT memno FROM member WHERE memid = #{memid})
 			  )
 	</insert>
+	
+	
 </mapper>

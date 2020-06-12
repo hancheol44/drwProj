@@ -27,4 +27,9 @@ public class QnaDAO {
 	public int addData(QnaVO qVO) {
 		return sqlSession.insert("qSQL.qnaWrite", qVO);
 	}
+	
+	// Detail 처리 함수
+	public QnaVO getDetail(int qno) {
+		return sqlSession.selectOne("qSQL.qnaDetail", qno);
+	}
 }

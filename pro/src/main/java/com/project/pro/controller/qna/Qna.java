@@ -45,6 +45,16 @@ public class Qna {
 		return mv;
 	}
 	
+	// qna 디테일 요청 처리
+	@RequestMapping(value="/qnaDetail.pro", method=RequestMethod.GET, params="qno")
+	public ModelAndView qnaDetail(ModelAndView mv, QnaVO qVO, int qno) {
+		String view = "/qna/qnaDetail";
+		qVO = qDAO.getDetail(qno);
+		mv.addObject("DETAIL", qVO);
+		mv.setViewName(view);
+		return mv;
+	}
+	
 	// qna 글쓰기 처리
 	@RequestMapping(value="/qnaWriteProc.pro", method=RequestMethod.POST, params= {"qtt","qip"})
 	public ModelAndView qnaWriteProc(ModelAndView mv, HttpSession session, String qtt, String qip, QnaVO qVO) {
@@ -59,5 +69,7 @@ public class Qna {
 		mv.setView(rv);
 		return mv;
 	}
+	
+	
 	
 }

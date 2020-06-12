@@ -8,9 +8,7 @@
 <title></title>
 <link rel="stylesheet" href="/pro/css/w3.css" />
 <link rel="stylesheet" href="/pro/css/qna.css" />
-<link rel="stylesheet" href="/pro/css/head.css" />
-<script type="text/javascript" src="/pro/js/jquery-3.5.0.min.js"></script>
-<script type="text/javascript" src="/pro/js/qna.js"></script>
+<link rel="stylesheet" href="/pro/css/side.css" />
 <style>
 
 </style>
@@ -20,45 +18,9 @@
 </head>
 <jsp:include page="/head.pro" flush="true" />
 <body>
-<!-- 
-<div class="header1">
-  <h1>My Website</h1>
-  <p>Resize the browser window to see the effect.</p>
-</div>
- -->
-<!-- 메뉴바 형식
 
-<ul>
-  <li><a href="#home">드루왕</a></li>
-  <li><a href="#news">팝니당</a></li>
-  <li class="dropdown">
-    <a href="javascript:void(0)" class="dropbtn">오세용</a>
-    <div class="dropdown-content">
-      <a href="#">자동차 극장</a>
-      <a href="#">자동차 캠핑</a>
-      <a href="#">승차 검진소</a>
-    </div>
-  </li>
-  <li><a href="#news">물어봥</a></li>
-  <li><a href="#news">놀러왕</a></li>
-</ul>
- -->
-
-<div class="row">
-  <!-- 왼쪽 영역 태그 -->
-  <div class="leftcolumn">
-    <div class="card">
-      <h2>About Me</h2>
-      <div class="fakeimg" style="height:100px;">Image</div>
-      <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
-    </div>
-    <div class="card">
-      <h3>Popular Post</h3>
-      <div class="fakeimg"><p>Image</p></div>
-      <div class="fakeimg"><p>Image</p></div>
-      <div class="fakeimg"><p>Image</p></div>
-    </div>
-  </div>
+  
+  <jsp:include page="/left.pro" flush="true" />
   
   <!-- 가운데 영역 (주내용 담길 곳) -->
   <div class="centercolumn w3-center">
@@ -73,8 +35,8 @@
 			    <th style="width: 100px;">답변상태</th>
 			  </tr>
 			  <c:forEach var="data" items="${LIST}">
-			  <tr>
-			  	<td>${data.qno}</td>
+			  <tr id="${data.qno}">
+			  	<td class="qlist">${data.qno}</td>
 			  	<td>${data.qtt}</td>
 			  	<td>${data.name}</td>
 			  	<td>${data.qDate}</td>
@@ -130,21 +92,7 @@
   </div>
   
   <!-- 오른쪽 공간 태그 -->
-  <div class="rightcolumn">
-    <div class="card">
-      <h2>About Me</h2>
-      <div class="fakeimg" style="height:100px;">Image</div>
-      <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
-    </div>
-    <div class="card">
-      <h3>Popular Post</h3>
-      <div class="fakeimg"><p>Image</p></div>
-      <div class="fakeimg"><p>Image</p></div>
-      <div class="fakeimg"><p>Image</p></div>
-    </div>
-  </div>
-</div>
-
+<jsp:include page="/right.pro" flush="true" />
 <!-- footer -->
 <div class="footer">
 	
