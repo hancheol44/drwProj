@@ -21,7 +21,7 @@
 <jsp:include page="/head.pro" flush="true" />
 <body>
 
-<div class="row">
+<div class="row centercolumn w3-center" >
 <jsp:include page="/left.pro" flush="true" />
   
   <!-- 가운데 영역 (주내용 담길 곳) -->
