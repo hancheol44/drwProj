@@ -26,6 +26,7 @@
   <!-- 가운데 영역 (주내용 담길 곳) -->
 	<form method="get" action="" id="frm">
 		<input type="hidden" name="pno" id="pno">
+		<input type="hidden" name="id" id="id">
 	</form>
 	
   <div class="centercolumn w3-center">
@@ -43,15 +44,14 @@
 			    <th id="bcnt">조회수</th>
 			  </tr>
 			  <c:forEach var="data" items="${LIST}">
-			  <div>
-				  <tr class="salesList" id="${data.pno}">
+				  <tr class="salesList" id="${data.pno}" value="${data.memid}">
 				  	<td>${data.rno}</td>
 				  	<td>${data.ptt}</td>
 				  	<td>${data.bceo}</td>
 				  	<td>${data.today}</td>
 				  	<td>${data.bcnt}</td>
 				  </tr>
-			  </div>
+			  <div id="sales_memid" value="${data.memid}"></div>
 			  </c:forEach>
 			</table>
 			

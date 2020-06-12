@@ -56,10 +56,12 @@ public class Sales {
 	}
 	// sales detail page
 	@RequestMapping(value="/sales_inside.pro", method=RequestMethod.GET, params={"pno"})
-	public ModelAndView saDetail(ModelAndView mv, SalesVO sVO, int pno) {
+	public ModelAndView saDetail(ModelAndView mv, SalesVO sVO, int pno, String memid) {
 		String view = "sales/sales_inside";
 		SalesVO vo = sDAO.saDetail(sVO);
 		mv.addObject("DATA", vo);
+		mv.addObject("PNO", pno);
+		mv.addObject("ID", memid);
 		return mv;
 	}
 }

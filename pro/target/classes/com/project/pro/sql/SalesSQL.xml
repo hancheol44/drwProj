@@ -5,17 +5,17 @@
 <mapper namespace="sSQL">
 	<select id="saList" resultType="sVO">
 		SELECT
-		    ee.rno, ee.pno, ee.ptt, ee.bceo, ee.today, ee.bcnt
+		    ee.rno, ee.pno, ee.ptt, ee.bceo, ee.today, ee.bcnt, ee.memid
 		FROM
 		(SELECT
-		    rownum rno, e.pno, e.ptt, e.bceo, e.today, e.bcnt
+		    rownum rno, e.pno, e.ptt, e.bceo, e.today, e.bcnt, e.memid
 		FROM
 		(SELECT
-			pno, ptt, bceo, TO_CHAR(today, 'yyyy-mm-dd hh24:mi:ss') today, bcnt
+			pno, ptt, bceo, TO_CHAR(today, 'yyyy-mm-dd hh24:mi:ss') today, bcnt, m.memid
 		FROM
-			promotion p, boss b
+			promotion p, boss b, member m
 		WHERE
-			p.bno = b.bno AND p.pshow = 'Y'
+			p.bno = b.bno AND b.memno = m.memno AND p.pshow = 'Y'
 		ORDER BY
 			today desc) e) ee
 	</select>

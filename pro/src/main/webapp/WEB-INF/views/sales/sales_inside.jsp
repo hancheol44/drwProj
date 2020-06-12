@@ -110,7 +110,7 @@
 		 	<h3>${DATA.pbd}</h3>
 			 </div>
 	<div id="btn_detail">
-	<c:if test="${SID eq ID}">
+	<c:if test="${SID eq DATA.memid}">
 	<button id="delete" class="delete">삭제</button>
 	<button id="modi" class="modi">수정</button>				
 	</c:if>
