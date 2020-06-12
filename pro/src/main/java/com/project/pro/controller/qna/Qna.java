@@ -2,10 +2,14 @@ package com.project.pro.controller.qna;
 
 import java.util.ArrayList;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.view.RedirectView;
 
 import com.project.pro.dao.QnaDAO;
 import com.project.pro.vo.QnaVO;
@@ -17,6 +21,7 @@ public class Qna {
 	@Autowired
 	QnaDAO qDAO;
 	
+	// qna리스트 뷰 요청 처리
 	@RequestMapping("/qnaList.pro")
 	public ModelAndView qnalist(ModelAndView mv) {
 		String view = "/qna/qnaList";
@@ -27,10 +32,32 @@ public class Qna {
 		return mv;
 	}
 	
+	// qna글쓰기 뷰 요청 처리
 	@RequestMapping("/qnaWrite.pro")
-	public String qnaWrite() {
+	public ModelAndView qnaWrite(HttpSession session, ModelAndView mv) {
+		// 로그인 후 session에 있는 sid 값 가져옴
+		String sid = (String)session.getAttribute("SID");
+		String name = qDAO.getName(sid);
 		String view = "/qna/qnaWrite";
-		return view;
+		
+		mv.addObject("NAME", name);
+		mv.setViewName(view);
+		return mv;
+	}
+	
+	// qna 글쓰기 처리
+	@RequestMapping(value="/qnaWriteProc.pro", method=RequestMethod.POST, params= {"qtt","qip"})
+	public ModelAndView qnaWriteProc(ModelAndView mv, HttpSession session, String qtt, String qip, QnaVO qVO) {
+		RedirectView rv = new RedirectView("/pro/qna/qnaList.pro");
+		String sid = (String)session.getAttribute("SID");
+		qVO.setQtt(qtt);
+		qVO.setQip(qip);
+		qVO.setMemid(sid);
+		
+		int cnt = qDAO.addData(qVO);
+		
+		mv.setView(rv);
+		return mv;
 	}
 	
 }

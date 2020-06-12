@@ -31,7 +31,7 @@ public class login {
 		String view = "login/loginList";
 		if(sid != null) {
 			System.out.println("Session SID : " + session.getAttribute("SID"));
-			RedirectView rv = new RedirectView("/pro/main");
+			RedirectView rv = new RedirectView("/pro/main.pro");
 			mv.setView(rv);
 		}else {
 			mv.setViewName(view);
@@ -76,7 +76,7 @@ public class login {
 	      RedirectView rv = null;
 	      if(cnt == 1) {
 	         session.setAttribute("SID", id);
-	         rv = new RedirectView("/pro/main");
+	         rv = new RedirectView("/pro/main.pro");
 	      } else {
 	         // 아이디와 비밀번호에 맞는 회원이 없는 경우이므로 다시 로그인 페이지로 이동시킨다.
 	         rv = new RedirectView("/pro/login/loginList.pro");
@@ -93,7 +93,7 @@ public class login {
 			session.removeAttribute("SID");
 			
 			if(session.getAttribute("SID") != null) {
-				view="/pro/main";
+				view="/pro/main.pro";
 			}
 			rv = new RedirectView(view);
 			mv.setView(rv);

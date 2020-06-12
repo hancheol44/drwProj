@@ -37,9 +37,9 @@ public class HomeController {
 		return "home";
 	}
 	
-	@RequestMapping("/main")
-	public void getMain(ModelAndView mv) {
-		return;
+	@RequestMapping("/main.pro")
+	public String getMain(ModelAndView mv) {
+		return "/main";
 	}
 	
 	@RequestMapping("/head.pro")

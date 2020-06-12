@@ -3,42 +3,73 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="/pro/css/w3.css" />
-<link rel="stylesheet" href="/pro/css/join.css" />
-<script type="text/javascript" src="/pro/js/jquery-3.5.0.min.js"></script>
-<script type="text/javascript">
-	$(document).ready(function(){		
-		$('#lout').click(function(){
-			$(location).attr('href' ,'/pro/login/logout.pro');
-		});
-		
-		$('#lin').click(function(){
-			$(location).attr('href' ,'/pro/login/loginList.pro');
-		});
-		
-		$('#mlbtn').click(function(){
-			$(location).attr('href', '/cls/member/memberList.cls');
-		});
-		
-		$('#rebtn').click(function(){
-			$(location).attr('href', '/cls/reboard/reboardList.cls');
-		});
-	});
-</script>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title></title>
+<link rel="stylesheet" href="/pro/css/w3.css" />
+<link rel="stylesheet" href="/pro/css/qna.css" />
+<link rel="stylesheet" href="/pro/css/head.css" />
+<script type="text/javascript" src="/pro/js/jquery-3.5.0.min.js"></script>
+<script type="text/javascript" src="/pro/js/qna.js"></script>
+<style>
+
+</style>
+<script type="text/javascript">
+
+</script>
 </head>
+<jsp:include page="/head.pro" flush="true" />
 <body>
-	<div class="w3-content mxw">
-	<h2 class="w3-center w3-orange w3-card">Main Page</h2>
-		<c:if test="${not empty SID}">
-			<div class="w3-right w3-button w3-purple w3-hover-yellow w3-card w3-border" id="lout">Logout</div>
-			<div class="w3-right w3-button w3-amber w3-hover-orange w3-card w3-border" id="mlbtn">MemberList</div>
-			<div class="w3-right w3-button w3-orange w3-hover-red w3-card w3-border" id="rebtn">Reboard</div>
-		</c:if>
-		<c:if test="${empty SID}">
-			<div class="w3-right w3-button w3-purple w3-hover-yellow w3-card w3-border" id="lin">Login</div>
-		</c:if>
-	</div>
+
+
+<div class="row">
+  <!-- 왼쪽 영역 태그 -->
+  <div class="leftcolumn">
+    <div class="card">
+      <h2>About Me</h2>
+      <div class="fakeimg" style="height:100px;">Image</div>
+      <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
+    </div>
+    <div class="card">
+      <h3>Popular Post</h3>
+      <div class="fakeimg"><p>Image</p></div>
+      <div class="fakeimg"><p>Image</p></div>
+      <div class="fakeimg"><p>Image</p></div>
+    </div>
+  </div>
+  
+  <!-- 가운데 영역 (주내용 담길 곳) -->
+  <div class="centercolumn w3-center">
+    <div class="card">
+      <h2>메인드루왕</h2>
+			<table id="customers">
+			</table>
+			
+		
+			</div>
+			
+    </div>
+  
+  <!-- 오른쪽 공간 태그 -->
+  <div class="rightcolumn">
+    <div class="card">
+      <h2>About Me</h2>
+      <div class="fakeimg" style="height:100px;">Image</div>
+      <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
+    </div>
+    <div class="card">
+      <h3>Popular Post</h3>
+      <div class="fakeimg"><p>Image</p></div>
+      <div class="fakeimg"><p>Image</p></div>
+      <div class="fakeimg"><p>Image</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- footer -->
+<div class="footer">
+	
+</div>
+
 </body>
 </html>

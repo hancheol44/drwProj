@@ -41,6 +41,10 @@
   <div class="centercolumn w3-center">
     <div class="card">
       <h2>물어봥</h2>
+		<form method="post" action="" id="frm">
+			<input type="hidden" name="qtt" id="qtt" value=""/>
+			<input type="hidden" name="qip" id="qip" value=""/>
+		</form>
 		<table width="700" border="3" bordercolor="lightgray" align="center">
 					<c:if test="${empty qno}">
 						<tr>
@@ -50,13 +54,13 @@
 						<tr>
 							<td id="title">제 목</td>
 							<td>
-								<textarea name="qtt" cols="72" rows="1" maxlength="100" id="qtt4" value="${DETAIL.qtt}"></textarea>
+								<textarea name="qtt" cols="72" rows="1" maxlength="100" id="qtt1"></textarea>
 							</td>
 						</tr>
 						<tr>
 							<td id="title">내 용</td>
 							<td>
-								<textarea name="qip" cols="72" rows="16" id="qip2"></textarea>
+								<textarea name="qip" cols="72" rows="16" id="qip1"></textarea>
 							</td>
 						</tr>
 					</c:if>
@@ -82,23 +86,19 @@
 						<!-- 글 수정 작업시 아래 -->
 						<c:if test="${not empty qno}">
 							<td colspan="5">
-								<input type="reset" value="작성취소" id="wcbtn"> 
 								<input type="submit" value="글수정" id="modibtn"> 
-								<input type="button" value="목록" id="golbtn">
+								<input type="reset" value="취소" id="wcbtn"> 
 							</td>
 						</c:if>
 						<!-- 글 작성 작업시 아래 -->
 						<c:if test="${empty qno}">
 						<td colspan="5">
-								<input type="reset" value="작성취소" id="wcbtn"> 
 								<input type="submit" value="등록" id="sbbtn"> 
-								<input type="button" value="목록" id="golbtn">
+								<input type="reset" value="취소" id="wcbtn"> 
 							</td>
 						</c:if>
 						</tr>
-					</table>
-			
-			
+			</table>
 		</div>
 			
     </div>

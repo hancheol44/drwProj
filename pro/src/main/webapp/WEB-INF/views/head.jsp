@@ -24,7 +24,7 @@
 
 	<header id="header">
 				<div class="inner">
-				<input class="logo" id="hbtn" type="image" src="/pro/img/main.png" onclick="location.href='http://www.naver.com';">
+				<input class="logo" id="hbtn" type="image" src="/pro/img/main.png" onclick="location.href=localhost/pro/main.pro;">
 					<!-- 
 					<nav id="nav">
 						<a href="">팝니당</a>
@@ -36,7 +36,7 @@
 					 -->
 					 <ul>
 					  <li><a href="#home">드루왕</a></li>
-					  <li><a href="#news">팝니당</a></li>
+					  <li><a href="/pro/sales/sales.pro">팝니당</a></li>
 					  <li class="dropdown">
 					    <a href="javascript:void(0)" class="dropbtn">오세용</a>
 					    <div class="dropdown-content">
