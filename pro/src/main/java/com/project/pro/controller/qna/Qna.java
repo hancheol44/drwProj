@@ -37,6 +37,7 @@ public class Qna {
 	public ModelAndView qnaWrite(HttpSession session, ModelAndView mv) {
 		// 로그인 후 session에 있는 sid 값 가져옴
 		String sid = (String)session.getAttribute("SID");
+		
 		String name = qDAO.getName(sid);
 		String view = "/qna/qnaWrite";
 		

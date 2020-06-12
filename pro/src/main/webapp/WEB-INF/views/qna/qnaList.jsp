@@ -87,7 +87,9 @@
 						</select> 
 						<input type="text" size="20" name="input" style="margin: 10px;" />
 						<input id="serbtn" type="submit" value="search" style="margin: 10px;" />
-						<input style="float: right; margin: 10px 65px 10px -100px;" type="button" value="글쓰기" id="qwbtn">
+						<c:if test="${not empty SID}">
+							<input style="float: right; margin: 10px 65px 10px -100px;" type="button" value="글쓰기" id="qwbtn">
+						</c:if>
 					</form>
 				</div>
 			</div>

@@ -14,7 +14,11 @@ $(document).ready(function(){
 	});
 	
 	  
-	
+	// qna 글삭제 기능 처리
+	$('#delbtn').click(function(){
+	  $('#delfrm').attr('action','/pro/qna/qnaDelProc.pro');
+	  $('#delfrm').submit()
+	});
 	
 	
 	

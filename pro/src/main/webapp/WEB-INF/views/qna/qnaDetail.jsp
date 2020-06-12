@@ -25,40 +25,54 @@
   <div class="centercolumn w3-center">
     <div class="card">
       <h2>물어봥</h2>
-		<form method="post" action="" id="frm">
-			<input type="hidden" name="qtt" id="qtt" value=""/>
-			<input type="hidden" name="qip" id="qip" value=""/>
+		<form method="post" action="" id="delfrm">
+			<input type="hidden" name="qno" id="qno" value="${qno}"/>
 		</form>
 		<table width="800" border="5" bordercolor="lightgray" align="center">
 							<tr>
 								<td id="title">작성일</td>
-								<td style="text-align: left;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${DETAIL.qDate}</td>
+								<td style="text-align: left;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${DETAIL.qDate}</td>
 							</tr>
 							<tr>
 								<td id="title">작성자</td>
-								<td style="text-align: left;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${DETAIL.name}</td>
+								<td style="text-align: left;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${DETAIL.name}</td>
 							</tr>
 							<tr>
 								<td id="title">제 목</td>
 								<td>
-									<textarea name="qtt" cols="72" rows="1" maxlength="100" id="qtt4" readonly>${DETAIL.qtt}</textarea>
+									<textarea name="qtt" cols="80" rows="1" maxlength="100" id="qtt4" readonly>${DETAIL.qtt}</textarea>
 								</td>
 							</tr>
 							<tr>
 								<td id="title">내 용</td>
 								<td>
-									<textarea name="qip" cols="72" rows="8" id="qip4" readonly>${DETAIL.qip}</textarea>
+									<textarea name="qip" cols="80" rows="8" id="qip4" readonly>${DETAIL.qip}</textarea>
 								</td>
 							</tr>
 						<tr align="center" valign="middle">
-						<!-- 글 수정 작업시 아래 -->
-						<c:if test="${not empty qno}">
+						<!-- 버튼 조건 처리 -->
+						<c:if test="${SID eq 'sej0267@naver.com'}">
 							<td colspan="5">
-								<input type="submit" value="글수정" id="modibtn"> 
-								<input type="reset" value="취소" id="wcbtn"> 
+								<c:if test="${SID eq DETAIL.memid}">
+									<input type="submit" value="삭제" id="modibtn"> 
+									<input type="reset" value="취소" id="wcbtn">
+								</c:if>
+								<c:if test="${SID ne DETAIL.memid}">
+									<input type="submit" value="답변등록" id="modibtn"> 
+									<input type="submit" value="글삭제" id="delbtn"> 
+									<input type="reset" value="취소" id="wcbtn">
+								</c:if>
 							</td>
 						</c:if>
-						<!-- 글 작성 작업시 아래 -->
+						<c:if test="${SID ne 'sej0267@naver.com'}">
+							<c:if test="${SID eq DETAIL.memid}">
+								<td colspan="5">
+									<input type="submit" value="글수정" id="modibtn"> 
+									<input type="reset" value="취소" id="wcbtn"> 
+								</td>
+							</c:if>
+						</c:if>
+						</tr>
 			</table>
 		</div>
 			

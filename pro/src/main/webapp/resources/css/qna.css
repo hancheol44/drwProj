@@ -27,3 +27,12 @@ textarea {
   background-color : #2E2E2E; 
   color: white;
 }
+
+th{
+  background-color : #2E2E2E; 
+  color: white;
+	
+}
+ tr:nth-child(odd){background-color: #B6DDD2;}
+
+ tr:hover {background-color: #ecbf88;} 
