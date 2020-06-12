@@ -20,7 +20,7 @@ public class Qna {
 
 	@Autowired
 	QnaDAO qDAO;
-	
+	  
 	// qna리스트 뷰 요청 처리
 	@RequestMapping("/qnaList.pro")
 	public ModelAndView qnalist(ModelAndView mv) {

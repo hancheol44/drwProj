@@ -8,7 +8,7 @@ $(document).ready(function(){
 	// qnaList -> qnaDetail 버튼 기능처리
 	
 	
-	
+	  
 	
 	
 	

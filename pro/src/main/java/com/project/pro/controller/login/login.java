@@ -22,7 +22,7 @@ public class login {
 	  @Autowired LoginDAO lDAO;
 	  
 	
-	 
+	   
 	//로그인 뷰 처리
 	@RequestMapping("/loginList.pro")
 	public ModelAndView loginList(HttpSession session, ModelAndView mv) {

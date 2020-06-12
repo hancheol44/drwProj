@@ -16,7 +16,7 @@
 </style>
 <script type="text/javascript">
 
-</script>
+</script>  
 </head>
 <jsp:include page="/head.pro" flush="true" />
 <body>
