@@ -21,7 +21,6 @@ $(function(){
 	$('.salesList').click(function(){
 		var no = $(this).attr('id');
 		$('#pno').val(no);
-		var id = $(this).attr('value');
 		$('#frm').attr('action', '/pro/sales/sales_inside.pro');
 		$('#frm').submit();
 	});

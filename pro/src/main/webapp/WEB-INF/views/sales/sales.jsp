@@ -28,6 +28,9 @@
 		<input type="hidden" name="pno" id="pno">
 		<input type="hidden" name="id" id="id">
 	</form>
+	<form method="post" action="/pro/sales/sales_bcnt.pro" id="frm1">
+		<input type="hidden" name="bpno" id="bpno">
+	</form>
 	
   <div class="centercolumn w3-center">
     <div class="card">

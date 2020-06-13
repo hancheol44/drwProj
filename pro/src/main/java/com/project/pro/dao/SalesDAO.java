@@ -38,4 +38,8 @@ public class SalesDAO {
 		sqlSession.update("sSQL.saEdit", sVO);
 		return sVO;
 	}
+	// sales bcnt
+	public void saBcnt(int bpno) {
+		sqlSession.update("sSQL.saBcnt", bpno);
+	}
 }

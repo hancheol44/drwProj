@@ -59,6 +59,7 @@ public class Sales {
 	public ModelAndView saDetail(ModelAndView mv, SalesVO sVO, int pno, String memid) {
 		String view = "sales/sales_inside";
 		SalesVO vo = sDAO.saDetail(sVO);
+		sDAO.saBcnt(pno);
 		mv.addObject("DATA", vo);
 		mv.addObject("PNO", pno);
 		mv.addObject("ID", memid);
@@ -83,6 +84,7 @@ public class Sales {
 		mv.addObject("DATA", vo);
 		return mv;
 	}
+	// sales edit redirectview
 	@RequestMapping(value="/sales_modifyProc.pro", method=RequestMethod.POST, params= {"pno", "ptt", "pbd", "cate"})
 	public ModelAndView saEditProc(int pno, String ptt, String pbd, String cate, SalesVO sVO, ModelAndView mv) {
 		String view = "sales/sales_modify";
