@@ -33,7 +33,9 @@
     <div class="card">
       <h2>팝니당</h2>
       <div>
+      <c:if test="${not empty SID}">
 		<button id="write">글쓰기</button>
+      </c:if>
 	  </div>
 			<table id="saList">
 			  <tr>

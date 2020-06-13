@@ -64,4 +64,31 @@ public class Sales {
 		mv.addObject("ID", memid);
 		return mv;
 	}
+	// sales delete
+	@RequestMapping(value="/sales_inside.pro", method=RequestMethod.POST, params= {"spno"})
+	public ModelAndView saDelete(int spno, ModelAndView mv, SalesVO sVO) {
+		String view = "sales/sales_inside.pro";
+		int cnt = sDAO.saDelete(spno);
+		if(cnt == 1) {
+			RedirectView rv = new RedirectView("/pro/sales/sales.pro");
+			mv.setView(rv);
+		}
+		return mv;
+	}
+	// sales edit page
+	@RequestMapping(value="/sales_modify.pro", method=RequestMethod.POST, params= {"pno", "ptt", "pbd", "cate"})
+	public ModelAndView saEdit(int pno, String ptt, String pbd, String cate, SalesVO sVO, ModelAndView mv) {
+		String view = "sales/sales_modify";
+		SalesVO vo = sDAO.saEdit(sVO);
+		mv.addObject("DATA", vo);
+		return mv;
+	}
+	@RequestMapping(value="/sales_modifyProc.pro", method=RequestMethod.POST, params= {"pno", "ptt", "pbd", "cate"})
+	public ModelAndView saEditProc(int pno, String ptt, String pbd, String cate, SalesVO sVO, ModelAndView mv) {
+		String view = "sales/sales_modify";
+		SalesVO vo = sDAO.saEdit(sVO);
+		RedirectView rv = new RedirectView("/pro/sales/sales_inside.pro?pno="+sVO.getPno());
+		mv.setView(rv);
+		return mv;
+	}
 }

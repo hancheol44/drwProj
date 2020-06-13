@@ -28,4 +28,14 @@ public class SalesDAO {
 		sqlSession.insert("sSQL.saWrite", sVO);
 		return sVO;
 	}
+	
+	// sales delete
+	public int saDelete(int spno) {
+		return sqlSession.update("sSQL.saDelete", spno);
+	}
+	// sales edit
+	public SalesVO saEdit(SalesVO sVO) {
+		sqlSession.update("sSQL.saEdit", sVO);
+		return sVO;
+	}
 }

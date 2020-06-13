@@ -25,17 +25,22 @@
 <div class="centercolumn" >
   
   <!-- 가운데 영역 (주내용 담길 곳) -->
-   	<form method="post" action="" id="frm1">
-		<input type="hidden" name="pno" id="pno" value="${PNO}">
-		<input type="hidden" name="ptt"  value="${DATA.ptt}">
-		<input type="hidden" name="pbd"  value="${DATA.pbd}">
-   	 </form>
-	 <form method="post" action="" id="frm2">
-		<input type="hidden" name="pno" id="pno" value="${PNO}">
-		<input type="hidden" name="ptt"  value="${DATA.ptt}">
-		<input type="hidden" name="pbd"  value="${DATA.pbd}">
-		<input type="hidden" name="cate"  value="${DATA.cate}">
+	 <!-- delete form -->
+	 <form method="post" action="" id="frm3">
+	 	<input type="hidden" name="spno" id="spno">
 	 </form>
+	 <!-- modify form -->
+	 <form method="post" action="/pro/sales/sales_modify.pro" id="frm4">
+	 	<input type="hidden" name="pno" id="pno">
+	 	<input type="hidden" name="ptt" id="ptt">
+	 	<input type="hidden" name="pbd" id="pbd">
+	 	<input type="hidden" name="cate" id="cate">
+	 </form>
+	 
+	 <input type="hidden" id="apno" value="${DATA.pno}">
+	 <input type="hidden" id="aptt" value="${DATA.ptt}">
+	 <input type="hidden" id="apbd" value="${DATA.pbd}">
+	 <input type="hidden" id="acate" value="${DATA.cate}">
 	 
 	<div id="detail">
 		<br>
@@ -57,7 +62,7 @@
 		 <br>
 		 <div id="map"></div>
 		 <span style="margin: 20px;">
-		 <img id="img" alt="" src="/Project/images/${IMG}">
+		 <%-- <img id="img" alt="" src="/Project/images/${IMG}"> --%>
 		</span>
 		<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=bfbcb2a9b1a94611a8804b0d71d6315c&libraries=services"></script>
 		<script>
@@ -111,8 +116,8 @@
 			 </div>
 	<div id="btn_detail">
 	<c:if test="${SID eq DATA.memid}">
-	<button id="delete" class="delete">삭제</button>
-	<button id="modi" class="modi">수정</button>				
+	<button id="delete" class="delete" value="${DATA.pno}" >삭제</button>
+	<button id="modi" class="modi" value="${DATA.pno}">수정</button>				
 	</c:if>
 		<button id="list" class="list">목록</button>
 		<button id="review" class="review">리뷰쓰기</button>

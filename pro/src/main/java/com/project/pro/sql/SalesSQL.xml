@@ -41,4 +41,22 @@
 			#{pbd}, #{cate}
 			)
 	</insert>
+	<update id="saDelete" parameterType="int">
+		UPDATE
+			promotion
+		SET
+			pshow = 'N'
+		WHERE
+			pno = #{pno}
+	</update>
+	<update id="saEdit" parameterType="sVO">
+		UPDATE
+			promotion
+		SET
+			ptt = #{ptt},
+			pbd = #{pbd},
+			cate = #{cate}
+		WHERE
+			pno = #{pno}
+	</update>
 </mapper>

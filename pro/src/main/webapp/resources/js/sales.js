@@ -1,22 +1,14 @@
 $(function(){
+	// 글쓰기 이동
 	$('#write').click(function(){
 		$(location).attr('href', '/pro/sales/sales_write.pro');
 	});
-	
-	$('.salesList').click(function(){
-		var no = $(this).attr('id');
-		$('#pno').val(no);
-		var id = $(this).attr('value');
-		$('#frm').attr('action', '/pro/sales/sales_inside.pro');
-		$('#frm').submit();
-	});
-	
+	// 글쓰기
 	$('#save').click(function(){
 		var sid = $('#sid_saWrite').attr('value');
 		var title = $('#ptt_saWrite').val();
 		var body = $('#pbd_write').val()
 		var cate = $('#cate_saWrite').val();
-		alert("sid : " + sid + " title : " + title + " body : " + body + " cate : " + cate);
 		$('#memid').val(sid);
 		var id = $('#memid').val(); 
 		$('#ptt').val(title);
@@ -25,9 +17,49 @@ $(function(){
 		$('#frm').attr('action', '/pro/sales/sales_write.pro');
 		$('#frm').submit();
 	});
-	
+	// 상세보기
+	$('.salesList').click(function(){
+		var no = $(this).attr('id');
+		$('#pno').val(no);
+		var id = $(this).attr('value');
+		$('#frm').attr('action', '/pro/sales/sales_inside.pro');
+		$('#frm').submit();
+	});
+	// 목록보기
 	$('#list').click(function(){
 		$(location).attr('href', '/pro/sales/sales.pro');
+	});
+	// 글 삭제
+	$('#delete').click(function(){
+		var pno = $(this).attr('value');
+		$('#spno').val(pno);
+		$('#frm3').attr('action', '/pro/sales/sales_inside.pro');
+		$('#frm3').submit();
+	});
+	// 수정페이지
+	$('#modi').click(function(){
+		var pno = $('#apno').attr('value');
+		var ptt = $('#aptt').attr('value');
+		var pbd = $('#apbd').attr('value');
+		var cate = $('#acate').attr('value');
+		$('#pno').val(pno);
+		$('#ptt').val(ptt);
+		$('#pbd').val(pbd);
+		$('#cate').val(cate);
+		$('#frm4').submit();
+	});
+	// 수정페이지 처리
+	$('#edsave').click(function(){
+		var pno = $('#pno').attr('value');
+		var ptt = $('#ptt_saWrite').val();
+		var pbd = $('#pbd_write').val();
+		var cate = $('#cate_saWrite').val();
+		$('#epno').val(pno);
+		$('#eptt').val(ptt);
+		$('#epbd').val(pbd);
+		$('#ecate').val(cate);
+		$('#frm').attr('action', '/pro/sales/sales_modifyProc.pro');
+		$('#frm').submit();
 	});
 });
 	
