@@ -1,44 +1,45 @@
 #header {
-		background-color : #2E2E2E;
-		cursor: default;
-		height: 7em;
-		left: 0;
-		line-height: 7em;
-		position: fixed;
-		text-align: right;
-		top: 0;
-		width: 100%;
-		z-index: 10001;
-		border-bottom: 5px dashed yellow;
+	background-color : #2E2E2E;
+	cursor: default;
+	height: 7em;
+	left: 0;
+	line-height: 7em;
+	position: fixed;
+	text-align: right;
+	top: 0;
+	width: 100%;
+	z-index: 10001;
+	border-bottom: 5px dashed yellow;
+}
+
+#header .inner {
+	max-width: 65em;
+	width: calc(100% - 6em);
+	margin: 0 auto;
+	position: relative;
+}
+
+@media screen and (max-width: 480px) {
+
+	#header .inner {
+		max-width: 90%;
+		width: 90%;
 	}
 
-		#header .inner {
-			max-width: 65em;
-			width: calc(100% - 6em);
-			margin: 0 auto;
-			position: relative;
-		}
+}
 
-			@media screen and (max-width: 480px) {
-
-				#header .inner {
-					max-width: 90%;
-					width: 90%;
-				}
-
-			}
-
-		#header .logo {
-			display: inline-block;
-			height: inherit;
-			left: 0;
-			line-height: inherit;
-			margin: 0;
-			position: absolute;
-			top: 0;
-			height: 7em;
-			width: auto;
-		}
+	#header .logo {
+		display: inline-block;
+		height: inherit;
+		left: 0;
+		line-height: inherit;
+		margin: 0;
+		position: absolute;
+		top: 0;
+		height: 7em;
+		width: auto;
+	}
+	
 	.flower{
 	visibility: hidden ;
 	}
@@ -67,6 +68,11 @@
 		
 			#header a:hover {
 				color: rgba(255, 255, 255, 0.75);
+			}
+			
+			/*
+			#header a:last-child {
+				padding-right: 0em;
 			}
 			
 			/*
@@ -235,17 +241,16 @@
 
 
 table {
-width: 80%;
+	width: 80%;
 	border-collapse: collapse;
 	border: 2px solid white;
-
 	margin-left: auto;
 	margin-right: auto;
 	text-align: center;
-  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
 }
 
-td,  th {
+td, th {
   border: 1px solid #ddd;
   padding: 8px;
 }
@@ -257,13 +262,14 @@ th {
   text-align: center;
  
 }
-/* th{
+/* 
+th {
   background-color : #2E2E2E; 
   color: white;
-	
 }
- tr:nth-child(odd){background-color: #B6DDD2;}
+ 
+tr:nth-child(odd){background-color: #B6DDD2;}
 
- tr:hover {background-color: red;} 
- */
+tr:hover {background-color: red;} 
+*/
  

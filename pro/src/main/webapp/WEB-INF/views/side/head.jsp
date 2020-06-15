@@ -8,17 +8,25 @@
 <link rel="stylesheet" href="/pro/css/qna.css" />
 <script type="text/javascript" src="/pro/js/jquery-3.5.0.min.js"></script>
 <script type="text/javascript">
-	$(document).ready(function(){
-		$(".logo").hover(function(){
-			$('#header').css('border-bottom','7px solid yellow');
-		}, function() {
-			$('#header').css('border-bottom','5px dashed yellow');
-		});
-		
-		$('#hbtn').click(function(){
-			location.href='/pro/main.pro';
-		});
+$(document).ready(function(){
+	$(".logo").hover(function(){
+		$('#header').css('border-bottom','7px solid yellow');
+		$('.flower').css('animation','flo.10s infinite alternate');
+		$('.flower').css('visibility','visible');
+		$('.logo').css('animation','log.5s infinite alternate');
+		$('.logo').css('visibility','visible');
+		$
+	}, function() {
+		$('#header').css('border-bottom','5px dashed yellow');
+		$('.flower').css('animation','none');
+		$('.flower').css('visibility','hidden');
+		$('.logo').css('animation','none');
 	});
+	
+	$('#hbtn').click(function(){
+		location.href='/pro/main.pro';
+	});
+});
 </script>
 <head>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
@@ -28,7 +36,12 @@
 
 	<header id="header">
 				<div class="inner">
+				<div style="width: 10em">
+				<input class="flower" id="f1" style="margin-left: -9em; height:7em; width:auto;  position: absolute;" type="image" src="/pro/img/flower.png">
+				<input class="flower" id="f2"style="margin-left: -15em; height:7em; width:auto;  position: absolute;" type="image" src="/pro/img/flower.png">
+				<input class="flower" id="f3"style="height:7em; width:auto;  position: absolute;" type="image" src="/pro/img/flower.png">
 				<input class="logo" id="hbtn" type="image" src="/pro/img/main.png">
+				</div>
 					<!-- 
 					<nav id="nav">
 						<a href="">팝니당</a>

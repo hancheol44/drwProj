@@ -10,7 +10,6 @@
 	처리함수	:	Qna.qnalist();
 	뷰			:	/WEB-INF/views/qna/qnaList.jsp
 
-
 # Q&A 글쓰기 페이지 보기 요청
 
 	요청내용	:	/pro/qna/qnaWrite.pro
@@ -19,4 +18,12 @@
 	처리함수	:	Qna.qnalist();
 	뷰			:	/WEB-INF/views/qna/qnaWrite.jsp
 	
+# Q&A Detail 페이지 보기 요청
+	
+	요청내용	:	/pro/qna/qnaDetail.pro
+	파라미터	:	
+	컨트롤러	:	com.project.pro.controller.qna.Qna
+	처리함수	:	Qna.qnaDetail();
+	뷰		    :	/WEB-INF/views/qna/qnaDetail.jsp
+		
 =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-

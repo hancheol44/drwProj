@@ -40,7 +40,7 @@
 							<tr>
 								<td id="title">제 목</td>
 								<td>
-									<textarea name="qtt" cols="80" rows="1" maxlength="100" id="qtt4" readonly>${DETAIL.qtt}</textarea>
+									<input id="qtt" type="text" value="${DETAIL.qtt}"/>
 								</td>
 							</tr>
 							<tr>
