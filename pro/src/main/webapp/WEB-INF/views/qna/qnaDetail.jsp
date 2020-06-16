@@ -31,16 +31,16 @@
 		<table class="qnadetail">
 							<tr>
 								<td id="title">작성일</td>
-								<td style="text-align: left;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${DETAIL.qDate}</td>
+								<td style="text-align: left;">&nbsp;${DETAIL.qDate}</td>
 							</tr>
 							<tr>
 								<td id="title">작성자</td>
-								<td style="text-align: left;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${DETAIL.name}</td>
+								<td style="text-align: left;">&nbsp;${DETAIL.name}</td>
 							</tr>
 							<tr>
 								<td id="title">제 목</td>
 								<td>
-									<input id="qtt" type="text" value="${DETAIL.qtt}"/>
+									<input id="qttin" type="text" value="${DETAIL.qtt}" readonly/>
 								</td>
 							</tr>
 							<tr>
@@ -54,11 +54,11 @@
 						<c:if test="${SID eq 'sej0267@naver.com'}">
 							<td colspan="5">
 								<c:if test="${SID eq DETAIL.memid}">
-									<input type="submit" value="삭제" id="modibtn"> 
+									<input type="submit" value="삭제" id="delbtn"> 
 									<input type="reset" value="취소" id="wcbtn">
 								</c:if>
 								<c:if test="${SID ne DETAIL.memid}">
-									<input type="submit" value="답변등록" id="modibtn"> 
+									<input type="submit" value="답변등록" id="ansbtn"> 
 									<input type="submit" value="글삭제" id="delbtn"> 
 									<input type="reset" value="취소" id="wcbtn">
 								</c:if>

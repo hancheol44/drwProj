@@ -32,4 +32,9 @@ public class QnaDAO {
 	public QnaVO getDetail(int qno) {
 		return sqlSession.selectOne("qSQL.qnaDetail", qno);
 	}
+	
+	public int delData(int qno) {
+		System.out.println(qno);
+		return sqlSession.update("qSQL.qnaDel", qno);
+	}
 }

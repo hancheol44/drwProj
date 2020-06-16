@@ -16,6 +16,7 @@ $(document).ready(function(){
 	  
 	// qna 글삭제 기능 처리
 	$('#delbtn').click(function(){
+	 
 	  $('#delfrm').attr('action','/pro/qna/qnaDelProc.pro');
 	  $('#delfrm').submit()
 	});
@@ -36,7 +37,7 @@ $(document).ready(function(){
 	
 	// qnaWrite 글쓰기 버튼 기능처리
 	$('#sbbtn').click(function(){
-		var tt = $('#qtt1').val();
+		var tt = $('#qttin').val();
 		var ip = $('#qip1').val();
 		
 		$('#qtt').val(tt);

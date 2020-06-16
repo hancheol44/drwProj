@@ -72,6 +72,16 @@ public class Qna {
 		return mv;
 	}
 	
+	// qna 글삭제 처리
+	@RequestMapping(value="/qnaDelProc.pro", method=RequestMethod.POST, params="qno")
+	public ModelAndView qnaDelProc(ModelAndView mv, int qno) {
+		RedirectView rv = new RedirectView("/pro/qna/qnaList.pro");
+		System.out.println(qno);
+		int cnt = qDAO.delData(qno);
+
+		mv.setView(rv);
+		return mv;
+	}
 	
 	
 }

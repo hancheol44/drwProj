@@ -32,7 +32,6 @@ textarea {
 th{
   background-color : #2E2E2E; 
   color: white;
-	
 }
 #customers tr:nth-child(odd){background-color: #c0c0c0;}
 
@@ -68,23 +67,23 @@ table.qnadetail th{
   color: white;	
 }
 */
-
-table.qnadetail {
+/* qnaDetail 테이블 양식*/
+table.qnadetail, table.qnaWrite {
 	border-spacing: 0px;
 	width: 100%;
 	border: 1px solid orange;
 	align: center;
 }
-table.qnadetail td {
-	width: 2em;
+table.qnadetail td, table.qnaWrite td {
+	width: 0em;
 	border: 1px solid orange;
 } 
-table.qnadetail th {
+table.qnadetail th, table.qnaWrite th {
 	width: 100%;
 	border: 1px solid orange;
 }
 
-#qtt {
+#qttin {
 	width: 100%;
  	border: 1px solid white;
 }

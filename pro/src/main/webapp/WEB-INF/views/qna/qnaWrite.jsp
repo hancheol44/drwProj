@@ -33,16 +33,16 @@
   <div class="centercolumn w3-center">
     <div class="card">
       <h2>물어봥</h2>
-		<table width="700" border="5" bordercolor="lightgray" align="center">
+		<table class="qnaWrite">
 					<c:if test="${empty qno}">
 						<tr>
 							<td id="title">작성자</td>
-							<td style="text-align: left;">&nbsp;&nbsp;&nbsp;&nbsp;${NAME}</td>
+							<td style="text-align: left;">${NAME}</td>
 						</tr>
 						<tr>
 							<td id="title">제 목</td>
 							<td>
-								<textarea name="qtt" cols="72" rows="1" maxlength="100" id="qtt1"></textarea>
+								<input id="qttin" type="text" />
 							</td>
 						</tr>
 						<tr>
@@ -53,26 +53,7 @@
 						</tr>
 					</c:if>
 					<c:if test="${not empty qno}">
-							<tr>
-								<td id="title">작성일</td>
-								<td>${DETAIL.qDate}</td>
-							</tr>
-							<tr>
-								<td id="title">작성자</td>
-								<td>${DETAIL.name}</td>
-							</tr>
-							<tr>
-								<td id="title">제 목</td>
-								<td>
-									<textarea name="qtt" cols="72" rows="12" maxlength="100" id="qtt4" value="${DETAIL.qtt}"></textarea>
-								</td>
-							</tr>
-							<tr>
-								<td id="title">내 용</td>
-								<td>
-									<textarea name="qip" cols="72" rows="16" id="qip4">${DETAIL.qip}</textarea>
-								</td>
-							</tr>
+						
 					</c:if>
 						<tr align="center" valign="middle">
 						<!-- 글 수정 작업시 아래 -->

@@ -14,6 +14,7 @@
 			qna q, member m
 		WHERE
 			q.memno = m.memno
+			AND qshow = 'Y'
 			AND qorno IS NULL
 		ORDER BY
 			qno DESC
@@ -51,8 +52,12 @@
 	</insert>
 	
 	<update id="qnaDel">
-		
+		UPDATE
+			qna
+		SET
+			qshow = 'N'
+		WHERE 
+			qno = #{qno}
 	</update>
-	
-	
+
 </mapper>
