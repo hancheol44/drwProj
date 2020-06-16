@@ -19,27 +19,12 @@
 <link rel="stylesheet" href="/pro/css/common.css">
 <link rel="stylesheet" href="/pro/css/w3.css" />
 <script type="text/javascript" src="/pro/js/jquery-3.5.0.min.js"></script>
-<style type="text/css">
-
-</style>
-</head>
+<script type="text/javascript" src="/pro/js/board.js"></script>
 <script type="text/javascript">
-	$(document).ready(function() {
-		$('.pgbt').click(function() {
-			var str = $(this).html();
-			alert(str);
-			if (str == 'PRE') {
-				$('#nowPage').val('${PAGE.startPage - 1}');
-			} else if (str == 'NEXT') {
-				$('#nowPage').val('${PAGE.endPage +1}');
-			} else {
-				return;
-			}
-			$('#frm').attr('action', '/Project/board/board.cls');
-			$('#frm').submit();
-		});
-	});
+
 </script>
+
+</head>
 
 <jsp:include page="/head.pro" flush="true" />
 <body >
@@ -138,7 +123,7 @@
 					</form>
 					<c:if test="${sessionScope.sessionID!=null}">
 					</c:if>
-					<input type="button" value="글쓰기" onclick="writeForm()">
+					<button id="write">글쓰기</button>
 				</div>
 			</div>
 		</div>

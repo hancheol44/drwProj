@@ -5,13 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="/pro/css/side.css">
 <link rel="stylesheet" href="/pro/css/w3.css" />
-<link rel="stylesheet" href="/pro/css/qna.css" />
 <script type="text/javascript" src="/pro/js/jquery-3.5.0.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
 	$(".logo").hover(function(){
 		$('#header').css('border-bottom','7px solid yellow');
-		$('.flower').css('animation','flo.10s infinite alternate');
+		$('.flower').css('animation','flo.20s infinite ');
 		$('.flower').css('visibility','visible');
 		$('.logo').css('animation','log.5s infinite alternate');
 		$('.logo').css('visibility','visible');

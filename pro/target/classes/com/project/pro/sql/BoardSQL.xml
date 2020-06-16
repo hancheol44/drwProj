@@ -28,4 +28,14 @@
 		<!-- 	WHERE 
 				rno BETWEEN ? AND ? -->
 	</select>
+	<select id="boardDetail" resultType="bVO">
+			 SELECT 
+			    today, name, bdtt, bdbd, vcnt, m.memid 
+			FROM 
+			    board b, member m 
+			where 
+			    b.memno = m.memno AND 
+			    bdno = #
+			break;
+	</select>
 </mapper>

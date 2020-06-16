@@ -42,13 +42,14 @@
 	
 	.flower{
 	visibility: hidden ;
+	margin-left: 20%;
 	}
 		/* #header .logo:hover {
 			position:absolute;} */
-			@keyframes log{from{left:-3px;top:0px} to{left:3px;top:1px}}
+			@keyframes log{from{left:-3px;top:1px} to{left:3px;top:2px}}
 	/* 	#header .flower:hover {
 			position:absolute;} */
-			@keyframes flo{from{top:-1px} to{top:1px}}
+			@keyframes flo{from{left:-3px} to{left:3px}}
 			
 
 		#header a {

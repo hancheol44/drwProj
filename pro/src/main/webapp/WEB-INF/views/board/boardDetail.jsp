@@ -15,7 +15,7 @@
 <link rel="stylesheet" href="/pro/css/head.css">
 <link rel="stylesheet" href="/pro/css/w3.css" />
 <link rel="stylesheet" href="/pro/css/board.css" />
-<script type="text/javascript" src="/cls/js/jquery-3.5.0.min.js"></script>
+<script type="text/javascript" src="/pro/js/jquery-3.5.0.min.js"></script>
 <script type="text/javascript">
 	/* 	window.addEventListener("keydown", function(event) {
 	 if (event.defaultPrevented) {
