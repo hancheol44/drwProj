@@ -56,9 +56,9 @@ $(document).ready(function(){
 					  <li class="dropdown">
 					    <a href="javascript:void(0)" class="dropbtn">오세용</a>
 					    <div class="dropdown-content">
-					      <a href="#"><h6>자동차 극장</h6></a>
-					      <a style="margin-left: -40px;" href="#"><h6>자동차 캠핑</h6></a>
-					      <a style="margin-left: -40px;" href="#"><h6>승차 검진소</h6></a>
+					      <a href="/pro/info/infoCT.pro"><h6>자동차 극장</h6></a>
+					      <a style="margin-left: -40px;" href="/pro/info/infoAC.pro"><h6>자동차 캠핑</h6></a>
+					      <a style="margin-left: -40px;" href="/pro/info/infoDT.pro"><h6>승차 검진소</h6></a>
 					    </div>
 					  </li>
 					  <li><a href="/pro/qna/qnaList.pro">물어봥</a></li>

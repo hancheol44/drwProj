@@ -16,6 +16,7 @@
 	 	<typeAlias alias="sVO" type="com.project.pro.vo.SalesVO" />
 	 	<typeAlias alias="bVO" type="com.project.pro.vo.BoardVO" />
 	 	<typeAlias alias="lVO" type="com.project.pro.vo.LoginVO" />
+	 	<typeAlias alias="iVO" type="com.project.pro.vo.InfoVO" />
 	 </typeAliases>
 	 
 
@@ -24,5 +25,6 @@
 	 	<mapper resource="com/project/pro/sql/SalesSQL.xml" />
 	 	<mapper resource="com/project/pro/sql/BoardSQL.xml" />
 	 	<mapper resource="com/project/pro/sql/LoginSQL.xml" />
+	 	<mapper resource="com/project/pro/sql/InfoSQL.xml" />
 	 </mappers>
 </configuration>

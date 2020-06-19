@@ -2,15 +2,6 @@
   box-sizing: border-box;
 }
 
-body {
-  font-family: Arial;
-  padding: 10px;
-  background: #f1f1f1;
-}
-
-textarea {
-	resize: none;
-}
 /* Header/Blog Title */
 .header1 {
   padding: 30px;
