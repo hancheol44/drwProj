@@ -198,10 +198,12 @@ hr {
 #reviewArea{
 	 width: 100%;
 	 height: 100px;
+	 resize: none;
 }
 #reviewTitle{
 	 width: 100%;
 	 height: 30px;
+	 resize: none;
 }
 #rst{
 	margin-bottom: 15px;

@@ -99,7 +99,7 @@
 				WHERE
 					m.memno = e.memno
 				ORDER BY
-			 		today desc
+			 		today
 			 	) ee
 	</select>
 

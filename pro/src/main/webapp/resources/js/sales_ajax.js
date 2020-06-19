@@ -1,4 +1,6 @@
-	$('#reviewOK').click(function reOK() {
+$(document).ready(function(){
+	reList();
+$('#reviewOK').click(function reOK() {
 		var pno = $('#apno').attr('value');
 		var rtt = $('#reviewTitle').val();
 		var rbd = $('#reviewArea').val();
@@ -16,22 +18,18 @@
 				'rst' : rst
 			},
 			success: function(obj){
-					// apend 처리 동적변수처럼 해서
-//						$('#reviewTitle').val('');
-//						$('#reviewArea').val('');
-						location.replace('/pro/sales/sales_inside.pro?pno='+pno);
+						$('#reviewTitle').val('');
+						$('#reviewArea').val('');
+						reList();
+//						location.replace('/pro/sales/sales_inside.pro?pno='+pno);
 			},
 			error: function(){
 				alert("### 리뷰 달기 통신에러 ###");
 			}
-//			,
-//			complete: function(){
-//				location.replace('/pro/sales/sales_inside.pro?pno='+pno);
-//			}
 		});
 	});
 	
-	$(function reList(){
+function reList(){
 		var pno = $('#apno').attr('value');
 		$.ajax({
 			url: '/pro/sales/reviewList.pro',
@@ -43,7 +41,7 @@
 			success: function(obj){
 				var len = obj.length;
 				for(var i = 0; i < len; i++){
-					$('#reviewList').append('<div>'+
+					$('#reviewList').prepend('<div>'+
 							'<div id="rlist" class="line">'+
 							'<div>'+
 							'<span><b>평점 : <span id="rrst">'+ obj[i].rst + '</span></b></span><br>'+
@@ -53,12 +51,12 @@
 							'<div>'+
 							'<span id="rrbd">'+ obj[i].rbd + '</span>'+
 							'</div>'+
-					'</div>')	
-					
+					'</div>')					
 				}
 			},
 			error: function(){
 				alert("### 리스트 뽑기 통신에러 ###");
 			}
 		});
-	});
+	};
+});	
