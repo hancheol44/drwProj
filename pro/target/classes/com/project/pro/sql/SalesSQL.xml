@@ -22,9 +22,10 @@
 	<select id="saDetail" resultType="sVO" >
 		SELECT
 			p.pno, ptt, pbd, bceo, b.bno, TO_CHAR(p.today, 'yyyy-mm-dd hh24:mi:ss') today, bcnt, bloc, cate, m.memid, b.bname,
-			NVL(imgno, 0) imgno, NVL(oriname, 'none') oriname, NVL(savename, 'none') savename
+			NVL(imgno, 0) imgno, NVL(oriname, 'none') oriname, NVL(savename, 'none') savename, r.rcnt
 		FROM
-			promotion p, image i, boss b, member m
+			promotion p, image i, boss b, member m,
+            (SELECT COUNT(*) rcnt FROM (SELECT * FROM review) WHERE pno = #{pno}) r
 		WHERE
 			p.pno = i.pno(+)
 			AND b.bno = p.bno
@@ -67,4 +68,39 @@
 		WHERE
 			pno = #{pno}
 	</update>
+	<insert id="reWrite" parameterType="sVO">
+			INSERT INTO
+			    review(rno, pno, rtt, rbd, memno, rst)
+			VALUES(
+			    (SELECT NVL(MAX(rno)+1, 100000) FROM review),
+			    #{pno}, #{rtt}, #{rbd},
+			    (SELECT memno FROM member WHERE memid = #{memid}),
+			    #{rst}
+			)
+	</insert>
+	<select id="reList" parameterType="int" resultType="sVO">
+		SELECT
+			ee.rrno, rno,name, memid, ptt, rtt, rbd, memno, rst, today
+			FROM
+				(SELECT
+					rownum rrno, rno,name, m.memid, ptt, rtt, rbd, m.memno, e.today, rst 
+				FROM
+					(SELECT
+						p.pno, ptt, bno, pbd, TO_CHAR(r.today, 'yyyy-mm-dd hh24:mi:ss') today, bcnt, pshow, cate, rno, rtt, rbd, memno, rst, rshow
+					FROM 
+						PROMOTION p, REVIEW r
+					WHERE
+						rshow = 'Y'
+						AND 
+						p.pno = r.pno 
+						AND
+						p.pno = #{pno}
+						) e, member m
+				WHERE
+					m.memno = e.memno
+				ORDER BY
+			 		today desc
+			 	) ee
+	</select>
+
 </mapper>

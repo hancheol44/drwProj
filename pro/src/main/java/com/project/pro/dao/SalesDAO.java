@@ -1,13 +1,14 @@
 package com.project.pro.dao;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import com.project.pro.vo.SalesVO;
 
+@Repository
 public class SalesDAO {
 	
 	@Autowired
@@ -17,18 +18,19 @@ public class SalesDAO {
 	public List getSaList() {
 		return sqlSession.selectList("sSQL.saList");
 	}
-	
 	// sales detail
 	public SalesVO saDetail(SalesVO sVO) {
 		return sqlSession.selectOne("sSQL.saDetail", sVO);
 	}
-	
+	// sales bcnt
+		public void saBcnt(int bpno) {
+			sqlSession.update("sSQL.saBcnt", bpno);
+		}
 	// sales write
 	public SalesVO saWrite(SalesVO sVO) {
 		sqlSession.insert("sSQL.saWrite", sVO);
 		return sVO;
 	}
-	
 	// sales delete
 	public int saDelete(int spno) {
 		return sqlSession.update("sSQL.saDelete", spno);
@@ -38,8 +40,13 @@ public class SalesDAO {
 		sqlSession.update("sSQL.saEdit", sVO);
 		return sVO;
 	}
-	// sales bcnt
-	public void saBcnt(int bpno) {
-		sqlSession.update("sSQL.saBcnt", bpno);
+	// review add
+	public SalesVO reWrite(SalesVO sVO) {
+		sqlSession.insert("sSQL.reWrite", sVO);
+		return sVO;
+	}
+	// review list
+	public List reList(int pno) {
+		return sqlSession.selectList("sSQL.reList", pno);
 	}
 }

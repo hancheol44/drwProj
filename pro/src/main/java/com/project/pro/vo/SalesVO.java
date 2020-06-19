@@ -5,12 +5,63 @@ import java.sql.Time;
 import java.text.SimpleDateFormat;
 
 public class SalesVO {
-	private int pno, bcnt, rno, imgno;
-	private String ptt, bno, pbd, today, cate, bceo, memid, bname, bloc, oriname, savename;
+	private int pno, bcnt, rno, imgno, memno, rst, rpno, rcnt;
+	private String ptt, bno, pbd, name, today, cate, bceo, memid, bname, bloc, oriname, savename, rtt, rbd;
 	private Date pDate;
 	private Time pTime;
 	
 	
+	
+	@Override
+	public String toString() {
+		return "SalesVO [pno=" + pno + ", bcnt=" + bcnt + ", rno=" + rno + ", imgno=" + imgno + ", memno=" + memno
+				+ ", rst=" + rst + ", rpno=" + rpno + ", rcnt=" + rcnt + ", ptt=" + ptt + ", bno=" + bno + ", pbd="
+				+ pbd + ", name=" + name + ", today=" + today + ", cate=" + cate + ", bceo=" + bceo + ", memid=" + memid
+				+ ", bname=" + bname + ", bloc=" + bloc + ", oriname=" + oriname + ", savename=" + savename + ", rtt="
+				+ rtt + ", rbd=" + rbd + ", pDate=" + pDate + ", pTime=" + pTime + "]";
+	}
+	public int getRcnt() {
+		return rcnt;
+	}
+	public void setRcnt(int rcnt) {
+		this.rcnt = rcnt;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public int getRpno() {
+		return rpno;
+	}
+	public void setRpno(int rpno) {
+		this.rpno = rpno;
+	}
+	public int getMemno() {
+		return memno;
+	}
+	public void setMemno(int memno) {
+		this.memno = memno;
+	}
+	public int getRst() {
+		return rst;
+	}
+	public void setRst(int rst) {
+		this.rst = rst;
+	}
+	public String getRtt() {
+		return rtt;
+	}
+	public void setRtt(String rtt) {
+		this.rtt = rtt;
+	}
+	public String getRbd() {
+		return rbd;
+	}
+	public void setRbd(String rbd) {
+		this.rbd = rbd;
+	}
 	public int getImgno() {
 		return imgno;
 	}

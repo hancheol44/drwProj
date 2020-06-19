@@ -60,5 +60,28 @@ $(function(){
 		$('#frm').attr('action', '/pro/sales/sales_modifyProc.pro');
 		$('#frm').submit();
 	});
-});
 	
+	// 리뷰펼치기
+	$('#review').click(function(){
+		$('#reviewWrite').css('display','block');
+		$('#reviewList').css('margin-top','2em');
+		$('#reviewTitle').focus();
+	});
+		
+	// 리뷰등록
+/*	$('#reviewOK').click(function(){
+		var pno = $('#apno').attr('value');
+		var rtt = $('#reviewTitle').val();
+		var rbd = $('#reviewArea').val();
+		var memid = $('#asid').attr('value');
+		var rst = $('#rstSelect').val();
+		$('#rpno').val(pno);
+		$('#rtt').val(rtt);
+		$('#rbd').val(rbd);
+		$('#memid').val(memid);
+		$('#rst').val(rst);
+		$('#frm').attr('action', '/pro/sales/sales_review.pro');
+		$('#frm').submit();
+	});*/
+	
+});

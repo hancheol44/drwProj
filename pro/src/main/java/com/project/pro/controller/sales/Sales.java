@@ -1,16 +1,20 @@
-package com.project.pro.controller.qna;
+package com.project.pro.controller.sales;
 
 import java.util.ArrayList;
 
+import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
+import com.project.pro.controller.service.SalesService;
 import com.project.pro.dao.SalesDAO;
 import com.project.pro.vo.SalesVO;
 
@@ -19,14 +23,35 @@ import com.project.pro.vo.SalesVO;
 public class Sales {
 	@Autowired
 	SalesDAO sDAO;
+	@Inject
+	private SalesService service;
 	
 	// sales list page
 	@RequestMapping("/sales.pro")
-	public ModelAndView getList(ModelAndView mv) {
+	public ModelAndView getList(ModelAndView mv) throws Exception {
 		String view = "sales/sales";
-		ArrayList<SalesVO> list = (ArrayList<SalesVO>)sDAO.getSaList();
+		ArrayList<SalesVO> list = (ArrayList<SalesVO>)service.getSaList();
 		mv.addObject("LIST", list);
 		mv.setViewName(view);
+		return mv;
+	}
+//	
+//	@RequestMapping("/sales.pro")
+//	public ModelAndView getList(ModelAndView mv) {
+//			String view = "sales/sales";
+//				ArrayList<SalesVO> list = (ArrayList<SalesVO>) sDAO.getSaList();
+//		return mv;
+//	}
+	
+	// sales detail page
+	@RequestMapping(value="/sales_inside.pro", method=RequestMethod.GET, params={"pno"})
+	public ModelAndView saDetail(ModelAndView mv, SalesVO sVO, int pno, String memid)  throws Exception {
+		String view = "sales/sales_inside";
+		service.saBcnt(pno);
+		SalesVO vo = service.saDetail(sVO);
+		mv.addObject("DATA", vo);
+		mv.addObject("PNO", pno);
+		mv.addObject("ID", memid);
 		return mv;
 	}
 	
@@ -52,17 +77,6 @@ public class Sales {
 			mv.setView(rv);
 			return mv;
 		}
-		return mv;
-	}
-	// sales detail page
-	@RequestMapping(value="/sales_inside.pro", method=RequestMethod.GET, params={"pno"})
-	public ModelAndView saDetail(ModelAndView mv, SalesVO sVO, int pno, String memid) {
-		String view = "sales/sales_inside";
-		SalesVO vo = sDAO.saDetail(sVO);
-		sDAO.saBcnt(pno);
-		mv.addObject("DATA", vo);
-		mv.addObject("PNO", pno);
-		mv.addObject("ID", memid);
 		return mv;
 	}
 	// sales delete
@@ -92,5 +106,30 @@ public class Sales {
 		RedirectView rv = new RedirectView("/pro/sales/sales_inside.pro?pno="+sVO.getPno());
 		mv.setView(rv);
 		return mv;
+	}
+	// review add(ajax)
+	@RequestMapping(value="/sales_review.pro", method=RequestMethod.POST,params= {"pno", "rtt", "rbd", "memid", "rst"})
+	@ResponseBody
+	public SalesVO reWrite(int pno, String rtt, String rbd, String memid, int rst, SalesVO sVO, HttpSession session, ModelAndView mv) {
+		String view = "sales/sales_inside";
+		SalesVO vo = sDAO.reWrite(sVO);
+		return vo;
+	}
+	// review List
+//	@RequestMapping(value="/sales_inside.pro", method=RequestMethod.POST, params= {"rpno"})
+//	public ModelAndView reList(int rpno, SalesVO sVO, ModelAndView mv) {
+//		String view = "sales/sales_inside";
+//		ArrayList<SalesVO> list = (ArrayList<SalesVO>)sDAO.reList(rpno);
+//		mv.addObject("LIST", list);
+//		mv.setViewName(view);
+//		return mv;
+//	}
+	// review List(ajax)
+	@RequestMapping("/reviewList.pro")
+	@ResponseBody
+	public ArrayList<SalesVO> reList(SalesVO sVO, int pno, HttpServletRequest req) {
+		ArrayList<SalesVO> list = (ArrayList<SalesVO>)sDAO.reList(pno);
+		req.setAttribute("LIST", list);
+		return list;
 	}
 }

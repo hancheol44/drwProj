@@ -14,9 +14,6 @@
 <style>
 
 </style>
-<script type="text/javascript">
-
-</script>
 </head>
 <jsp:include page="/head.pro" flush="true" />
 <body>
@@ -36,7 +33,16 @@
 	 	<input type="hidden" name="pbd" id="pbd">
 	 	<input type="hidden" name="cate" id="cate">
 	 </form>
+    <form method="post" action="" id="frm">
+    	<input type="hidden" name="rpno" id="rpno"> 
+    	<input type="hidden" name="rtt" id="rtt"> 
+    	<input type="hidden" name="rbd" id="rbd"> 
+    	<input type="hidden" name="memid" id="memid"> 
+    	<input type="hidden" name="rst" id="rst"> 
+   	</form>
+	
 	 
+	 <input type="hidden" id="asid" value="${SID}">
 	 <input type="hidden" id="apno" value="${DATA.pno}">
 	 <input type="hidden" id="aptt" value="${DATA.ptt}">
 	 <input type="hidden" id="apbd" value="${DATA.pbd}">
@@ -95,6 +101,7 @@
 		
 		        // 인포윈도우로 장소에 대한 설명을 표시합니다
 		        var infowindow = new kakao.maps.InfoWindow({
+
 		            content: '<div style="width:150px;text-align:center;padding:6px 0;">${DATA.bname}</div>'
 		        });
 		        infowindow.open(map, marker);
@@ -107,24 +114,61 @@
 		</script>
 			<br>
 	
-	</div>
+	
 	<hr class="border_orange">
 		 <div name="pbd" id="pbd">
 		 	<h5 id="pbd_h5"><b>매장 홍보글</b></h5>
 		 	<br>
 		 	<h3>${DATA.pbd}</h3>
 			 </div>
+    <hr id="line">
 	<div id="btn_detail">
 	<c:if test="${SID eq DATA.memid}">
 	<button id="delete" class="delete" value="${DATA.pno}" >삭제</button>
 	<button id="modi" class="modi" value="${DATA.pno}">수정</button>				
 	</c:if>
 		<button id="list" class="list">목록</button>
-		<button id="review" class="review">리뷰쓰기</button>
+		<button id="review" class="review">리뷰(${DATA.rcnt})</button>
 	</div>
-	<br>					
-		</div>
-			
+<div id="reviewWrite">
+    <br><br>
+        <div>
+            <div>
+                <span><h4><strong>리뷰</strong></h4></span>
+            </div>
+            <div>
+                <div>                    
+                    <div>
+                        <div id="rWrite">
+                        	 <div id="rst"><h6><b>평점</b></h6>
+								<select id="rstSelect" name="rst">
+									<option value="5">★★★★★
+									<option value="4">★★★★
+									<option value="3">★★★
+									<option value="2">★★
+									<option value="1">★
+								</select>
+								<br>
+								<h6><b>이미지첨부</b></h6>
+								<input type="file" id="file_saWrite"><br>
+							</div>
+	                            <textarea id="reviewTitle" placeholder="리뷰제목을 입력해주세요."></textarea>
+	                            <textarea id="reviewArea" placeholder="리뷰내용을 입력해주세요."></textarea>
+                            <br>
+                                <button id="reviewOK">등록</button>
+                               </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+	<div id="reviewList">
+     <!-- ajax 들어갈 위치 -->
+	</div>
+                            <hr>
+</div>		
+<div style="height: 30px;"> </div>
 
 <jsp:include page="/right.pro" flush="true" />
 <!-- footer -->
@@ -133,4 +177,5 @@
 </div>
 
 </body>
+<script type="text/javascript" src="/pro/js/sales_ajax.js"></script>
 </html>

@@ -31,6 +31,9 @@
 	<form method="post" action="/pro/sales/sales_bcnt.pro" id="frm1">
 		<input type="hidden" name="bpno" id="bpno">
 	</form>
+	<form method="post" action="/pro/sales/sales_review.pro" id="frm2">
+		<input type="hidden" name="rpno" id="rpno">
+	</form>
 	
   <div class="centercolumn w3-center">
     <div class="card">
