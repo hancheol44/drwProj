@@ -106,6 +106,13 @@ public class BoardVO {
 	public void setMemid(String memid) {
 		this.memid = memid;
 	}
+	@Override
+	public String toString() {
+		return "BoardVO [bdno=" + bdno + ", memno=" + memno + ", borino=" + borino + ", vcnt=" + vcnt + ", imgno="
+				+ imgno + ", rno=" + rno + ", bdct=" + bdct + ", bdtt=" + bdtt + ", bdbd=" + bdbd + ", bdshow=" + bdshow
+				+ ", sdate=" + sdate + ", name=" + name + ", memid=" + memid + ", bDate=" + bDate + ", bTime=" + bTime
+				+ "]";
+	}
 	
 	
 }

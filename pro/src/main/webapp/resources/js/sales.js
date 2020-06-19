@@ -20,6 +20,7 @@ $(function(){
 	// 상세보기
 	$('.salesList').click(function(){
 		var no = $(this).attr('id');
+		alert(typeof no);
 		$('#pno').val(no);
 		$('#frm').attr('action', '/pro/sales/sales_inside.pro');
 		$('#frm').submit();

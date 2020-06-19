@@ -35,8 +35,10 @@
 </head>
 <jsp:include page="/head.pro" flush="true" />
 <body >
+<jsp:include page="/left.pro" flush="true" />
+<jsp:include page="/right.pro" flush="true" />
 	<div><p></p></div>
-		<div class="hmt" id="board">
+		<div class="hmt centercolumn" id="board">
 			<table id="detailBoard" width="50%" border="3" bordercolor="black">
 
 				<tr>
@@ -75,35 +77,7 @@
 			</tr>
 			</table>
 
-			<table class="w3-margin-top">
-				<thred>
-				<tr heigh="30">
-					<td>작성자</td>
-					<td>내용</td>
-					<td>작성일</td>
 
-				</tr>
-				</thred>
-				<form method="post" action="" id="frmdt">
-					<input type="hidden" name="bno" id="bno" value="${list.bdno}">
-
-					<c:forEach var="list" items="${LIST}">
-						<tr class="w3-text-gray comendetail" id="${list.bdno}">
-							<td>${list.name}</td>
-							<input type="hidden" name="bd" id="bd" value="${list.bdbd}">
-							<td>${list.bdbd}</td>
-							<td>${list.sdate}</td>
-						</tr>
-					</c:forEach>
-				</form>
-			</table>
-
-			<!-- 
-						<c:forEach var="data" items="${LIST}">
-						
-						</c:forEach>
- -->
-		</div>
 </body>
 
 

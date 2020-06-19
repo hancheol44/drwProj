@@ -30,19 +30,8 @@
 <body >
 <jsp:include page="/left.pro" flush="true" />
 
-	<form method="post" action="" id="frm">
-		<input type="hidden" name="nowPage" id="nowPage"
-			value="${param.nowPage}"> <input type="hidden" name="bno"
-			id="bno"> <input type="hidden" name="startPage"
-			id="startPage" value="${PAGE.startPage}"> <input
-			type="hidden" name="endPage" id="endPage" value="${PAGE.endPage}">
-	</form>
-	<form method="post" action="" id="frm">
-		<input type="hidden" name="bno" id="bno"> <input type="hidden"
-			name="nowPage" id="nowPage" value="${PAGE.nowPage}">
-	</form>
-	<form method="post" action="" id="tfrm">
-		<input type="hidden" name="tab" id="tab">
+	<form action="GET" id="dfrm">
+		<input type="hidden" name="bdno" id="bdno"> 
 	</form>
 
 	<div class="hmt centercolumn">

@@ -35,7 +35,6 @@
 			    board b, member m 
 			where 
 			    b.memno = m.memno AND 
-			    bdno = #
-			break;
+			    bdno = #{bdno}
 	</select>
 </mapper>
