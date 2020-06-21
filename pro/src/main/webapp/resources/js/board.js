@@ -16,4 +16,18 @@ $(document).ready(function() {
 		$('#dfrm').attr('action', '/pro/board/boardDetail.pro');
 		$('#dfrm').submit();
 	});
+	
+	$('#wbtn').click(function() {
+//		alert("클릭됨");
+//		var cate = $('#bct').val();
+//		var tt = $('#btt').val();
+//		var bd = $('#bbd').val();
+//		alert(cate);
+//		$('#bdct').val(cate);
+//		$('#bdtt').val(tt);
+//		$('#bdbd').val(bd);
+		$('#wfrm').submit();
+		
+	})
+	
 });

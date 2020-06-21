@@ -17,8 +17,13 @@ public class BoardDAO {
 	public List getList() {
 		return sqlSession.selectList("bSQL.boardList");
 	}
+	
 	public BoardVO bDetail(BoardVO bVO) {
-		return sqlSession.selectOne("bSQL.boardDetail", bVO);
-				
+		return sqlSession.selectOne("bSQL.boardDetail", bVO);			
+	}
+	
+	public static BoardVO write(BoardVO bVO) {
+		sqlSession.insert("bSQL.boardWrite", bVO);
+		return bVO;
 	}
 }

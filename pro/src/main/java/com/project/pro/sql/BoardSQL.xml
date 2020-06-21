@@ -37,4 +37,10 @@
 			    b.memno = m.memno AND 
 			    bdno = #{bdno}
 	</select>
+	
+	<insert id="boardWrite" parameterType="bVO">
+	 		insert into  
+			    board(bdno, bdct, bdtt, bdbd, memno)  
+			VALUES((SELECT NVL(MAX(bdno) + 1, 1000) FROM board), #{bdct}, #{bdtt}, #{bdbd}, (SELECT  memno FROM  MEMBER WHERE memid = #{memid}) ) 
+	</insert>
 </mapper>
