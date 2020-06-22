@@ -32,16 +32,19 @@ public class BoardService {
 	}
 	
 	// Board Write
-	public void boardWrite(BoardVO bVO) throws Exception{
-		String bdct = bVO.getBdct();
-		String bdtt = bVO.getBdbd();
-		String bdbd = bVO.getBdbd();
-		String memid = bVO.getMemid();
-		bVO.setBdct(bdct);
-		bVO.setBdtt(bdtt);
-		bVO.setBdbd(bdbd);
+	public void boardWrite(BoardVO bVO, String memid) throws Exception{
+		String ct = bVO.getBdct();
+		String tt = bVO.getBdtt();
+		String bd = bVO.getBdbd();
+		
+		System.out.println("ct : " + ct);
+		System.out.println("tt : " + tt);
+		System.out.println("bd : " + bd);
+		bVO.setBdct(ct);
+		bVO.setBdtt(tt);
+		bVO.setBdbd(bd);
 		bVO.setMemid(memid);
-		BoardDAO.write(bVO);
+		bDAO.write(bVO);
 		
 	}
 

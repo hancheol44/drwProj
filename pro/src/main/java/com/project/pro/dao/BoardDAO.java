@@ -22,8 +22,8 @@ public class BoardDAO {
 		return sqlSession.selectOne("bSQL.boardDetail", bVO);			
 	}
 	
-	public static BoardVO write(BoardVO bVO) {
-		sqlSession.insert("bSQL.boardWrite", bVO);
-		return bVO;
+	public BoardVO write(BoardVO bVO) {
+		 sqlSession.insert("bSQL.boardWrite", bVO);
+		 return bVO;
 	}
 }

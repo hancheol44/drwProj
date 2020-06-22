@@ -1,5 +1,8 @@
 package com.project.pro.home;
 
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.nio.charset.MalformedInputException;
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -17,45 +20,50 @@ import org.springframework.web.servlet.ModelAndView;
  */
 @Controller
 public class HomeController {
-	
+
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
-	  
+
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
 	public String home(Locale locale, Model model, String id) {
 		logger.info("Welcome home! The client locale is {}.", locale);
-		
+
 		Date date = new Date();
 		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
-		
+
 		String formattedDate = dateFormat.format(date);
-		
-		model.addAttribute("serverTime", formattedDate );
-		
+
+		model.addAttribute("serverTime", formattedDate);
+
 		return "home";
 	}
-	
+
 	@RequestMapping("/main.pro")
 	public String getMain(ModelAndView mv) {
 		return "/main";
 	}
-	
+
 	@RequestMapping("/head.pro")
 	public String test02() {
-		return "/side/head";    
+		return "/side/head";
 	}
+
 	@RequestMapping("/left.pro")
 	public String test03() {
-		return "/side/left";    
+		return "/side/left";
 	}
+
 	@RequestMapping("/right.pro")
 	public String test04() {
-		return "/side/right";    
+		return "/side/right";
 	}
+
 	@RequestMapping("/welcome.pro")
 	public String test05() {
-		return "/welcome";    
+		return "/welcome";
 	}
+
+	
 }

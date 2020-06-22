@@ -31,7 +31,7 @@
 			<table width="80%" border="3" bordercolor="lightgray" align="center">
 				<tr>
 					<td>작성자 :</td>
-					<td id = "memid" name = "memid">${SID}</td>
+					<td id="memid" name="memid">${SID}</td>
 				</tr>
 				<tr>
 					<td>제 목

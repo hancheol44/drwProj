@@ -68,11 +68,9 @@
 
 			<tr align="center" valign="middle">
 				<td colspan="5"><c:if test="${SID eq DATA.memid}">
-						<input class="editdetail" type="button" value="수정">
-						<input class="deletedetail" type="button" value="삭제">
-					</c:if> <input class="comment" type="button" value=답글
-					onclick="showPopup();"> <input type="button" value="목록"
-					onclick="javascript:location.href='/board.pro'">
+						<button class="editdetail"  >수정</button>
+						<button class="deletedetail" >삭제</button>
+					</c:if> 
 				</td>
 			</tr>
 			</table>

@@ -43,4 +43,13 @@
 			    board(bdno, bdct, bdtt, bdbd, memno)  
 			VALUES((SELECT NVL(MAX(bdno) + 1, 1000) FROM board), #{bdct}, #{bdtt}, #{bdbd}, (SELECT  memno FROM  MEMBER WHERE memid = #{memid}) ) 
 	</insert>
+	<update id="boardEdit">
+			UPDATE 
+			    board 
+			SET 
+			bdct = ?, bdtt = ?, bdbd = ? 
+			WHERE 
+			bdno = ?
+	</update>
+	
 </mapper>

@@ -3,9 +3,11 @@ package com.project.pro.controller.board;
 import java.util.ArrayList;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -54,8 +56,9 @@ public class Board {
 	}
 
 	@RequestMapping(value = "/boardWriteProc.pro", method = RequestMethod.POST)
-	public String writeProc(@ModelAttribute BoardVO bVO) throws Exception {
-		service.boardWrite(bVO);
+	public String writeProc( BoardVO bVO, HttpSession session) throws Exception {
+		String memid = (String) session.getAttribute("SID");
+		service.boardWrite(bVO, memid);
 		return "redirect:board.pro";
 	}
 
