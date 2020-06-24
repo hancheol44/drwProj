@@ -44,6 +44,7 @@ public class Board {
 		BoardVO vo = service.bDetail(bVO);
 		System.out.println("-" + bVO.getBdno());
 		mv.addObject("DATA", vo);
+		
 		mv.setViewName(view);
 		return mv;
 	}
@@ -61,6 +62,36 @@ public class Board {
 		service.boardWrite(bVO, memid);
 		return "redirect:board.pro";
 	}
-
+	
+	@RequestMapping(value = "/boardEdit.pro", method = RequestMethod.GET, params = "bdno")
+	public ModelAndView EditView(ModelAndView mv, BoardVO bVO, int bdno) throws Exception{
+		String view = "board/boardWrite";
+		
+		BoardVO vo= service.EditView(bVO);
+		mv.addObject("EDIT", vo);
+		mv.addObject("bdno", bdno);
+		mv.setViewName(view);
+		return mv;
+	}
+	
+	@RequestMapping(value = "/boardEditProc.pro", method = RequestMethod.POST)
+	public String editProc(BoardVO bVO, HttpSession session) throws Exception{
+		service.BoardEdit(bVO);
+		return "redirect:board.pro";
+	}
+	@RequestMapping(value = "/boardDelete.pro", method = RequestMethod.GET, params = "bdno")
+	public String Delete(int bdno) throws Exception{
+		System.out.println("딜리트 컨트롤러 " + bdno);
+		service.BoardDelete(bdno);
+		return "redirect:board.pro";
+		
+	}
+	@RequestMapping("/reBoard.pro")
+	public ModelAndView reBoard(ModelAndView mv) throws Exception{
+		String view = "board/reBoard";
+		mv.setViewName(view);
+		return mv;
+	}
+ 
 
 }

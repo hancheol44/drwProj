@@ -16,32 +16,24 @@
 <link rel="stylesheet" href="/pro/css/w3.css" />
 <link rel="stylesheet" href="/pro/css/board.css" />
 <script type="text/javascript" src="/pro/js/jquery-3.5.0.min.js"></script>
-<script type="text/javascript">
-	/* 	window.addEventListener("keydown", function(event) {
-	 if (event.defaultPrevented) {
-	 return;
-	 }
-	 var handled = false;
-	 if (event.keyCode == 116)
-	 handled = true;
+<script type="text/javascript" src="/pro/js/board.js"></script>
 
-	 if (handled) {
-	 console.log(event.keyCode);
-
-	 event.preventDefault();
-	 }
-	 }, true); */
-</script>
 </head>
 <jsp:include page="/head.pro" flush="true" />
-<body >
-<jsp:include page="/left.pro" flush="true" />
-<jsp:include page="/right.pro" flush="true" />
-	<div><p></p></div>
+<body>
+	<jsp:include page="/left.pro" flush="true" />
+	<jsp:include page="/right.pro" flush="true" />
+	<div>
+		<p></p>
+	</div>
+	<form id="efrm" method="GET" >
+		<input type="hidden" id="bdno" name="bdno">
 		<div class="hmt centercolumn" id="board">
 			<table id="detailBoard" width="50%" border="3" bordercolor="black">
-
+			
 				<tr>
+					<td class="title">글 번호</td>
+					<td id="bno">${DATA.bdno}</td>
 					<td class="title">작성일</td>
 					<td>${DATA.sdate}</td>
 					<td class="title">작성자</td>
@@ -55,27 +47,28 @@
 					<td class="title">제 목</td>
 				</tr>
 				<tr>
-					<td>${DATA.bdtt}</td>
+					<td id = "bdtt" name = "bdtt">${DATA.bdtt}</td>
 				</tr>
 				<tr>
 					<td class="title">내 용</td>
 				</tr>
 				<tr>
-					<td>${DATA.bdbd}</td>
+					<td id = "bdbd" name = "bdbd">${DATA.bdbd}</td>
 				</tr>
 			</table>
 
 
 			<tr align="center" valign="middle">
 				<td colspan="5"><c:if test="${SID eq DATA.memid}">
-						<button class="editdetail"  >수정</button>
-						<button class="deletedetail" >삭제</button>
-					</c:if> 
-				</td>
+						<button class="editdetail">수정</button>
+						<button class="delete">삭제</button>
+					</c:if></td>
 			</tr>
 			</table>
 
-
+	</form>
+	<jsp:include page="/board/reBoard.pro"/>
+		</div>
 </body>
 
 

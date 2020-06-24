@@ -13,8 +13,6 @@ import com.project.pro.vo.BoardVO;
 public class BoardService {
 	
 	private BoardDAO bDAO;
-	
-
 
 	@Autowired
 	public void setbDAO(BoardDAO bDAO) {
@@ -45,6 +43,35 @@ public class BoardService {
 		bVO.setBdbd(bd);
 		bVO.setMemid(memid);
 		bDAO.write(bVO);
+		
+	}
+	
+	// BOard Edit View
+	public BoardVO EditView(BoardVO bVO) throws Exception{
+	
+		return bDAO.EditView(bVO);
+	}
+	
+	// Board Edit
+	public void BoardEdit(BoardVO bVO) throws Exception{
+		String ct = bVO.getBdct();
+		String tt = bVO.getBdtt();
+		String bd = bVO.getBdbd();
+		int no = bVO.getBdno();
+		System.out.println("ct : " + ct);
+		System.out.println("tt : " + tt);
+		System.out.println("bd : " + bd);
+		System.out.println("no : " + no);
+		bVO.setBdct(ct);
+		bVO.setBdtt(tt);
+		bVO.setBdbd(bd);
+		bVO.setBdno(no);
+		bDAO.EditProc(bVO);
+	}
+	
+	public void BoardDelete(int bdno) throws Exception{
+		System.out.println("¼­ºñ½º : " + bdno);
+		bDAO.Delete(bdno);
 		
 	}
 

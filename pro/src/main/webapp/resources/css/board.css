@@ -168,3 +168,17 @@ button:hover:before, button:hover:after {
  tr:nth-child(even){background-color: #B6DDD2;}
 
  tr:hover {background-color: #C4FBF1;}
+.rtt{
+	width: 80%;
+	margin-top: 2em;
+	margin-left: auto;
+	margin-right: auto;
+}
+.reBoard{
+	background-color: #E6F8E0;
+	margin-top: 1em;
+	width: 100%;
+	display: inline-block;
+	text-align: left;
+	border: 2px solid green; 
+}

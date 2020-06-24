@@ -25,9 +25,12 @@
 <jsp:include page="/left.pro" flush="true" />
 
 	<div class="centercolumn">
+		<c:if test="${empty bdno}">
 		<br> <b><font size="6" color="gray">글쓰기</font></b> <br>
+		</c:if><c:if test="${not empty bdno}">
+		<br> <b><font size="6" color="gray">수정하기</font></b> <br></c:if>
 		<form id="wfrm" method="post" action="/pro/board/boardWriteProc.pro">
-			
+			<input type="hidden" id="bdno" name="bdno" value="${bdno} ">
 			<table width="80%" border="3" bordercolor="lightgray" align="center">
 				<tr>
 					<td>작성자 :</td>
@@ -39,19 +42,20 @@
 							<option value="공지">공지</option>
 							<option value="팁">팁</option>
 							<option value="이벤트">이벤트</option></select>
-							<input style="width: 80%; height: 30px;" name="bdtt" type="text" size="30" id="bdtt">
+						<input style="width: 80%; height: 30px;" name="bdtt" type="text" size="30" id="bdtt" value="${EDIT.bdtt}">
 					</td>
 				</tr>
 				<tr>
 					<td>내 용</td>
-					<td><textarea style="width: 95%; resize: none;" id="bdbd" name="bdbd" cols="72" rows="20"></textarea>
+					<td><textarea style="width: 95%; resize: none;" id="bdbd" name="bdbd" cols="72" rows="20">${EDIT.bdbd}</textarea>
 					</td>
 				</tr>
 
 				<tr align="center" valign="middle">
 					<td colspan="5"><input type="reset" id="hbtn" value="작성취소">
-						<button id="wbtn">등록</button> <input
-						type="button" id="bdh" value="목록"></td>
+					<c:if test="${empty EDIT.bdtt}"><button id="wbtn">등록</button></c:if> 
+						<c:if test="${not empty EDIT.bdtt}"><button id="ebtn">수정</button></c:if>
+						 <button id="bdh">목록</button></td>
 				</tr>
 			</table>
 		</form>

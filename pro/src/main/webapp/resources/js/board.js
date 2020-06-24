@@ -9,25 +9,40 @@ $(document).ready(function() {
 		// 글 번호 알아낸다.
 		var sno = $(this).attr('id');
 		alert(typeof sno);
-		
 		$('#bdno').val(sno);
-		
 //		$('#nowPage').val('${PAGE.nowPage}');
 		$('#dfrm').attr('action', '/pro/board/boardDetail.pro');
 		$('#dfrm').submit();
 	});
 	
+	$('.editdetail').click(function() {
+		var bno = $('#bno').html();
+		$('#bdno').val(bno);
+		$('#efrm').attr('action', '/pro/board/boardEdit.pro');
+		$('#efrm').submit();
+	});
+	
+	$('.delete').click(function() {
+		var bno = $('#bno').html();
+		$('#bdno').val(bno);
+		$('#efrm').attr('action', '/pro/board/boardDelete.pro');
+		$('#efrm').submit();
+	});
+	
+	
 	$('#wbtn').click(function() {
-//		alert("클릭됨");
-//		var cate = $('#bct').val();
-//		var tt = $('#btt').val();
-//		var bd = $('#bbd').val();
-//		alert(cate);
-//		$('#bdct').val(cate);
-//		$('#bdtt').val(tt);
-//		$('#bdbd').val(bd);
+		$('#wfrm').attr('action', '/pro/board/boardWriteProc.pro');
 		$('#wfrm').submit();
-		
-	})
+	});
+
+	$('#ebtn').click(function() {
+		$('#wfrm').attr('action', '/pro/board/boardEditProc.pro');
+		$('#wfrm').submit();
+	});
+	
+	$('.deletedetail').click(function() {
+		$('#wfrm').attr('action', '/pro/board/boardEditProc.pro');
+		$('#wfrm').submit();
+	});
 	
 });

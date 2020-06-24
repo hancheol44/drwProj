@@ -26,4 +26,16 @@ public class BoardDAO {
 		 sqlSession.insert("bSQL.boardWrite", bVO);
 		 return bVO;
 	}
+	
+	public BoardVO EditView(BoardVO bVO) {
+		return sqlSession.selectOne("bSQL.boardEditView", bVO);
+	}
+	public BoardVO EditProc(BoardVO bVO) {
+		 sqlSession.update("bSQL.boardEdit", bVO);
+		return bVO;
+	}
+	public int Delete(int bdno) {
+		System.out.println("DAO" + bdno);
+		return sqlSession.update("bSQL.Delete",bdno);
+	}
 }
