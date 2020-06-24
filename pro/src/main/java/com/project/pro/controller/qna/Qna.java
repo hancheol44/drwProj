@@ -12,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
 import com.project.pro.dao.QnaDAO;
+import com.project.pro.util.PageUtil;
 import com.project.pro.vo.QnaVO;
 
 @Controller
@@ -23,19 +24,30 @@ public class Qna {
 	  
 	// qna리스트 뷰 요청 처리
 	@RequestMapping("/qnaList.pro")
-	public ModelAndView qnalist(ModelAndView mv) {
-		String view = "/qna/qnaList";
-		ArrayList<QnaVO> list = (ArrayList<QnaVO>)qDAO.getList();
-		mv.addObject("LIST", list);
-		
-		mv.setViewName(view);
-		return mv;
+	public ModelAndView qnalist(ModelAndView mv, PageUtil page, HttpSession session) {
+		String sid = (String) session.getAttribute("SID");
+		if(sid == null || sid.length() == 0) {
+			RedirectView rv = new RedirectView("/pro/login/loginList.pro");
+			mv.setView(rv);
+		} else {
+			if(page.getNowPage() == 0) {
+				page.setNowPage(1);
+			}
+			int totalCount = qDAO.getCnt();
+			page.setPage(totalCount);
+			ArrayList<QnaVO> list = (ArrayList<QnaVO>)qDAO.getList(page);
+			
+			mv.addObject("LIST",list);
+			mv.addObject("PAGE", page);
+			mv.setViewName("qna/qnaList");
+		}
+			return mv;
 	}
 	
 	// qna글쓰기 뷰 요청 처리
 	@RequestMapping("/qnaWrite.pro")
 	public ModelAndView qnaWrite(HttpSession session, ModelAndView mv) {
-		// 로그인 후 session에 있는 sid 값 가져옴
+		
 		String sid = (String)session.getAttribute("SID");
 		
 		String name = qDAO.getName(sid);
@@ -57,7 +69,7 @@ public class Qna {
 		return mv;
 	}
 	
-	// qna 글쓰기 처리
+	// qna 글쓰기
 	@RequestMapping(value="/qnaWriteProc.pro", method=RequestMethod.POST, params= {"qtt","qip"})
 	public ModelAndView qnaWriteProc(ModelAndView mv, HttpSession session, String qtt, String qip, QnaVO qVO) {
 		RedirectView rv = new RedirectView("/pro/qna/qnaList.pro");
@@ -72,7 +84,7 @@ public class Qna {
 		return mv;
 	}
 	
-	// qna 글삭제 처리
+	// qna 글삭제
 	@RequestMapping(value="/qnaDelProc.pro", method=RequestMethod.POST, params="qno")
 	public ModelAndView qnaDelProc(ModelAndView mv, int qno) {
 		RedirectView rv = new RedirectView("/pro/qna/qnaList.pro");

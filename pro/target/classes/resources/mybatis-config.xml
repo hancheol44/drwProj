@@ -19,6 +19,7 @@
 	 	<typeAlias alias="iVO" type="com.project.pro.vo.InfoVO" />
 	 	<typeAlias alias="fVO" type="com.project.pro.vo.FileVO" />
 	 	<typeAlias alias="Ufile" type="com.project.pro.util.FileUtil" />
+	 	<typeAlias alias="page" type="com.project.pro.util.PageUtil" />
 	 	<!-- <typeAlias alias="kVO" type="com.project.pro.vo.KakaoPayReadyVO" /> -->
 	 </typeAliases>
 	 

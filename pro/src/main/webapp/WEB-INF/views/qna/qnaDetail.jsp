@@ -31,7 +31,7 @@
 		<table class="qnadetail">
 							<tr>
 								<td id="title">작성일</td>
-								<td style="text-align: left;">&nbsp;${DETAIL.qDate}</td>
+								<td style="text-align: left;">&nbsp;${DETAIL.today}</td>
 							</tr>
 							<tr>
 								<td id="title">작성자</td>

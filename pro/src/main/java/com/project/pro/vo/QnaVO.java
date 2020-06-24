@@ -5,7 +5,7 @@ import java.text.*;
 
 public class QnaVO {
 	private int qno, qorno, qmemno;
-	private String qtt, qip, name, qDate, anstt, ansip, ansDate, memid, ok;
+	private String qtt, qip, name, today, anstt, ansip, ansDate, memid, ok;
 	private Date qqDate, asDate;
 	private Time qqTime, asTime;
 	public int getQno() {
@@ -44,16 +44,16 @@ public class QnaVO {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getqDate() {
-		return qDate;
+	public String gettoday() {
+		return today;
 	}
 	public void setqDate() {
 		SimpleDateFormat form1 = new SimpleDateFormat("yyyy년 MM월 dd일");
 		SimpleDateFormat form2 = new SimpleDateFormat("HH:mm");
-		this.qDate = form1.format(qqDate) + " " + form2.format(qqTime);
+		this.today = form1.format(qqDate) + " " + form2.format(qqTime);
 	}
 	public void setqDate(String qDate) {
-		this.qDate = qDate;
+		this.today = today;
 	}
 	public String getAnstt() {
 		return anstt;

@@ -5,6 +5,7 @@ import java.util.List;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.project.pro.util.PageUtil;
 import com.project.pro.vo.QnaVO;
 
 public class QnaDAO {
@@ -14,8 +15,11 @@ public class QnaDAO {
 	public QnaDAO() {}
 	
 	// qna 게시판 리스트 가져오기 전담 처리 함수
-	public List getList() {
-		return sqlSession.selectList("qSQL.qnaList");
+	public int getCnt() {
+		return sqlSession.selectOne("qSQL.selCnt");
+	}
+	public List getList(PageUtil page) {
+		return sqlSession.selectList("qSQL.qnaList",page);
 	}
 	
 	// 글쓰기 로그인 회원 이름 가져오기 처리 함수

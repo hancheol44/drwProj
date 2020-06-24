@@ -20,15 +20,7 @@ $(document).ready(function(){
 	  $('#delfrm').attr('action','/pro/qna/qnaDelProc.pro');
 	  $('#delfrm').submit()
 	});
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 	// qnaWrite.jsp 기능처리
 	// qnaWrite -> qnalist 버튼 기능처리
 	$('#wcbtn').click(function(){
@@ -45,6 +37,8 @@ $(document).ready(function(){
 		$('#frm').attr('action','/pro/qna/qnaWriteProc.pro');
 		$('#frm').submit();
 	});
+	// 페이징 기능처리
+	
 	
 	
 });

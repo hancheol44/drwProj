@@ -26,7 +26,7 @@
 	<input type="hidden" name="qno"id="qno"/>
 </form>
   
-<!-- Form태그 작성 끝 -->
+<!-- Form태그 작성 -->
 
   <!-- 가운데 영역 (주내용 담길 곳) -->
   <div class="centercolumn w3-center">
@@ -45,7 +45,7 @@
 			  	<td class="qlist">${data.qno}</td>
 			  	<td>${data.qtt}</td>
 			  	<td>${data.name}</td>
-			  	<td>${data.qDate}</td>
+			  	<td>${data.today}</td>
 			  	<td></td>
 			  </tr>
 			  </c:forEach>

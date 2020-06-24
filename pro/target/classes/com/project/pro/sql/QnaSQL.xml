@@ -7,18 +7,36 @@
 
 <mapper namespace="qSQL">
 	<!-- 작성글 리스트 가져오기 -->
-	<select id="qnaList" resultType="qVO">
+	<select id="qnaList" resultType="qVO" parameterType="page">
 		SELECT
-			qno, qtt, name,  TO_CHAR(today, 'yyyy/MM/dd') qDate 
-		FROM
-			qna q, member m
-		WHERE
-			q.memno = m.memno
-			AND qshow = 'Y'
-			AND qorno IS NULL
-		ORDER BY
-			qno DESC
+    qno, qtt, name, today
+    FROM
+    (
+    SELECT
+       ROWNUM rno, brd.*
+    FROM
+        (SELECT
+        qno, qtt, name, qna.today today
+    FROM
+        qna, member
+    WHERE
+        member.memno = qna.memno
+        AND qna.qshow = 'Y'
+    ORDER BY
+        today desc) brd
+    )
+    WHERE
+        rno BETWEEN #{startCont} AND #{endCont}
 	</select>
+	<select id="selCnt" resultType="int">
+		SELECT
+			COUNT(*) totalCount
+		FROM
+			qna
+		WHERE
+			qshow = 'Y'
+	</select>
+	
 	
 	<!-- 작성자이름 선택 sql -->
 	<select id="qnaName" resultType="String">
