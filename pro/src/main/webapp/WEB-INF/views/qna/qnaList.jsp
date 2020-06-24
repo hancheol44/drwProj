@@ -26,7 +26,7 @@
 	<input type="hidden" name="qno"id="qno"/>
 </form>
   
-<!-- Form태그 작성 -->
+<!-- Form태그 작성 끝 -->
 
   <!-- 가운데 영역 (주내용 담길 곳) -->
   <div class="centercolumn w3-center">

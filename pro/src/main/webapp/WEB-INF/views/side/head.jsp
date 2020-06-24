@@ -7,6 +7,20 @@
 <link rel="stylesheet" href="/pro/css/w3.css" />
 <script type="text/javascript" src="/pro/js/jquery-3.5.0.min.js"></script>
 <script type="text/javascript">
+// 카카오 로그아웃 처리 함수
+function popup(){
+     var url = "https://developers.kakao.com/logout";
+     var name = "popuptest";
+     var option = "width = 1, height = 1, top = 15000, left = 1, location = no, toolbar = no, statusbar=no, scrollbar=no"
+     var popup = window.open(url, name, option);
+   setTimeout(wer,600);        
+   function wer(){
+      popup.close();
+        location.href='/pro/kakao/logout.pro';
+   }
+ }
+
+
 $(document).ready(function(){
 	var link = document.location.href;
 	if(link.indexOf("board") != -1){
@@ -35,7 +49,6 @@ $(document).ready(function(){
 	$('#hbtn').click(function(){
 		location.href='/pro/main.pro';
 	});
-
 
 });
 
@@ -92,7 +105,7 @@ $(document).ready(function(){
 					<li><a href="/pro/login/logout.pro">로그아웃</a></li>
 				</c:if>
 				<c:if test="${empty SID && not empty userId}">
-					<li><a href="/pro/kakao/logout.pro">로그아웃</a>
+					<li><a href="javascript:popup()">로그아웃</a>
 				</c:if>
 
 			</ul>
