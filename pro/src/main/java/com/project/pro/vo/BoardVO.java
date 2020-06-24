@@ -8,21 +8,9 @@ import java.text.SimpleDateFormat;
 
 public class BoardVO {
 	private int bdno, memno, borino, vcnt, imgno, rno;
-	private String bdct, bdtt, bdbd, bdshow, sdate, name, memid;
+	private String bdct, bdtt, bdbd, bdshow, today, name, memid;
 	private Date bDate;
 	private Time bTime;
-	public Date getbDate() {
-		return bDate;
-	}
-	public void setbDate(Date bDate) {
-		this.bDate = bDate;
-	}
-	public Time getbTime() {
-		return bTime;
-	}
-	public void setbTime(Time bTime) {
-		this.bTime = bTime;
-	}
 	public int getBdno() {
 		return bdno;
 	}
@@ -83,16 +71,16 @@ public class BoardVO {
 	public void setBdshow(String bdshow) {
 		this.bdshow = bdshow;
 	}
-	public void setSdate() {
+	public String getToday() {
+		return today;
+	}
+	public void setToday() {
 		SimpleDateFormat form1 = new SimpleDateFormat("yyyy/MM/dd");
 		SimpleDateFormat form2 = new SimpleDateFormat("HH:mm");
-		this.sdate = form1.format(bDate) + " " + form2.format(bTime);
+		this.today = form1.format(bDate) + " " + form2.format(bTime);
 	}
-	public String getSdate() {
-		return sdate;
-	}
-	public void setSdate(String sdate) {
-		this.sdate = sdate;
+	public void setToday(String today) {
+		this.today = today;
 	}
 	public String getName() {
 		return name;
@@ -106,13 +94,18 @@ public class BoardVO {
 	public void setMemid(String memid) {
 		this.memid = memid;
 	}
-	@Override
-	public String toString() {
-		return "BoardVO [bdno=" + bdno + ", memno=" + memno + ", borino=" + borino + ", vcnt=" + vcnt + ", imgno="
-				+ imgno + ", rno=" + rno + ", bdct=" + bdct + ", bdtt=" + bdtt + ", bdbd=" + bdbd + ", bdshow=" + bdshow
-				+ ", sdate=" + sdate + ", name=" + name + ", memid=" + memid + ", bDate=" + bDate + ", bTime=" + bTime
-				+ "]";
+	public Date getbDate() {
+		return bDate;
 	}
-	
+	public void setbDate(Date bDate) {
+		this.bDate = bDate;
+	}
+	public Time getbTime() {
+		return bTime;
+	}
+	public void setbTime(Time bTime) {
+		this.bTime = bTime;
+	}
+
 	
 }

@@ -32,7 +32,7 @@ public class kakaoController {
         System.out.println("login Controller : " + userInfo);
         
         if(userInfo.get("email") != null) {
-        	session.setAttribute("userId", userInfo.get("email"));
+        	session.setAttribute("SID", userInfo.get("email"));
         	session.setAttribute("access_Token", access_Token);
         }
         mv.setView(rv);

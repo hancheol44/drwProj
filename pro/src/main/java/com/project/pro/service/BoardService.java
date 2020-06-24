@@ -45,6 +45,13 @@ public class BoardService {
 		bDAO.write(bVO);
 		
 	}
+	public void comment(BoardVO bVO, String memid) throws Exception{
+		String bd = bVO.getBdbd();
+		
+		bVO.setBdbd(bd);
+		bVO.setMemid(memid);
+		bDAO.comment(bVO);
+	}
 	
 	// BOard Edit View
 	public BoardVO EditView(BoardVO bVO) throws Exception{
@@ -53,27 +60,30 @@ public class BoardService {
 	}
 	
 	// Board Edit
-	public void BoardEdit(BoardVO bVO) throws Exception{
+	public void BoardEdit(BoardVO bVO, int bno) throws Exception{
 		String ct = bVO.getBdct();
 		String tt = bVO.getBdtt();
 		String bd = bVO.getBdbd();
-		int no = bVO.getBdno();
 		System.out.println("ct : " + ct);
 		System.out.println("tt : " + tt);
 		System.out.println("bd : " + bd);
-		System.out.println("no : " + no);
+		System.out.println("no : " + bno);
 		bVO.setBdct(ct);
 		bVO.setBdtt(tt);
 		bVO.setBdbd(bd);
-		bVO.setBdno(no);
+		bVO.setBdno(bno);
 		bDAO.EditProc(bVO);
 	}
 	
 	public void BoardDelete(int bdno) throws Exception{
-		System.out.println("¼­ºñ½º : " + bdno);
+		System.out.println("ï¿½ï¿½ï¿½ï¿½ : " + bdno);
 		bDAO.Delete(bdno);
 		
 	}
+	public List<BoardVO> rest(int bdno) throws Exception{
+		return bDAO.rest(bdno);
+	}
+	
 
 	
 }

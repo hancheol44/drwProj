@@ -69,7 +69,7 @@
 						<td>${data.bdct}</td>
 						<td>${data.bdtt}</td>
 						<td>${data.name}</td>
-						<td>${data.sdate}</td>
+						<td>${data.today}</td>
 						<td>${data.vcnt}</td>
 					</tr>
 					</c:forEach>

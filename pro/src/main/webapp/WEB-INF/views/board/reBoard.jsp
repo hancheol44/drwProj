@@ -19,17 +19,20 @@
 <script type="text/javascript">
 
 </script>
-
 </head>
 
-<body >
-<div class = "rtt">
-	<div class="w3-center w3-green ">댓글 영역</div>
-	<div class = "w3-left reBoard " >
-	<div class =>작성자</div>
-	<div>내용</div>
-	<div>작성일</div>
-	</div>
+<body>
+	<div class="rtt">
+		<div class="w3-center w3-green ">댓글 영역</div>
+			
+			<c:forEach var="data" items="${LIST}">
+			<div class="w3-left reBoard ">
+			<div>${data.name}</div>
+			<div>${data.bdbd}</div>
+			<div>${data.today}</div>
+			
+			</div>
+		</c:forEach>
 	</div>
 </body>
 </html>

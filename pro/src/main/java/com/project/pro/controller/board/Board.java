@@ -1,5 +1,6 @@
 package com.project.pro.controller.board;
 
+import java.awt.List;
 import java.util.ArrayList;
 
 import javax.inject.Inject;
@@ -36,13 +37,20 @@ public class Board {
 		mv.setViewName(view);
 		return mv;
 	}
-
+	@RequestMapping(value = "/reBoard.pro")
+	public ModelAndView reBoard(ModelAndView mv,int bdno) throws Exception{
+		String view = "board/reBoard";
+		System.out.println("reBOard"+ bdno);
+		ArrayList<BoardVO> rest =(ArrayList<BoardVO>) service.rest( bdno);
+		mv.addObject("LIST", rest);
+		System.out.println(rest.size());
+		mv.setViewName(view);
+		return mv;
+	}
 	@RequestMapping(value = "/boardDetail.pro", method = RequestMethod.GET, params = "bdno")
 	public ModelAndView boardDetail(ModelAndView mv, BoardVO bVO, int bdno) throws Exception {
-		System.out.println("왔냐???");
 		String view = "board/boardDetail";
 		BoardVO vo = service.bDetail(bVO);
-		System.out.println("-" + bVO.getBdno());
 		mv.addObject("DATA", vo);
 		
 		mv.setViewName(view);
@@ -55,7 +63,15 @@ public class Board {
 		mv.setViewName(view);
 		return mv;
 	}
-
+	
+	@RequestMapping(value = "boardComment.pro", method = RequestMethod.POST)
+	public String comment( BoardVO bVO, HttpSession session) throws Exception{
+		String memid = (String) session.getAttribute("SID");
+		System.out.println(memid);
+		service.comment(bVO, memid);
+		return "redirect:reBoard.pro";
+	}
+	
 	@RequestMapping(value = "/boardWriteProc.pro", method = RequestMethod.POST)
 	public String writeProc( BoardVO bVO, HttpSession session) throws Exception {
 		String memid = (String) session.getAttribute("SID");
@@ -74,24 +90,21 @@ public class Board {
 		return mv;
 	}
 	
-	@RequestMapping(value = "/boardEditProc.pro", method = RequestMethod.POST)
-	public String editProc(BoardVO bVO, HttpSession session) throws Exception{
-		service.BoardEdit(bVO);
+	@RequestMapping(value = "/boardEditProc.pro", method = RequestMethod.GET, params = "bno")
+	public String editProc(BoardVO bVO, int bno, HttpSession session) throws Exception{
+		System.out.println(bno);
+		service.BoardEdit(bVO,bno);
 		return "redirect:board.pro";
 	}
 	@RequestMapping(value = "/boardDelete.pro", method = RequestMethod.GET, params = "bdno")
 	public String Delete(int bdno) throws Exception{
-		System.out.println("딜리트 컨트롤러 " + bdno);
 		service.BoardDelete(bdno);
 		return "redirect:board.pro";
 		
 	}
-	@RequestMapping("/reBoard.pro")
-	public ModelAndView reBoard(ModelAndView mv) throws Exception{
-		String view = "board/reBoard";
-		mv.setViewName(view);
-		return mv;
-	}
+	
+	
+
  
 
 }

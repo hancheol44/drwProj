@@ -6,20 +6,24 @@
 
 
 <mapper namespace="bSQL">
+
 	<select id="boardList" resultType="bVO">
 		SELECT
 		rno, bdno, bdct, bdtt, name, today, vcnt
 		FROM
 		( SELECT
-		ROWNUM rno, bdno, bdct, bdtt, name, today, vcnt
+		ROWNUM rno,
+		bdno, bdct, bdtt, name, today, vcnt
 		FROM
 		(SELECT
-		bdno, bdct, bdtt, name, today, vcnt
+		bdno, bdct, bdtt, name,
+		today, vcnt
 		FROM
 		board b, member m
 		WHERE
 		b.memno = m.memno AND
-		b.bdshow = 'Y' AND
+		b.bdshow =
+		'Y' AND
 		bdct != '댓글'
 		ORDER BY
 		bdno DESC
@@ -27,22 +31,36 @@
 		)
 		<!-- WHERE rno BETWEEN ? AND ? -->
 	</select>
+	
 	<select id="boardDetail" resultType="bVO">
 		SELECT
-		today, name, bdtt, bdbd, vcnt, m.memid ,bdno
+		today, name, bdtt,
+		bdbd, vcnt, m.memid ,bdno
 		FROM
 		board b, member m
 		where
-		b.memno = m.memno AND
+		b.memno = m.memno
+		AND
 		bdno = #{bdno}
 	</select>
 
 	<insert id="boardWrite" parameterType="bVO">
 		insert into
-		board(bdno, bdct, bdtt, bdbd, memno)
-		VALUES((SELECT NVL(MAX(bdno) + 1, 1000) FROM board), #{bdct}, #{bdtt}, #{bdbd},
-		(SELECT memno FROM MEMBER WHERE memid = #{memid}) )
+		board(bdno,
+		bdct, bdtt, bdbd, memno)
+		VALUES((SELECT NVL(MAX(bdno) + 1, 1000) FROM
+		board), #{bdct}, #{bdtt}, #{bdbd},
+		(SELECT memno FROM MEMBER WHERE
+		memid = #{memid}) )
 	</insert>
+	
+	<insert id="comment" parameterType="bVO">
+		insert into
+	   		 board(bdno,bdct, bdtt, bdbd, memno)
+		VALUES((SELECT NVL(MAX(bdno) + 1, 1000) FROM board), '댓글','댓글', #{bdbd},
+					(SELECT memno FROM MEMBER WHERE memid = #{memid}) )
+	</insert>
+	
 
 	<select id="boardEditView" resultType="bVO">
 		SELECT
@@ -53,6 +71,7 @@
 		bdno = #{bdno}
 
 	</select>
+	
 	<update id="boardEdit">
 		UPDATE
 		board
@@ -61,6 +80,7 @@
 		WHERE
 		bdno = #{bdno}
 	</update>
+	
 	<update id="Delete">
 		UPDATE
 		board
@@ -69,5 +89,18 @@
 		WHERE
 		bdno = #{bdno}
 	</update>
+	
+	<select id="rest" resultType="bVO">
+		SELECT
+		bdno, name, bdbd, today
+		FROM
+		board b, member m
+		WHERE
+		m.memno= b.memno AND
+		BDCT = '댓글' AND
+		b.borino = #{bdno}
+		ORDER BY
+		bdno DESC
+	</select>
 
 </mapper>
