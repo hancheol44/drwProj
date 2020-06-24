@@ -25,29 +25,31 @@
   <!-- 가운데 영역 (주내용 담길 곳) -->
   <div class="centercolumn w3-center">
     <div class="card">
-      <h2>자동차 캠핑</h2>
+      <h1>자동차 캠핑</h1>
       <!-- 자동차 캠핑 리스트 위치 -->
       <div id="List">
 		<table class="cp" id="autoCP">
 			  <tr>
-			    <th style="width: 300px;">자동차 캠핑 List</th>
+			    <th style="width: 300px;"><h2>자동차 캠핑 List</h2></th>
 			  </tr>
-			  <tr>
-			  	<td>ㅇㅇ 오토 캠핑장</td>
-			  </tr>
-			  <tr>
-			  	<td>ㅁㅁ 오토 캠핑장</td>
-			  </tr>
-			  <tr>
-			  	<td>ㅋㅋ오토 캠핑장</td>
-			  </tr>
+			  <c:forEach var="data" items="${LIST}">
+				  <tr>
+				  	<td id="${data.ifno}">${data.ifname}</td>
+				  </tr>
+			  </c:forEach>
 		</table>
       </div>
 	  <div id="map"></div>
 	  <div class='w3-row'><p></p></div>
 	  <div class="detail_card">
-	  	<div><h3>선택된 캠핑장 이름</h3></div>
-	  	<div><h4>주소 : ㅇㅇㅇㅇㅇㅇㅇ</h4></div>
+	  	<div class="detail">
+			<span> 캠핑장 이름 : </span> <span id="acname"></span><br><br>
+			<span> 연락처 : </span> <span id="actel"></span><br><br>
+			<span> 주소 : </span> <span id="acaddr"></span><br><br>
+			<span> 이용가격 : </span> <span id="acpri"></span><br><br>
+			<span> 홈페이지 : </span> <a id="hplink" href="" target="_blank"><span id="ctlink">링크</span></a><br><br>
+			<span> 길찾기 바로가기 : </span> <a id="search" href="" target="_blank"><span id="ctlink">링크</span></a><br><br>
+		</div>
 	  	<div class="mgbottom">
 		  	<div style="float: left;">평점 : </div>
 		  	<div style="color: orange;">★데이터</div>
@@ -107,4 +109,5 @@
 </div>
 
 </body>
+<script type="text/javascript" src="/pro/js/info_ajax.js"></script>
 </html>

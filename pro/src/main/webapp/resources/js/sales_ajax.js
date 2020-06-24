@@ -99,6 +99,7 @@ $(document).on('click','.delete', function remove(){
 		}
 	});
 });
+
 //$(document).on('click','.delete',function(){
 //	alert($(this).attr('value'));
 //})

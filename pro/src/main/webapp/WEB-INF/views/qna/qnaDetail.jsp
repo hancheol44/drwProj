@@ -15,7 +15,12 @@
 
 </style>
 <script type="text/javascript">
-  
+ $(document).ready(function(){
+	$('#modibtn').click(function(){
+		alert('제 소원은 readonly 삭제입니다');
+		$('#qttin').attr('readonly', false);
+	});
+ });
 </script>
 </head>
 <jsp:include page="/head.pro" flush="true" />

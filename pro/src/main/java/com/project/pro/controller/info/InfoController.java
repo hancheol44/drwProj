@@ -1,18 +1,28 @@
 package com.project.pro.controller.info;
 
+import java.util.ArrayList;
+
+import javax.inject.Inject;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.project.pro.dao.InfoDAO;
 import com.project.pro.service.InfoService;
+import com.project.pro.vo.InfoVO;
 
 @Controller
 @RequestMapping("/info")
 public class InfoController {
 	
 	@Autowired
+	InfoDAO iDAO;
+	
+	@Inject
 	private InfoService service;
+	
 	
 	// infoCT 뷰 처리
 	@RequestMapping("/infoCT.pro")
@@ -22,15 +32,21 @@ public class InfoController {
 		return mv;
 	}
 	
-	// infoCT 뷰 처리
+	// infoAC 뷰 처리
 	@RequestMapping("/infoAC.pro")
 	public ModelAndView getViewAC(ModelAndView mv) {
-		String view = "info/infoAC";
-		mv.setViewName(view);
+		try {
+			String view = "info/infoAC";
+			ArrayList<InfoVO> list = (ArrayList<InfoVO>)service.getAC_List();
+			mv.addObject("LIST", list);
+			mv.setViewName(view);
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
 		return mv;
 	}
 	
-	// infoCT 뷰 처리
+	// infoDT 뷰 처리
 	@RequestMapping("/infoDT.pro")
 	public ModelAndView getViewDT(ModelAndView mv) {
 		String view = "info/infoDT";
