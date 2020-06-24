@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
+import org.springframework.util.FileCopyUtils;
 import org.springframework.web.multipart.MultipartFile;
 
 public class FileUtil {
@@ -45,21 +46,23 @@ public class FileUtil {
 		return tmp;
 	}
 	
-	public String[] getSavename(HttpSession session, MultipartFile[] file, String folder) {
-		String[] savename = new String[file.length];
-		String path = session.getServletContext().getRealPath("resources") + "/" + folder;
+	public static String getSavename(HttpSession session, MultipartFile file, String folder) {
+		String savename = null;
+		String filePath = session.getServletContext().getRealPath("resources") + "/" + folder;
 		
-		for(int i = 0; i < file.length; i++) {
-			String oriname = file[i].getOriginalFilename();
-			if(oriname != null || oriname.length() != 0) {
-				savename[i] = rename(path,oriname);
+//		for(int i = 0; i < file.length; i++) {
+			String oriname = file.getOriginalFilename();
+			if(oriname != null) {
+				savename = rename(filePath,oriname);
+				System.out.println("savename : " + savename);
 			}
 			try {
-				File refile = new File(path, savename[i]);
+				File refile = new File(filePath, savename);
+				System.out.println("refile : " + refile);
 			} catch(Exception e) {
 				e.printStackTrace();
 			}
-		}
+//		}
 		return savename;
 	}
 }

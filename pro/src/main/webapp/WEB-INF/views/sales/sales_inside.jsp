@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="/pro/css/side.css" />
 <script type="text/javascript" src="/pro/js/jquery-3.5.0.min.js"></script>
 <script type="text/javascript" src="/pro/js/sales.js"></script>
-<script type="text/javascript" src="/pro/js/sales_pay.js"></script>
+<!-- <script type="text/javascript" src="/pro/js/sales_pay.js"></script> -->
 <style>
 
 </style>
@@ -127,9 +127,9 @@
 		 	<h3>${DATA.pbd}</h3>
 			 </div>
     <hr class="border_orange">
-    <form method="post" action="/kakaoPay">
+   <!--  <form method="post" action="/kakaoPay">
     	<button>카카오페이로 결제하기</button>
-	</form>
+	</form> -->
 	<!-- <img alt="" src="/pro/img/payment_icon_yellow_medium.png" action=""> -->
 	<div id="btn_detail">
 	<c:if test="${SID eq DATA.memid}">

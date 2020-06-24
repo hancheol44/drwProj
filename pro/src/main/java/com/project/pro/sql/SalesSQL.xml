@@ -116,7 +116,7 @@
 			image(imgno, oriname, savename, pno)
 		VALUES(
 			(SELECT NVL(MAX(imgno)+1, 10000000) FROM image), 
-			#{oriname}, #{savename}, (SELECT NVL(MAX(pno)+1, 1000) FROM promotion)
+			#{oriname}, #{savename}, (SELECT NVL(MAX(pno), 10000000) FROM promotion)
 		)
 	</insert>
 

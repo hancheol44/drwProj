@@ -9,6 +9,7 @@ public class SalesVO {
 	private String ptt, bno, pbd, name, today, cate, bceo, memid, bname, bloc, oriname, savename, rtt, rbd;
 	private Date pDate;
 	private Time pTime;
+
 	
 	
 	
@@ -20,6 +21,7 @@ public class SalesVO {
 				+ ", bname=" + bname + ", bloc=" + bloc + ", oriname=" + oriname + ", savename=" + savename + ", rtt="
 				+ rtt + ", rbd=" + rbd + ", pDate=" + pDate + ", pTime=" + pTime + "]";
 	}
+
 	public int getRcnt() {
 		return rcnt;
 	}

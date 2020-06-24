@@ -55,7 +55,7 @@ public class SalesDAO {
 		return sqlSession.update("sSQL.reDelete", sVO);
 	}
 	// sales add image
-	public void saImage(FileVO fVO) {
-		sqlSession.insert("sSQL.saImage", fVO);
+	public int saImage(FileVO fVO) {
+		return sqlSession.insert("sSQL.saImage", fVO);
 	}
 }

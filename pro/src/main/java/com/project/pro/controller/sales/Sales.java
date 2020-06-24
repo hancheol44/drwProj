@@ -13,14 +13,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
 import com.project.pro.dao.SalesDAO;
 import com.project.pro.service.SalesService;
-import com.project.pro.util.FileUtil;
 import com.project.pro.vo.FileVO;
 import com.project.pro.vo.SalesVO;
 
@@ -29,8 +26,6 @@ import com.project.pro.vo.SalesVO;
 public class Sales {
 	@Autowired
 	SalesDAO sDAO;
-//	@Autowired
-//	FileUtil Ufile;
 	@Inject
 	private SalesService service;
 	
@@ -80,9 +75,9 @@ public class Sales {
 	}
 	
 	// sales write action
-	@RequestMapping(value="/sales_write.pro", method=RequestMethod.POST, params= {"ptt", "memid", "pbd", "cate"})
+	@RequestMapping(value="/sales_write.pro", method=RequestMethod.POST)
 	@ResponseBody
-	public ModelAndView saWriteProc(String ptt, String memid, String pbd, String cate, SalesVO sVO, FileVO fVO, ModelAndView mv, File mfile, MultipartHttpServletRequest request, HttpSession session,  MultipartFile file) {
+	public ModelAndView saWriteProc(SalesVO sVO, ModelAndView mv, FileVO fVO,  HttpSession session) {
 		try {
 			String view = "sales/sales_write";
 			if(session.getAttribute("SID") == null) {
@@ -90,21 +85,13 @@ public class Sales {
 				mv.setView(rv);
 				return mv;
 			}
-			
-//			System.out.println("oriname : "+fVO.getOriname());
-//			String oriname = multi.getOriginalFilename();
-//				fVO.setOriname(oriname);
-				service.saImage(fVO, mfile, request);
-//				if(cnt == 1) {
-//			System.out.println("mfile : " + mfile);
-					if(pbd != null) {
-					SalesVO vo = service.saWrite(sVO);
-//					System.out.println("ptt : " + sVO.getPtt() +" pbd : " +sVO.getPbd()+" memid : "+ sVO.getMemid() + " cate : "+ sVO.getCate());
-//					System.out.println("oriname : " + fVO.getOriname() +" savename : " +fVO.getSavename() +" pno : " + fVO.getPno());
-					RedirectView rv = new RedirectView("/pro/sales/sales.pro");
-					mv.setView(rv);
-					return mv;
+				if(sVO.getPbd() != null) {
+				service.saWrite(sVO);
+				RedirectView rv = new RedirectView("/pro/sales/sales.pro");
+				mv.setView(rv);
+//					return mv;
 				}
+				service.saImage(fVO, session);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -196,23 +183,4 @@ public class Sales {
 		}
 		return map;
 	}
-//	@RequestMapping(value="/saImage.pro",method=RequestMethod.POST, params= {"pno","oriname","savaname"})
-//	public int saImage(FileVO fVO, FileUtil file, MultipartHttpServletRequest mtf) {
-//			int cnt = 0;
-//			try {
-//				String fileTag = "file";
-//				MultipartFile mfile = mtf.getFile(fileTag);
-//				String oriname = mfile.getOriginalFilename();
-//				String savename = file.rename("/upload", oriname);
-//				fVO.setOriname(oriname);
-//				fVO.setSavename(savename);
-//				System.out.println("ori : "+fVO.getOriname());
-//				System.out.println("save : "+fVO.getSavename());
-//				cnt = service.saImage(fVO);
-//			} catch (Exception e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//			}
-//		return cnt;
-//	}
 }

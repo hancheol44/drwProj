@@ -21,16 +21,17 @@
 <jsp:include page="/head.pro" flush="true" />
 <body>
 
-<div>
-<jsp:include page="/left.pro" flush="true" />
-  <!-- 가운데 영역 (주내용 담길 곳) -->
 	<form method="post" action="" id="frm" enctype="multipart/form-data">
 		<input type="hidden" id="memid" name="memid">
 		<input type="hidden" id="ptt" name="ptt">
 		<input type="hidden" id="cate" name="cate">
 		<input type="hidden" id="pbd" name="pbd">
-		<!-- <input type="hidden" id="file" name="file"> -->
-	</form>
+		<!-- <div style="dispaly:none>;">
+		<input type="file" id="file" name=file">
+		</div> -->
+<div>
+<jsp:include page="/left.pro" flush="true" />
+  <!-- 가운데 영역 (주내용 담길 곳) -->
    <div class="centercolumn" >
 	   <div class="card">
 			<table id="table_saWrite">
@@ -63,7 +64,7 @@
 			</table>
 			<div id="fileAdd">
 				<h6>파일첨부</h6>
-				<input type="file" id="file_saWrite"><br>
+				<input type="file" name="file" id="file_saWrite"><br>
 			</div>
 			<div>
 				<button id="save">등록</button>
@@ -72,6 +73,7 @@
 		</div>
 	</div>
 </div>
+</form>
 <jsp:include page="/right.pro" flush="true" />
 <!-- footer -->
 <div class="footer">

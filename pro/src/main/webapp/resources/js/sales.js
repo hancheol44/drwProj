@@ -9,13 +9,15 @@ $(document).ready(function(){
 		var title = $('#ptt_saWrite').val();
 		var body = $('#pbd_write').val()
 		var cate = $('#cate_saWrite').val();
-		var file = $('#file_saWrite').val();
-		alert(file);
-		$('#file').val(file);
-		var sf = $('#file').val();
-		alert("sf : "+sf+" / type : " + typeof sf);
-		$('#file').val(file);
-		$('#file_saWrite').val();
+//		var file = $('#file_saWrite').prop('file');
+//		var file = $('#file_saWrite').val();
+//		alert(file);
+//		$('#file').prop(file);
+//		var sf = $('#file').prop();
+//		$('#file').val(file);
+//		var sf = $('#file').val();
+//		alert("file : "+sf+" / type : " + typeof sf);
+//		$('#file_saWrite').val();
 		$('#memid').val(sid);
 		$('#ptt').val(title);
 		$('#pbd').val(body);
@@ -90,17 +92,29 @@ $(document).ready(function(){
 		$('#frm').attr('action', '/pro/sales/sales_review.pro');
 		$('#frm').submit();
 	});*/
+	$('#file_saWrite').change(function(e){
+//	profileView.addEventListener('change', function(e){
+		
+		var profile = e.target.files;
+		
+		console.log(profile);
+//	});
+		
+	}); 
 });
+
+
 /*
 $(document).on('click','#save', function imgadd(){
-	var file = $('#file_saWrite').prop('file');
+	var file = $('#file_saWrite').val();
+	var profile = e.target.files;
 	alert("file : " + file + " / type : " + typeof file);
 	$.ajax({
 		url: '/pro/sales/sales_write.pro',
 		type: 'post',
 		dataType: 'json',
 		data:{
-			'file' : file
+			'file' : profile
 		},
 		success: function(obj){
 			alert("업로드 성공");

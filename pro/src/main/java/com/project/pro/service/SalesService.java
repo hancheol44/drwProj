@@ -3,11 +3,11 @@ package com.project.pro.service;
 import java.io.File;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.project.pro.dao.SalesDAO;
 import com.project.pro.util.FileUtil;
@@ -57,53 +57,20 @@ public class SalesService {
 		return sDAO.reDelete(sVO);
 	}
 	// Sales Image Add
-	public void saImage(FileVO fVO, File mfile, MultipartHttpServletRequest request) {
+	public int saImage(FileVO fVO, HttpSession session) {
 		try {
-			String fileTag = "file";
-			System.out.println("fileTag : " + fileTag);
-			MultipartFile file = request.getFile(fileTag);
-			System.out.println("file : " + file);
-			String originalname = file.getOriginalFilename();
-//			MultipartFile multi=null;
-//			File fileTag = mfile;
-//			System.out.println("fileTag : " + fileTag);
-//			MultipartFile file = request.getFile("sfile");
-//			MultipartFile file = fVO.getFile();
-//			Iterator fileName = request.getFileNames();
-//			System.out.println("fileName : " + fileName);
-//			MultipartFile multi = fVO.getMulti();
-//			while(fileName.hasNext()) {
-//				String key = (String)fileName.next();
-//				System.out.println("key : " + key);
-//				multi = request.getFile(key);
-//			}
-			System.out.println("orignalname : " + originalname);
-			
-//			System.out.println("file.getName() : " + file.getName());
-			String oriname = file.getOriginalFilename();
-			System.out.println("ori : " + oriname);
-			if(oriname.equals("")) {
-				fVO.setOriname(null);
-			} else {
-				fVO.setOriname(oriname);
-			}
-			String fileName = file.getName();
-			String filePath = request.getSession().getServletContext().getRealPath("resources/upload");
-			System.out.println("filePath : " + filePath);
-			String savename = FileUtil.rename(filePath, oriname);
-//			fVO.setOriname(fileName);
-//			fVO.setSavename(savename);
-			System.out.println("ori : "+fVO.getOriname());
-			System.out.println("save : "+fVO.getSavename());
-			try {
-			    file.transferTo(new File(filePath + fileName));
-			} catch(Exception e) {
-			    System.out.println("업로드 오류");
-			}
-			sDAO.saImage(fVO);
+			// 중복 파일이 안만들어짐
+			MultipartFile file = fVO.getFile();
+			String filePath = session.getServletContext().getRealPath("resources/upload");
+//			String savename = FileUtil.rename(filePath, fVO.getOriname());
+			String savename = FileUtil.getSavename(session, file, "upload");
+			fVO.setOriname(file.getOriginalFilename());
+			fVO.setSavename(savename);
+				file.transferTo(new File(filePath, fVO.getOriname()));
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		return sDAO.saImage(fVO);
 	}
 }
