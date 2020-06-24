@@ -3,9 +3,9 @@ package com.project.pro.util;
 /**
  * 이 클래스는 페이징 이동 기능에 필요한 정보를 계산하고 저장하기 위해서
  * 만들어진 유틸리티적인 클래스
- * @author  김성현
+ * @author  드루왕
  * @since   2020/06/20
- * @vresion v.1.0.0
+ * @version v.1.0.0
  *
  */
 public class PageUtil {
