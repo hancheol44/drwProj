@@ -25,7 +25,7 @@
 			NVL(imgno, 0) imgno, NVL(oriname, 'none') oriname, NVL(savename, 'none') savename, r.rcnt
 		FROM
 			promotion p, image i, boss b, member m,
-            (SELECT COUNT(*) rcnt FROM (SELECT * FROM review) WHERE pno = #{pno}) r
+            (SELECT COUNT(*) rcnt FROM (SELECT * FROM review) WHERE rshow = 'Y' AND pno = #{pno}) r
 		WHERE
 			p.pno = i.pno(+)
 			AND b.bno = p.bno
@@ -80,10 +80,10 @@
 	</insert>
 	<select id="reList" parameterType="int" resultType="sVO">
 		SELECT
-			ee.rrno, rno,name, memid, ptt, rtt, rbd, memno, rst, today
+			ee.rrno, rno,name, memid, ptt, rtt, rbd, memno, rst, today, pno
 			FROM
 				(SELECT
-					rownum rrno, rno,name, m.memid, ptt, rtt, rbd, m.memno, e.today, rst 
+					rownum rrno, rno,name, m.memid, ptt, rtt, rbd, m.memno, e.today, rst, pno
 				FROM
 					(SELECT
 						p.pno, ptt, bno, pbd, TO_CHAR(r.today, 'yyyy-mm-dd hh24:mi:ss') today, bcnt, pshow, cate, rno, rtt, rbd, memno, rst, rshow
@@ -102,5 +102,22 @@
 			 		today
 			 	) ee
 	</select>
+	<update id="reDelete" parameterType="sVO">
+		UPDATE
+	        review	
+	    SET
+	        rshow = 'N'
+	    WHERE
+	        rno = #{rno}
+	</update>
+	
+	<insert id="saImage">
+		INSERT INTO
+			image(imgno, oriname, savename, pno)
+		VALUES(
+			(SELECT NVL(MAX(imgno)+1, 10000000) FROM image), 
+			#{oriname}, #{savename}, (SELECT NVL(MAX(pno)+1, 1000) FROM promotion)
+		)
+	</insert>
 
 </mapper>

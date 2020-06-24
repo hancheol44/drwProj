@@ -1,10 +1,11 @@
 package com.project.pro.controller.sales;
 
+import java.io.File;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.inject.Inject;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,11 +13,15 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
-import com.project.pro.service.SalesService;
 import com.project.pro.dao.SalesDAO;
+import com.project.pro.service.SalesService;
+import com.project.pro.util.FileUtil;
+import com.project.pro.vo.FileVO;
 import com.project.pro.vo.SalesVO;
 
 @Controller
@@ -24,6 +29,8 @@ import com.project.pro.vo.SalesVO;
 public class Sales {
 	@Autowired
 	SalesDAO sDAO;
+//	@Autowired
+//	FileUtil Ufile;
 	@Inject
 	private SalesService service;
 	
@@ -55,6 +62,7 @@ public class Sales {
 			String view = "sales/sales_inside";
 			service.saBcnt(pno);
 			SalesVO vo = service.saDetail(sVO);
+//			mv.addObject("IMG", FileVO.get)
 			mv.addObject("DATA", vo);
 			mv.addObject("PNO", pno);
 			mv.addObject("ID", memid);
@@ -73,7 +81,8 @@ public class Sales {
 	
 	// sales write action
 	@RequestMapping(value="/sales_write.pro", method=RequestMethod.POST, params= {"ptt", "memid", "pbd", "cate"})
-	public ModelAndView saWriteProc(String ptt, String memid, String pbd, String cate, SalesVO sVO, ModelAndView mv, HttpSession session) {
+	@ResponseBody
+	public ModelAndView saWriteProc(String ptt, String memid, String pbd, String cate, SalesVO sVO, FileVO fVO, ModelAndView mv, File mfile, MultipartHttpServletRequest request, HttpSession session,  MultipartFile file) {
 		try {
 			String view = "sales/sales_write";
 			if(session.getAttribute("SID") == null) {
@@ -81,8 +90,17 @@ public class Sales {
 				mv.setView(rv);
 				return mv;
 			}
-				if(pbd != null) {
+			
+//			System.out.println("oriname : "+fVO.getOriname());
+//			String oriname = multi.getOriginalFilename();
+//				fVO.setOriname(oriname);
+				service.saImage(fVO, mfile, request);
+//				if(cnt == 1) {
+//			System.out.println("mfile : " + mfile);
+					if(pbd != null) {
 					SalesVO vo = service.saWrite(sVO);
+//					System.out.println("ptt : " + sVO.getPtt() +" pbd : " +sVO.getPbd()+" memid : "+ sVO.getMemid() + " cate : "+ sVO.getCate());
+//					System.out.println("oriname : " + fVO.getOriname() +" savename : " +fVO.getSavename() +" pno : " + fVO.getPno());
 					RedirectView rv = new RedirectView("/pro/sales/sales.pro");
 					mv.setView(rv);
 					return mv;
@@ -156,9 +174,45 @@ public class Sales {
 	// review List(ajax)
 	@RequestMapping("/reviewList.pro")
 	@ResponseBody
-	public ArrayList<SalesVO>  reList(ModelAndView mv,SalesVO sVO, int pno, HttpServletRequest req) throws Exception {
+	public ArrayList<SalesVO>  reList(ModelAndView mv,SalesVO sVO, int pno) throws Exception {
 		ArrayList<SalesVO> list = (ArrayList<SalesVO>)service.reList(pno);
 			mv.addObject("LIST", list);
 		return list;
 	}
+	@RequestMapping(value="/reviewDelete.pro", method=RequestMethod.POST, params= {"rno"})
+	@ResponseBody
+	public Map reDelete(ModelAndView mv, int rno, SalesVO sVO) {
+			String view = null;
+			int cnt = 0;
+			Map<String, Object> map = new HashMap<String, Object>();
+//			ArrayList<SalesVO> list = null;
+		try {
+			view="sales/sales_inside";
+			cnt =  service.reDelete(sVO);
+			map.put("result", cnt);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return map;
+	}
+//	@RequestMapping(value="/saImage.pro",method=RequestMethod.POST, params= {"pno","oriname","savaname"})
+//	public int saImage(FileVO fVO, FileUtil file, MultipartHttpServletRequest mtf) {
+//			int cnt = 0;
+//			try {
+//				String fileTag = "file";
+//				MultipartFile mfile = mtf.getFile(fileTag);
+//				String oriname = mfile.getOriginalFilename();
+//				String savename = file.rename("/upload", oriname);
+//				fVO.setOriname(oriname);
+//				fVO.setSavename(savename);
+//				System.out.println("ori : "+fVO.getOriname());
+//				System.out.println("save : "+fVO.getSavename());
+//				cnt = service.saImage(fVO);
+//			} catch (Exception e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
+//		return cnt;
+//	}
 }

@@ -6,6 +6,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.project.pro.vo.FileVO;
 import com.project.pro.vo.SalesVO;
 
 @Repository
@@ -48,5 +49,13 @@ public class SalesDAO {
 	// review list
 	public List reList(int pno) {
 		return sqlSession.selectList("sSQL.reList", pno);
+	}
+	// review delete
+	public int reDelete(SalesVO sVO) {
+		return sqlSession.update("sSQL.reDelete", sVO);
+	}
+	// sales add image
+	public void saImage(FileVO fVO) {
+		sqlSession.insert("sSQL.saImage", fVO);
 	}
 }

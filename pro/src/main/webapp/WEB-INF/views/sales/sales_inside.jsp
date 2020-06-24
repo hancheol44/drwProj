@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="/pro/css/side.css" />
 <script type="text/javascript" src="/pro/js/jquery-3.5.0.min.js"></script>
 <script type="text/javascript" src="/pro/js/sales.js"></script>
+<script type="text/javascript" src="/pro/js/sales_pay.js"></script>
 <style>
 
 </style>
@@ -23,6 +24,10 @@
   
   <!-- 가운데 영역 (주내용 담길 곳) -->
 	 <!-- delete form -->
+	 <form method="post" action="" id="frm2">
+	 	<input type="hidden" name="rno" id="rno">
+	 	<input type="hidden" name="pno" id="repno">
+	 </form>
 	 <form method="post" action="" id="frm3">
 	 	<input type="hidden" name="spno" id="spno">
 	 </form>
@@ -68,7 +73,7 @@
 		 <br>
 		 <div id="map"></div>
 		 <span style="margin: 20px;">
-		 <%-- <img id="img" alt="" src="/Project/images/${IMG}"> --%>
+		 <img id="img" alt="" src="/pro/upload/${DATA.savename}">
 		</span>
 		<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=bfbcb2a9b1a94611a8804b0d71d6315c&libraries=services"></script>
 		<script>
@@ -121,7 +126,11 @@
 		 	<br>
 		 	<h3>${DATA.pbd}</h3>
 			 </div>
-    <hr id="line">
+    <hr class="border_orange">
+    <form method="post" action="/kakaoPay">
+    	<button>카카오페이로 결제하기</button>
+	</form>
+	<!-- <img alt="" src="/pro/img/payment_icon_yellow_medium.png" action=""> -->
 	<div id="btn_detail">
 	<c:if test="${SID eq DATA.memid}">
 	<button id="delete" class="delete" value="${DATA.pno}" >삭제</button>

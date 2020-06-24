@@ -17,6 +17,9 @@
 	 	<typeAlias alias="bVO" type="com.project.pro.vo.BoardVO" />
 	 	<typeAlias alias="lVO" type="com.project.pro.vo.LoginVO" />
 	 	<typeAlias alias="iVO" type="com.project.pro.vo.InfoVO" />
+	 	<typeAlias alias="fVO" type="com.project.pro.vo.FileVO" />
+	 	<typeAlias alias="Ufile" type="com.project.pro.util.FileUtil" />
+	 	<!-- <typeAlias alias="kVO" type="com.project.pro.vo.KakaoPayReadyVO" /> -->
 	 </typeAliases>
 	 
 

@@ -45,7 +45,9 @@
 	
 	<!-- dao bean 처리 -->
 	<beans:import resource="daoContext.xml" /> 
-	
+<!-- 	
+<beans:import resource="commons-Context.xml" /> 
+ -->	
 	<context:component-scan base-package="com.project.pro" /> <!-- 제일 강력하고 안정적인 컴퍼넌트 -->
 	<!-- 
 		특정 패키지 안의 클래스들을 스캔하고
